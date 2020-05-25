@@ -1,0 +1,71 @@
+<!-- Edit LoRa Gateway -->
+<form name="editBleNodeForm" class="dashboard-edit-page-edit-device-form">
+  <!-- 1.Fieldset1: Important Fields -->
+  <div class="row">
+    <fieldset class="col-sm-12 col-md-12 col-lg-12">
+      <legend class="text-info"></legend>
+      <!-- 1.1 Important Fields row 1 -->
+      <div class="row">
+        <div class="form-group col-sm-3 col-md-3 col-lg-3">
+          <label for="macAddress">macAddress</label>
+          <input type="text" id="macAddress" class="form-control" ng-model="editEntry.macAddress" disabled>
+        </div>
+        <div class="form-group col-sm-3 col-md-3 col-lg-3">
+          <label for="name">name</label>
+          <input type="text" id="name" class="form-control" ng-model="editEntry.name">
+        </div>
+        <div class="form-group col-sm-3 col-md-3 col-lg-3">
+          <label for="deviceType">deviceType</label>
+          <input type="text" id="deviceType" class="form-control" ng-model="editEntry.deviceType">
+        </div>
+        <div class="form-group col-sm-3 col-md-3 col-lg-3">
+          <label for="createdBy">createdBy</label>
+          <input type="text" id="createdBy" class="form-control" ng-model="editEntry.createdBy" disabled>
+        </div>
+      </div>
+      <!-- 1.2 Important Fields row 2 -->
+      <div class="row">
+        <div class="form-group col-sm-3 col-md-3 col-lg-3">
+          <label for="creatorAccessRole">creatorAccessRole</label>
+          <input type="text" id="creatorAccessRole" class="form-control" ng-model="editEntry.creatorAccessRole" disabled>
+        </div>
+        <div class="form-group col-sm-3 col-md-3 col-lg-3">
+          <label for="createdAt">createdAt</label>
+          <input type="text" id="createdAt" class="form-control" ng-model="editEntry.createdAt" disabled>
+        </div>
+      </div>
+      <!-- 1.3 Important Fields row 3 -->
+      <div class="row add-foreignKeys">
+        <div class="btn btn-primary pull-left" ng-click="addAForeignKey()">Add foreignKeys</div>
+      </div>
+      <div class="row well" ng-if="editEntry.foreignKeys.length !== 0">
+        <div ng-repeat="obj in editEntry.foreignKeys track by $index">
+          <div class="row">
+            <div class="form-group col-sm-3 col-md-3 col-lg-3">
+              <label for="keyName">keyName</label>
+              <input type="text" class="form-control" id="keyName" ng-model="obj.keyName">
+            </div>
+            <div class="form-group col-sm-3 col-md-3 col-lg-3">
+              <label for="keyValue">keyValue</label>
+              <input type="text" class="form-control" id="keyValue" ng-model="obj.keyValue">
+            </div>
+            <div class="form-group col-sm-4 col-md-4 col-lg-4">
+              <label for="description">description</label>
+              <input type="text" class="form-control" id="description" ng-model="obj.description">
+            </div>
+            <div class="form-group col-sm-2 col-md-2 col-lg-2">
+              <div class="btn btn-primary pull-right" ng-click="removeAForeignKey($index)">Remove foreignKeys</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+  <div class="dashboard-edit-page-edit-device-form-submit-button">
+    <div class="col-sm-12 col-md-12 col-lg-12">
+      <button type="button" class="pull-right btn btn-primary" ng-click="submit(editBleNodeForm.$valid)">
+        Submit
+      </button>
+    </div>
+  </div>
+</form>

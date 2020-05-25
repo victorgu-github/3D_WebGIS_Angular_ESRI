@@ -1,0 +1,121 @@
+<div class="container zmq-payload-channel-history-data-container">
+    <div class="return-panel">
+        <div class="return-panel-header">
+            <h3>
+                <span class="glyphicon glyphicon-share"></span>
+                <a class="return-panel-header-link" href="{{loraDeviceTableUrl}}">Return</a>
+            </h3>
+        </div>
+    </div>
+
+    <div class="container zmq-payload-channel-history-data-content">
+        <div class="well zmq-payload-channel-history-data-well">
+            <div class="row">
+                <span class="channel-history-well-span">Channel History Data</span>
+                <div class="col-sm-5 col-md-5 col-lg-4">
+                    <div class="input-group zmq-payload-channel-history-data-inputGroup">
+                        <span class="input-group-addon short-length-title">Start Time </span>
+                        <input type="datetime-local" class="form-control" ng-model="datetime.channelHistoryDataStartTime" />
+                    </div>
+                </div>
+
+                <div class="col-sm-5 col-md-5 col-lg-4">
+                    <div class="input-group zmq-payload-channel-history-data-inputGroup">
+                        <span class="input-group-addon short-length-title">End Time </span>
+                        <input type="datetime-local" class="form-control" ng-model="datetime.channelHistoryDataEndTime" />
+                    </div>
+                </div>
+
+                <div class="col-sm-1 col-md-1 col-lg-4">
+                    <a class="btn btn-primary" ng-click="getChannelHistoryData()">Submit</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="well zmq-payload-channel-history-data-well">
+            <div class="row">
+                <span class="zmq-payload-well-span">ZMQ Payload Data</span>
+                <!-- 1.ApplicationID -->
+                <div class="col-sm-4 col-md-4 col-lg-4">
+                    <div class="input-group zmq-payload-channel-history-data-inputGroup">
+                        <span class="input-group-addon short-length-title">Application ID </span>
+                        <input type="text" class="form-control" ng-model="zmqPayloadAppID" disabled/>
+                    </div>
+                </div>
+
+                <!-- 2.Dev EUI -->
+                <div class="col-sm-4 col-md-4 col-lg-4">
+                    <div class="input-group zmq-payload-channel-history-data-inputGroup">
+                        <span class="input-group-addon short-length-title">Device EUI </span>
+                        <input type="text" class="form-control" ng-model="zmqPayloadDevEUI" disabled/>
+                    </div>
+                </div>
+
+                <!-- 3.Device Type -->
+                <div class="col-sm-4 col-md-4 col-lg-4">
+                    <div class="input-group zmq-payload-channel-history-data-inputGroup">
+                        <span class="input-group-addon short-length-title">Device Type </span>
+                        <input type="text" class="form-control" ng-model="zmqPayloadDevType" disabled/>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4.Time Interval Filter -->
+            <div class="row">
+                <div class="col-sm-4 col-md-4 col-lg-4">
+                    <div class="input-group zmq-payload-channel-history-data-inputGroup">
+                        <span class="input-group-addon short-length-title">Interval (hrs) </span>
+                        <select class="form-control" ng-model="zmqPayloadTimeInterval.val" ng-options="time for time in zmqPayloadTimeIntervals"
+                            ng-change="changeTimeInterval()">
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5.Zmq Payload Data Table -->
+        <div class="well device-table-zmq-payload-modal-table">
+
+            <!-- Content Loader -->
+            <div class="content-loader" ng-show="zmqPayloadInitializing">
+                <div class="content-loader-inner">
+                    <label> ●</label>
+                    <label> ●</label>
+                    <label> ●</label>
+                    <label> ●</label>
+                    <label> ●</label>
+                    <label> ●</label>
+                </div>
+            </div>
+
+            <!-- No Data Hint -->
+            <div class="no-data" ng-show="!zmqPayloadInitializing && zmqPayloadTableBody.length === 0">
+                <div>
+                    <h1>No ZMQ Payload data found in the system</h1>
+                </div>
+            </div>
+
+            <!-- Payload Data Table -->
+            <div class="table-container" ng-show="!zmqPayloadInitializing && zmqPayloadTableBody.length !== 0">
+                <table class="table table-hover">
+                    <thead class="table-header">
+                        <tr>
+                            <th ng-repeat="item in zmqPayloadTableHeader track by $index" ng-click="sortZmqPayloadTable(item)">
+                                {{item}}
+                                <i class="fa fa-arrow-up" ng-show="zmqPayloadSortMap[item] === true && zmqPayloadSortAscMap[item] === true"></i>
+                                <i class="fa fa-arrow-down" ng-show="zmqPayloadSortMap[item] === true && zmqPayloadSortAscMap[item] !== true"></i>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody class="table-body">
+                        <tr ng-repeat="row in zmqPayloadTableBody track by $index" class="data-table-row">
+                            <td title="{{col}}" ng-repeat="col in row track by $index">
+                                {{col}}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

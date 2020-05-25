@@ -1,0 +1,224 @@
+<div class="dashboard-edit-page-container container">
+    <!-- Return to Overview -->
+    <div class="return-panel">
+        <div class="return-panel-header">
+            <h3>
+                <span class="glyphicon glyphicon-share"></span>
+                <a class="return-panel-header-link" href="{{generalUserAppTableUrl}}">Return</a>
+            </h3>
+        </div>
+    </div>
+
+    <div class="dashboard-edit-page-body container">
+
+        <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-12">
+                <div class="row well dashboard-edit-page-edit-app-form dashboard-edit-page-edit-app-form-for-general-user-app">
+                    <!-- Row 1 -->
+                    <div class="input-group-wrapper col-sm-4 col-md-4 col-lg-4">
+                        <div class="input-group">
+                            <span class="input-group-addon">Application Name *</span>
+                            <input type="text" class="form-control" id="usrName" ng-model="generalUserApplicationName">
+                        </div>
+                    </div>
+                    <div class="input-group-wrapper col-sm-4 col-md-4 col-lg-4">
+                        <div class="input-group">
+                            <span class="input-group-addon">Scenario Name</span>
+                            <select class="form-control" id="usr" ng-model="scenarioID" ng-options="id for id in scenarioIDsArr"></select>
+                        </div>
+                    </div>
+                    <div class="input-group-wrapper col-sm-4 col-md-4 col-lg-4">
+                        <div class="input-group">
+                            <span class="input-group-addon">createdBy</span>
+                            <input id="createdBy" name="createdBy" type="text" class="form-control" ng-model="createdBy" disabled>
+                        </div>
+                    </div>
+                    <!-- Row 2 -->
+                    <div class="input-group-wrapper col-sm-4 col-md-4 col-lg-4">
+                        <div class="input-group">
+                            <span class="input-group-addon">creatorAccessRole</span>
+                            <input id="creatorAccessRole" name="creatorAccessRole" type="text" class="form-control" ng-model="creatorAccessRole" disabled>
+                        </div>
+                    </div>
+                    <div class="input-group-wrapper col-sm-4 col-md-4 col-lg-4">
+                        <div class="input-group">
+                            <span class="input-group-addon">createdTime</span>
+                            <input id="createdTime" name="createdTime" type="text" class="form-control" ng-model="createdTime" disabled>
+                        </div>
+                    </div>
+                    <div class="input-group-wrapper col-sm-4 col-md-4 col-lg-4">
+                        <div class="input-group">
+                            <span class="input-group-addon">modifiedTime</span>
+                            <input id="modifiedTime" name="modifiedTime" type="text" class="form-control" ng-model="modifiedTime" disabled>
+                        </div>
+                    </div>
+                </div>
+                <!-- Edit Lora Application ID -->
+                <div class="row">
+                    <div class="dashboard-edit-page-edit-app-form-group control-group">
+                        <div class="input-group col-sm-12 col-md-12 col-lg-12">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <a data-toggle="collapse" data-target="#register-lora-app-form-collapse" ng-click="changeLoraAppCollapse()">
+                                        <h4 class="panel-title">
+                                            <i class="fa fa-plus" aria-hidden="true" ng-show="loraAppCollapse"></i>
+                                            <i class="fa fa-minus" aria-hidden="true" ng-show="!loraAppCollapse"></i>
+                                            <span>Lora Application</span>
+                                        </h4>
+                                    </a>
+                                </div>
+                                <div id="register-lora-app-form-collapse" class="panel-collapse collapse">
+                                    <div class="panel-body">
+                                        <div class="row lora-app-id-options">
+                                            <div class="dashboard-edit-page-edit-app-form-group control-group">
+                                                <div class="input-group col-sm-12 col-md-12 col-lg-12">
+                                                    <span class="input-group-addon">Lora Application ID</span>
+                                                    <select class="form-control" id="appID" ng-model="loraApplicationID" ng-options="id for id in loraApplicationIDs" ng-change="selectAppID('{{loraApplicationID}}')"></select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-12 col-md-12 col-lg-12" ng-show="!initializing && tableBody.length === 0">
+                                                <span class="text-center" ng-show="noDataHint">
+                                                    <h3>
+                                                        <fa name="table"></fa> No Data Under This Application ID
+                                                    </h3>
+                                                </span>
+                                                <span ng-show="!nodataHint">
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <table id="newGeneralUserAppLoraDevTable" class="table table-hover" ng-show="!initializing && tableBody.length !== 0">
+                                            <thead class="table-header">
+                                                <tr>
+                                                    <th>
+                                                        <input class="device-table-header-checkbox" type="checkbox" ng-model="tableHeader[0]" ng-click="selectAll()">
+                                                    </th>
+                                                    <th ng-repeat="item in tableHeader.slice(1, tableHeader.length) track by $index">
+                                                        {{item}}
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody class="table-body">
+                                                <tr ng-repeat="row in tableBody track by $index" class="data-table-row" ng-class="checkTableRowClass(row)">
+                                                    <td>
+                                                        <input class="device-table-body-checkbox" type="checkbox" ng-model="row[0]" ng-click="adAndRmChkRow(row)">
+                                                    </td>
+                                                    <td title="{{col}}" ng-repeat="col in row.slice(1, row.length) track by $index">
+                                                        {{col}}
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="dashboard-edit-page-edit-app-form-group control-group">
+                        <div class="input-group col-sm-12 col-md-12 col-lg-12">
+                            <button class="btn btn-primary pull-left" ng-click="addABleApp()" ng-disabled="!enabledNewBleAppButton">Add BLE APP</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row" ng-show="data.notExistBleApplicationsArray.length !== 0">
+                    <div class="dashboard-edit-page-edit-app-form-group control-group">
+                        <div class="input-group col-sm-12 col-md-12 col-lg-12">
+                            <div class="dashboard-edit-page-body-invalid-msg alert alert-danger" role="alert">
+                                <strong>These ble applications doesn't exist in the system: </strong>{{data.notExistBleApplicationsArray}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. Ble Application, Collapse Panel -->
+                <div ng-repeat="obj in bleApps track by $index">
+                    <div class="row">
+                        <div class="dashboard-edit-page-edit-app-form-group control-group">
+                            <div class="input-group col-sm-12 col-md-12 col-lg-12">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <a data-toggle="collapse" data-target="#register-ble-app-form-collapse-{{$index}}" ng-click="changeBleAppCollapse($index)">
+                                            <h4 class="panel-title">
+                                                <i class="fa fa-plus" aria-hidden="true" ng-show="bleApps[$index].collapse"></i>
+                                                <i class="fa fa-minus" aria-hidden="true" ng-show="!bleApps[$index].collapse"></i>
+                                                <span>BLE Application {{bleApps[$index].id}}</span>
+                                            </h4>
+                                        </a>
+                                    </div>
+                                    <div id="register-ble-app-form-collapse-{{$index}}" class="panel-collapse collapse">
+                                        <div class="panel-body">
+                                            <div class="row lora-app-id-options">
+                                                <div class="dashboard-edit-page-edit-app-form-group dashboard-edit-page-edit-app-form-group-gen-usr-app control-group">
+                                                    <div class="input-group col-sm-8 col-md-8 col-lg-8">
+                                                        <span class="input-group-addon">BLE Application ID</span>
+                                                        <select class="form-control" id="appID" ng-model="bleApps[$index].bleAppID" ng-options="id for id in bleAppIDs" ng-change="selectBleAppID($index, '{{bleApps[$index].bleAppID}}')"></select>
+                                                    </div>
+                                                    <div class="input-group col-sm-1 col-md-1 col-lg-1 col-sm-offset-1 col-md-offset-1 col-lg-offset-1">
+                                                        <span class="toggle-span-wrap form-control">
+                                                            <toggle ng-model="bleApps[$index].bleNodesAllSign" on="all" off="not all" ng-change="changeAllSign($index)"></toggle>
+                                                        </span>
+                                                    </div>
+                                                    <div class="input-group col-sm-2 col-md-2 col-lg-2">
+                                                        <button type="button" class="btn btn-primary pull-right" ng-click="removeBleApp($index)">
+                                                            Remove
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-12 col-md-12 col-lg-12" ng-show="!bleApps[$index].initializing && !bleApps[$index].bleNodesAllSign && bleApps[$index].tableBody.length === 0">
+                                                    <span class="text-center">
+                                                        <h3>
+                                                            <fa name="table"></fa> No Data Under This Application ID
+                                                        </h3>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <table id="newGeneralUserAppLoraDevTable" class="table table-hover" ng-show="!bleApps[$index].initializing && !bleApps[$index].bleNodesAllSign && bleApps[$index].tableBody.length !== 0">
+                                                <thead class="table-header">
+                                                    <tr>
+                                                        <th>
+                                                            <input class="device-table-header-checkbox" type="checkbox" ng-model="bleApps[$index].tableHeader[0]" ng-click="selectAllForBleApp($index)">
+                                                        </th>
+                                                        <th ng-repeat="item in bleApps[$index].tableHeader.slice(1, bleApps[$index].tableHeader.length) track by $index">
+                                                            {{item}}
+                                                        </th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody class="table-body">
+                                                    <tr ng-repeat="row in bleApps[$index].tableBody track by $index" class="data-table-row">
+                                                        <td>
+                                                            <input class="device-table-body-checkbox" type="checkbox" ng-model="row[0]" ng-click="adAndRmChkRowForBleApp($parent.$index, row)">
+                                                        </td>
+                                                        <td title="{{col}}" ng-repeat="col in row.slice(1, row.length) track by $index">
+                                                            {{col}}
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="dashboard-edit-page-edit-app-form-group control-group">
+                        <div class="input-group col-sm-12 col-md-12 col-lg-12">
+                            <button type="button" class="btn btn-primary pull-right" ng-click="submit()">
+                                Submit
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

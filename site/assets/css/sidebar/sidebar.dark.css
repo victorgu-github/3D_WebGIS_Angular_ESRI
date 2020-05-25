@@ -1,0 +1,53 @@
+/* 
+   side bar main css 
+*/
+.sidebar-container-dark {
+    padding-top: 35px;
+    background: #24272E;
+    border-right: 2px solid #000000;
+}
+
+.sidebar-container-dark .sidebar-nav {
+    padding-top: 20px;
+}
+
+.sidebar-container-dark .sidebar-nav > li {
+    text-align: center;
+    margin-top: 5px;
+    margin-bottom: 15px;
+}
+
+.sidebar-container-dark .sidebar-nav > li:hover {
+    cursor: pointer;
+}
+
+.sidebar-container-dark .sidebar-nav > li > a {
+    color: #9d9d9d;
+    padding-left: 4px;
+    padding-right: 5px;
+}
+
+.sidebar-container-dark .sidebar-nav > li > a .icon {
+    display: block;
+}
+
+.sidebar-container-dark .sidebar-nav .selected a {
+    color: #FFFFFF;
+    border-left: 5px solid red;
+    background-color: transparent;
+}
+
+.sidebar-container-dark .sidebar-nav > li > a:hover {
+    color: #FFFFFF;
+    border-left: 5px solid #b52e31;
+    background-color: transparent;
+}
+
+.sidebar-container-dark .sidebar-nav .fa {
+    font-size: 1.7em;
+}
+
+.sidebar-container-dark .sidebar-nav i,
+.sidebar-container-dark .sidebar-nav span {
+    color: #9d9d9d;
+}

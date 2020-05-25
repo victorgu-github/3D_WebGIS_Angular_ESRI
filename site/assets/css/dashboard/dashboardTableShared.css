@@ -1,0 +1,380 @@
+/* 1.dashboard shared table container for desktop */
+.dashboard-shared-table-container {
+    position: absolute;
+    width: 100%;
+    height: calc(100% - 50px);
+    background-color: white;
+}
+
+.dashboard-shared-table-container hr {
+    margin-top: 0;
+}
+
+.dashboard-shared-table-container .dashboard-shared-table-details {
+    position: absolute;
+    top: 105px;
+    bottom: 10px;
+    width: calc(100% - 15px);
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.dashboard-shared-table-container .device-table-details-filter-hide {
+    top: 60px;
+}
+
+.dashboard-shared-table-container .dashboard-shared-table-details .content-loader {
+    top: 55%;
+}
+
+.dashboard-shared-table-container .dashboard-shared-table-no-data {
+    position: absolute;
+    transform: translateY(-50%);
+    top: 50%;
+    width: 100%;
+    color: black;
+    padding: 200px 100px;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.dashboard-shared-table-container .dashboard-shared-table-details .table-container {
+    position: absolute;
+    top: 0px;
+    bottom: 15px;
+    left: 15px;
+    right: 0px;
+}
+
+.dashboard-shared-table-container .dashboard-shared-table-details table {
+    display: table;
+    table-layout: fixed;
+    position: absolute;
+    top: 50px;
+    bottom: 10px;
+    width: 100%;
+}
+
+.dashboard-shared-table-container .dashboard-shared-table-header-with-sidebar {
+    position: fixed;
+    top: 155px;
+    left: 100px;
+    width: calc(100% - 130px);
+    height: 50px;
+    line-height: 3em;
+    background: #eee;
+    table-layout: fixed;
+    display: table;
+    z-index: 3;
+}
+
+.dashboard-shared-table-container .dashboard-shared-table-header-without-sidebar {
+    position: fixed;
+    top: 155px;
+    left: 15px;
+    width: calc(100% - 45px);
+    height: 50px;
+    line-height: 3em;
+    background: #eee;
+    table-layout: fixed;
+    display: table;
+    z-index: 3;
+}
+
+.dashboard-shared-table-container .dashboard-shared-table-header-filter-hide-with-sidebar {
+    position: fixed;
+    top: 110px;
+    left: 100px;
+    width: calc(100% - 130px);
+    height: 50px;
+    line-height: 3em;
+    background: #eee;
+    table-layout: fixed;
+    display: table;
+    z-index: 3;
+}
+
+.dashboard-shared-table-container .dashboard-shared-table-header-filter-hide-without-sidebar {
+    position: fixed;
+    top: 110px;
+    left: 15px;
+    width: calc(100% - 45px);
+    height: 50px;
+    line-height: 3em;
+    background: #eee;
+    table-layout: fixed;
+    display: table;
+    z-index: 3;
+}
+
+.dashboard-shared-table-container .dashboard-shared-table-details table tbody {
+    position: relative;
+    table-layout: fixed;
+    display: table;
+    top: 0;
+    width: 100%;
+    line-height: 3em;
+    z-index:2;
+}
+
+.dashboard-shared-table-container .dashboard-shared-table-details table th {
+    line-height: 20px;
+    min-width: 140px;
+    max-width: 140px;
+    font-size: small;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: clip;
+}
+
+.dashboard-shared-table-container .dashboard-shared-table-details table td {
+    line-height: 20px;
+    min-width: 140px;
+    max-width: 140px;
+    font-size: x-small;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: clip;
+}
+
+.dashboard-shared-table-container .dashboard-shared-table-details table thead th {
+    font-size: small;
+    vertical-align: middle;
+}
+
+.dashboard-shared-table-container .dashboard-shared-table-details table tbody td {
+    font-size: x-small;
+    vertical-align: middle;
+}
+
+.dashboard-shared-table-container .dashboard-shared-table-details table thead tr th:first-child,
+.dashboard-shared-table-container .dashboard-shared-table-details table tbody tr td:first-child {
+  width: 170px;
+  min-width: 170px;
+  max-width: 170px;
+  word-break: break-all;
+}
+
+.dashboard-shared-table-container .device-table-details table thead tr th:first-child,
+.dashboard-shared-table-container .device-table-details table tbody tr td:first-child {
+  width: 25px;
+}
+
+.dashboard-shared-table-container .device-table-details table thead tr th:nth-child(2),
+.dashboard-shared-table-container .device-table-details table tbody tr td:nth-child(2) {
+  width: 105px;
+  min-width: 170px;
+  max-width: 170px;
+  word-break: break-all;
+}
+
+.dashboard-shared-table-container .device-table-details table thead tr th:nth-child(3),
+.dashboard-shared-table-container .device-table-details table tbody tr td:nth-child(3) {
+  width: 105px;
+  min-width: 170px;
+  max-width: 170px;
+  word-break: break-all;
+}
+
+.dashboard-shared-table-container .device-table-details-filter-hide table thead tr th:first-child,
+.dashboard-shared-table-container .device-table-details-filter-hide table tbody tr td:first-child {
+  width: 25px;
+}
+
+.dashboard-shared-table-container .device-table-details-filter-hide table thead tr th:nth-child(2),
+.dashboard-shared-table-container .device-table-details-filter-hide table tbody tr td:nth-child(2) {
+  width: 105px;
+  min-width: 170px;
+  max-width: 170px;
+  word-break: break-all;
+}
+
+.dashboard-shared-table-container .device-table-details-filter-hide table thead tr th:nth-child(3),
+.dashboard-shared-table-container .device-table-details-filter-hide table tbody tr td:nth-child(3) {
+  width: 105px;
+  min-width: 170px;
+  max-width: 170px;
+  word-break: break-all;
+}
+
+.dashboard-shared-table-container .dashboard-shared-table-filter-search-bar {
+    width: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.dashboard-shared-table-container .search-bar-right {
+    justify-content: flex-end;
+}
+
+.dashboard-shared-table-container .dashboard-shared-table-filter-search-bar .filter-left {
+    display: flex;
+    justify-content: space-between;
+}
+
+.dashboard-shared-table-container .dashboard-shared-table-filter-search-bar .filter-left .input-group:first-child {
+    margin-right: 10px
+}
+
+.dashboard-shared-table-container .dashboard-shared-table-filter-search-bar .input-group-addon {
+    min-width: 65px;
+}
+
+.dashboard-shared-table-container .dashboard-shared-table-filter-search-bar .input-group {
+    width: 300px;
+};
+
+.dashboard-shared-table-container .device-table-channel-history-btn {
+    position: absolute;
+    right: 15px;
+    bottom: 5px;
+}
+
+.dashboard-shared-table-container .device-table-channel-history-btn .btn {
+    margin-left: 5px;
+}
+
+/* 2.Mobile Design */
+.dashboard-shared-table-container-mobile {
+    position: absolute;
+    width: 100%;
+    height: calc(100% - 50px);
+    background-color: white;
+}
+
+.dashboard-shared-table-container-mobile hr {
+    margin-top: 0;
+}
+
+.dashboard-shared-table-container-mobile .dashboard-shared-table-details {
+    position: absolute;
+    top: 105px;
+    bottom: 10px;
+    width: calc(100% - 15px);
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.dashboard-shared-table-container-mobile .dashboard-shared-table-details .content-loader {
+    top: 55%;
+}
+
+.dashboard-shared-table-container-mobile .dashboard-shared-table-no-data {
+    position: absolute;
+    transform: translateY(-50%);
+    top: 50%;
+    width: 100%;
+    color: black;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.dashboard-shared-table-container-mobile .dashboard-shared-table-details .table-container {
+    position: absolute;
+    top: 0px;
+    bottom: 15px;
+    left: 15px;
+    right: 0px;
+}
+
+.dashboard-shared-table-container-mobile .dashboard-shared-table-details table {
+    display: table;
+    table-layout: fixed;
+    position: absolute;
+    top: 50px;
+    bottom: 10px;
+    width: 100%;
+}
+
+/* mobile only has table-header-without-sidebar condition */
+.dashboard-shared-table-container-mobile .dashboard-shared-table-header-without-sidebar {
+    position: fixed;
+    top: 155px;
+    left: 15px;
+    width: calc(100% - 30px);
+    height: 50px;
+    line-height: 3em;
+    background: #eee;
+    table-layout: fixed;
+    display: table;
+    z-index: 3;
+}
+
+.dashboard-shared-table-container-mobile .dashboard-shared-table-details table tbody {
+    position: relative;
+    table-layout: fixed;
+    display: table;
+    top: 0;
+    width: 100%;
+    line-height: 3em;
+    z-index:2;
+}
+
+.dashboard-shared-table-container-mobile .dashboard-shared-table-details table th {
+    line-height: 20px;
+    min-width: 140px;
+    max-width: 140px;
+    font-size: small;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: clip;
+}
+
+.dashboard-shared-table-container-mobile .dashboard-shared-table-details table td {
+    line-height: 20px;
+    min-width: 140px;
+    max-width: 140px;
+    font-size: x-small;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: clip;
+}
+
+.dashboard-shared-table-container-mobile .dashboard-shared-table-details table thead th {
+    font-size: small;
+    vertical-align: middle;
+}
+
+.dashboard-shared-table-container-mobile .dashboard-shared-table-details table tbody td {
+    padding: 8px 0px;
+    font-size: 9px;
+    vertical-align: middle;
+}
+
+.dashboard-shared-table-container-mobile .dashboard-shared-table-details table thead tr th:first-child,
+.dashboard-shared-table-container-mobile .dashboard-shared-table-details table tbody tr td:first-child {
+    width: 84px;
+    min-width: 84px;
+    max-width: 84px;
+    word-break: break-all;
+}
+
+.dashboard-shared-table-container-mobile .dashboard-shared-table-details table tbody tr td:first-child .btn {
+    width: 20px;
+}
+
+.dashboard-shared-table-container-mobile .dashboard-shared-table-details table tbody tr td:first-child .fa {
+    margin-left: -6px;
+}
+
+.dashboard-shared-table-container-mobile .dashboard-shared-table-filter-search-bar {
+    width: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.dashboard-shared-table-container-mobile .search-bar-right {
+    justify-content: flex-end;
+}
+
+.dashboard-shared-table-container-mobile .dashboard-shared-table-filter-search-bar .input-group-addon {
+    min-width: 65px;
+}
+
+.dashboard-shared-table-container-mobile .dashboard-shared-table-filter-search-bar .input-group {
+    width: 150px;
+};

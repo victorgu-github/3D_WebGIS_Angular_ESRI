@@ -1,0 +1,59 @@
+<div class="modal fade" id="channelHistoryDataModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div id="device-table-maintanence-modal-dialog" class="dashboard-modal-content device-table-maintanence-modal-content 
+            modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h3 class="modal-title" id="myModalLabel">
+                    <b>
+                        <em>Get Channel History Data CSV File</em>
+                    </b>
+                </h3>
+            </div>
+            <div class="modal-body">
+
+                <div class="row">
+                    <div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1">
+                        <div class="input-group loraDev-maintain-edit-inputGroup">
+                            <span class="input-group-addon short-length-title">Application ID *</span>
+                            <input type="text" class="form-control" ng-model="batchCHEntry.batchCHAppID" disabled readonly/>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1">
+                        <div class="input-group loraDev-maintain-edit-inputGroup">
+                            <span class="input-group-addon short-length-title">Device EUI *</span>
+                            <input type="text" class="form-control" ng-model="batchCHEntry.batchCHDevEUIs" disabled readonly/>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1">
+                        <div class="input-group loraDev-maintain-edit-inputGroup">
+                            <span class="input-group-addon short-length-title">Start Time </span>
+                            <input type="datetime-local" class="form-control" ng-model="batchCHEntry.channelHistoryDataStartTime" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1">
+                        <div class="input-group loraDev-maintain-edit-inputGroup">
+                            <span class="input-group-addon short-length-title">End Time </span>
+                            <input type="datetime-local" class="form-control" ng-model="batchCHEntry.channelHistoryDataEndTime" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary pull-right" ng-click="getChannelHistoryData()">Submit</button>
+            </div>
+        </div>
+    </div>
+</div>

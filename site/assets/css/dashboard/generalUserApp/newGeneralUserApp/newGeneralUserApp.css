@@ -1,0 +1,77 @@
+/*
+    new general user application
+*/
+.dashboard-content-container .lora-app-id-options {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.dashboard-content-container .dashboard-content-body-form-group-gen-usr-app {
+    display: flex;
+} 
+
+.dashboard-content-container .dashboard-content-body-form-group-gen-usr-app .toggle-span-wrap {
+    background-color: #ffffff;
+}
+
+.dashboard-content-container .dashboard-content-body-form-group-gen-usr-app .toggle.btn {
+    min-width: 80px;
+}
+
+/* new general user app lora application table */
+#newGeneralUserAppLoraDevTable thead th {
+    vertical-align: middle;
+    text-align: center;
+    width: 85px;
+    max-width: 85px;
+    overflow: hidden;
+    text-overflow: clip;
+}
+
+#newGeneralUserAppLoraDevTable tbody td {
+    vertical-align: middle;
+    text-align: center;
+    width: 85px;
+    max-width: 85px;
+    overflow: hidden;
+    text-overflow: clip;
+    color: #ffffff;
+}
+
+#newGeneralUserAppLoraDevTable thead tr th:first-child,
+#newGeneralUserAppLoraDevTable tbody tr td:first-child {
+  width: 30px;
+  min-width: 30px;
+  max-width: 30px;
+  word-break: break-all;
+}
+
+#newGeneralUserAppLoraDevTable thead tr th,
+#newGeneralUserAppLoraDevTable tbody tr td {
+    color: #000000;
+}
+
+#newGeneralUserAppLoraDevTable tbody tr:hover td {
+    color: #000000;
+}
+
+#newGeneralUserAppLoraDevTable tbody tr.data-table-row-not-exist td {
+    color: red;
+}
+
+/* new general user app ble application table */
+#newGeneralUserAppBleNodeTable {
+    color: #000000;
+}
+
+#deviceTable thead th {
+    vertical-align: middle;
+    overflow: hidden;
+    text-overflow: clip;
+}
+
+#deviceTable tbody td {
+    vertical-align: middle;
+    overflow: hidden;
+    text-overflow: clip;
+}

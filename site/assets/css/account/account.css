@@ -1,0 +1,234 @@
+/* 
+   account panel 
+*/
+.account-panel-container {
+    position: fixed;
+    top: 10px;
+    right: 2px;
+    font-size: 18px;
+}
+
+.account-panel-container:hover {
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.account-panel-container a {
+    color: #9d9d9d;
+    text-decoration: none;
+}
+
+.account-panel-container a:hover {
+    color: #ffffff;
+}
+
+.account-panel-container .open a {
+    background-color: transparent;
+    color: #ffffff;
+}
+
+.account-panel-container .open a:visited,
+.account-panel-container .open a:hover {
+    background-color: transparent;
+}
+
+.account-navbar .fa-user-circle {
+    font-size: 22px;
+    margin-left: 5px
+}
+
+.account-navbar .fa {
+    padding: 0 5px;
+}
+
+.account-panel-container .dropdown-profile.dropdown-menu {
+    background-color: #ffffff;
+    color: #000;
+    padding: 5px;
+    border: 1px solid #9d9d9d;
+}
+
+.account-panel-container .dropdown-profile.dropdown-menu:hover {
+    cursor: default;
+}
+
+.profile-dorpdown-menu-for-mobile {
+    max-width: 150px;
+    margin: 5px;
+}
+
+.profile-dorpdown-menu-for-desktop {
+    min-width: 200px;
+    margin: 5px;
+}
+
+/* 
+    profile panel 
+*/
+.dropdown-profile__basis {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    padding-top: 5px;
+}
+
+.dropdown-profile__basis .dropdown-profile__image img {
+    height: 55px;
+    width: 55px;
+}
+
+.dropdown-profile .dropdown-profile__details {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.dropdown-profile .dropdown-profile__details .dropdown-profile__name {
+    font-weight: 500;
+}
+
+.dropdown-profile .dropdown-profile__details .dropdown-profile__email {
+    font-weight: 500;
+    font-style: italic;
+}
+
+.dropdown-profile__opts ul {
+    padding-left: 0;
+}
+
+.dropdown-profile__opts li {
+    color: #000;
+    padding: 2px;
+    list-style-type: none;
+}
+
+.dropdown-profile__opts li:hover {
+    background-color: #c0c4c8;
+}
+
+.dropdown-profile__opts .dropdown-profile__opt a {
+    color: #000;
+    padding-left: 10px;
+    text-align: left;
+}
+
+.dropdown-profile__opts .dropdown-profile__opt a span {
+    font-size: 16px;
+    font-weight: 400;
+    margin-left: 20px;
+}
+
+.dropdown-profile__opts .dropdown-profile__opt a .fa {
+    font-size: 20px;
+}
+
+.dropdown-profile__opt .dropdown-profile__opt-icon {
+    display: inline-block;
+    width: 20px;
+}
+
+.dropdown-profile__signout {
+    height: 35px;
+}
+
+.dropdown-profile__signout .btn.btn-danger {
+    float: right;
+}
+
+
+.dropdown-profile hr {
+    margin-top: 6px;
+    margin-bottom: 6px;
+    border-top: 1px solid #c0c4c8;
+}
+
+.avatar {
+    position: relative;
+
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    border: 1px solid #999;
+}
+
+/*
+    login page
+*/
+#loginPageBody {
+    position: absolute;
+    top: -50px;
+    height: 100vh;
+    width: 100%;
+    text-align: center;
+    background: #24272E;
+}
+
+#loginPageBody h1 {
+    color: #fff;
+    background-color: transparent;
+    z-index: 200;
+}
+
+#loginPageBody h2 {
+    color: #fff;
+    margin-top: 10px;
+}
+
+#loginPageBody .login-copyright {
+    position: absolute;
+    bottom: 0;
+    right: 15px;
+    color: #ffffff;
+}
+
+#loginPageContent {
+    position: absolute;
+    top: 0px;
+    height: 100%;
+    left: 0px;
+    width: 100%;
+    overflow: auto;
+    background-image: url(/assets/img/skyline-calgary-large.jpg);
+    background-size: cover;
+    background-position: center;
+    border: none;
+}
+
+#loginPageContent.shanghai {
+    background-image: url("../../../assets/img/night-shanghai.jpg");
+}
+
+#loginPageContent form {
+    background: #24272E;
+}
+
+#loginPageContent .login-page-welcome {
+    margin-top: 10%;
+    margin-bottom: 3%;
+}
+
+#loginPageContent .login-page-copyright {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    color: #ffffff;
+}
+
+.form-signin .row a {
+    min-width: 100px;
+}
+
+.loginErrorMsgDiv {
+    text-align: center;
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+@media screen and (max-width: 700px) {
+    #loginPageContent .login-page-copyright {
+        position: absolute;
+        bottom: 70px;
+        right: 20px;
+        color: #ffffff;
+    }
+}

@@ -1,0 +1,130 @@
+<div class="container loraDevice-monitor-container">
+    <div class="overview-backward">
+        <a href="/#/dashboard/overview">
+            <i class="fa fa-chevron-circle-left" aria-hidden="true"></i>
+            <span>{{'DASHBOARD.BACK_TO_OVERVIEW' | translate}}</span>
+        </a>
+    </div>
+    <hr/>
+    <div class="row loraDevice-monitor-navbar">
+        <div class="col-sm-12 col-md-12 col-lg-12">
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <span class="loraDevice-monitor-title">{{'DASHBOARD.LORA_DEVICES_DATATABLE' | translate}}</span>
+                    </div>
+                    <ul class="nav navbar-nav navbar-right monitor-navbar">
+                        <li>
+                            <a href="/#/dashboard/device/loraDevices/monitorSummary">{{'DASHBOARD.SUMMARY' | translate}}</a>
+                        </li>
+                        <li class="active">
+                            <a href="/#/dashboard/device/loraDevices/monitorDatatable">{{'DASHBOARD.DATATABLE' | translate}}</a>
+                        </li>
+                        <li>
+                            <a href="/#/dashboard/device/loraDevices/monitor2DMap">{{'DASHBOARD.MAP_VIEW' | translate}}</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <div class="loraDevice-monitor-content">
+        <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-12 monitor-datatable-content-loader" ng-show="initializing">
+                <div class="monitor-datatable-content-loader-inner">
+                    <label> ●</label>
+                    <label> ●</label>
+                    <label> ●</label>
+                    <label> ●</label>
+                    <label> ●</label>
+                    <label> ●</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-12 monitor-datatable-widget">
+                <div class="monitor-datatable-filter dropdown form-group" ng-hide="true">
+                    <label for="monitor-datatable-app-filter">ApplicationID Filter</label>
+                    <select class="form-control" ng-model="applicationID" ng-options="appID for appID in applicationIDArr" ng-change="updateByAppID()">
+                    </select>
+                </div>
+                <div class="monitor-datatable-filter dropdown form-group">
+                    <label for="monitor-datatable-devType-filter">Device Type Filter</label>
+                    <select class="form-control" ng-model="deviceType" ng-options="devType for devType in devTypeArr" ng-change="updateByDevType()">
+                    </select>
+                </div>
+                <div class="monitor-datatable-search form-group">
+                    <label for="monitor-datatable-search">Search</label>
+                    <input class="form-control" type="text" ng-model="searchContent" ng-change="searchTable()" />
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-12 monitor-datatable-no-data" ng-show="!initializing && tableBody.length == 0">
+                <div class="row monitor-datatable-no-data-message-row">
+                    <div class="col-sm-4 col-md-4 col-lg-4 col-sm-offset-4 col-md-offset-4 col-lg-offset-4">
+                        <span class="monitor-datatable-no-data-message-content">
+                            <fa name="table" size="1"></fa>
+                            No Data
+                        </span>
+                    </div>
+                </div>
+                <div class="row monitor-datatable-no-data-hint-row">
+                    <div class="col-sm-4 col-md-4 col-lg-4 col-sm-offset-4 col-md-offset-4 col-lg-offset-4">
+                        <span class="monitor-datatable-no-data-hint-content">
+                            Please check if there is any data in the system.
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-12 monitor-datatable-table-container">
+                <table id="monitor-datatable-table" class="table table-hover" ng-show="!initializing && tableBody.length != 0">
+                    <thead>
+                        <tr>
+                            <th>
+                                <input id="select-all" type="checkbox" ng-model="tableHeader[0]" ng-click="selectAll()">
+                            </th>
+                            <th ng-repeat="item in tableHeader.slice(1, tableHeader.length) track by $index" ng-click="sortTableByClick(item)">
+                                {{item}}
+                                <i class="fa fa-arrow-up" ng-show="sortMap[item] === true && sortAscMap[item] === true"></i>
+                                <i class="fa fa-arrow-down" ng-show="sortMap[item] === true && sortAscMap[item] !== true"></i>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="monitor-datatable-table-row" ng-repeat="row in tableBody track by $index">
+                            <td>
+                                <input name="select" type="checkbox" ng-model="row[0]" ng-click="addAndRemoveCheckedRow(row)">
+                            </td>
+                            <!-- If tableHeader[1] === 'status' then display the toggle button -->
+                            <td title="{{row[1]}}" ng-if="tableHeader[1] && tableHeader[1] === 'status'">
+                                <nz-toggle tri-toggle ng-click="changeStatusByToggle(row)" ng-model="row[1]" 
+                                val-true="'On'" val-false="'Off'" val-null="'Waiting'" ng-disabled="row[1] !== 'On' && row[1] !== 'Off'">
+                                </nz-toggle>
+                            </td>
+                            <td title="{{col}}" ng-repeat="col in row.slice(2, row.length) track by $index" ng-if="tableHeader[1] && tableHeader[1] === 'status'">
+                                {{col}}
+                            </td>
+                            <!-- If tableHeader[1] !== 'status' then display the string value -->
+                            <td title="{{col}}" ng-repeat="col in row.slice(1, row.length) track by $index" ng-if="tableHeader[1] && tableHeader[1] !== 'status'">
+                                {{col}}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-12 monitor-datatable-submit" ng-show="!initializing && tableBody.length != 0 && 
+            tableHeader.includes('status')">
+                <button type="button" class="btn btn-primary pull-right" ng-click="changeStatus()">Change Status</button>
+            </div>
+        </div>
+    </div>
+</div>

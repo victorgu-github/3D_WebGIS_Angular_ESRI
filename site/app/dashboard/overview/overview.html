@@ -1,0 +1,60 @@
+<div class="overview-panel">
+    <div class="dashboard-content-header">
+        <h3 ng-show="displayOverviewTitle">{{'DASHBOARD.OVERVIEW_INFO' | translate}}</h3>
+        <h3 ng-show="!displayOverviewTitle">蒙羊信息</h3>
+        <div class="dashboard-content-header-separator"></div>
+    </div>
+    <div class="row">
+        <div ng-repeat="card in cards track by $index" class="col-sm-3 col-md-3 col-lg-3 overview-panel__card">
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-12 overview-panel__card-header">
+                    <a ui-sref="things" href="{{card.url}}">
+                        <fa name="{{card.icon}}"></fa>
+                        <span>{{card.name | translate}}</span>
+                    </a>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-12 overview-panel__card-body">
+                    <div class="overview-panel__card-body--loading">
+                        <div class="loading-pulse" ng-show="card.isLoading">
+                        </div>
+                    </div>
+                    <div class="overview-panel__card-body--loaded" ng-show="!card.isLoading">
+                        <span class="card__value">
+                            <a class="" href="{{card.url}}">
+                                <span class="card.item">{{card.description | translate}} {{card.value}}</span>
+                            </a>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="row" ng-show="card.displayFooter">
+                <div class="col-sm-12 col-md-12 col-lg-12">
+                    <div class="btn pull-left overview-panel__card-footer">
+                        <a ui-sref="things" href="{{card.url}}">
+                            <button class="btn btn-link">
+                                <fa name="pencil-square-o" ng-show="displayOverviewTitle"></fa>
+                                <span ng-show="displayOverviewTitle">{{'DASHBOARD.EDIT' | translate}}</span>
+                                <fa name="{{card.lIcon}}" ng-show="!displayOverviewTitle"></fa>
+                                <span ng-show="!displayOverviewTitle">{{card.lTitle}}</span>
+                            </button>
+                        </a>
+                    </div>
+                    <div class="btn pull-right overview-panel__card-footer">
+                        <a ui-sref="things" href="{{card.monitorUrl}}">
+                            <buttion class="btn btn-link" ng-disabled="card.isDisabled">
+                                <fa name="desktop" ng-show="displayOverviewTitle"></fa>
+                                <span ng-show="displayOverviewTitle">{{'DASHBOARD.MONITOR' | translate}}</span>
+                                <fa name="{{card.rIcon}}" ng-show="!displayOverviewTitle"></fa>
+                                <span ng-show="!displayOverviewTitle">{{card.rTitle}}</span>
+                            </buttion>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

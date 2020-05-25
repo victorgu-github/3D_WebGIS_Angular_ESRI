@@ -1,0 +1,145 @@
+<!-- 1.Loading Pulse -->
+<div class="row">
+    <div class="dashboard-content-body-loading-pulse" ng-show="OTAAFormStatus === 'submitted'">
+        <div class="loading-pulse"></div>
+    </div>
+</div>
+<!-- 2.Error Message -->
+<div class="row dashboard-content-body-error-msg">
+    <div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1 alert alert-danger" role="alert"
+        ng-show="OTAAFormStatus === 'invalid'">
+        <button type="button" class="close" ng-click="OTAACloseAlert()" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        <strong>Error occurs due to: </strong>{{OTAAErrorMessage}}
+    </div>
+</div>
+<!-- 3.Content and Submit Button -->
+<div class="row">
+    <div class="col-sm-12 col-md-12 col-lg-12 dashboard-content-body-form" ng-show="OTAAFormStatus !== 'submitted'">
+        <form name="registerDeviceFormOTAA">
+            <!-- HTML Validation 1: Device Name -->
+            <div class="dashboard-content-body-form-group control-group" ng-class="{'has-error': !registerDeviceFormOTAA.DeviceName.$valid, 
+                    'has-success': registerDeviceFormOTAA.DeviceName.$valid}">
+                <div class="input-group col-sm-8 col-md-8 col-lg-8 col-sm-offset-2 col-md-offset-2 col-lg-offset-2">
+                    <span class="input-group-addon">Device Name *</span>
+                    <input id="DeviceName" name="DeviceName" type="text" class="form-control" placeholder="Give a name for your device." ng-model="OTAARegisterForm.Name"
+                        required>
+                </div>
+            </div>
+            <div class="dashboard-content-body-form-group control-group">
+                <div class="input-group col-sm-8 col-md-8 col-lg-8 col-sm-offset-2 col-md-offset-2 col-lg-offset-2">
+                    <span class="input-group-addon">Application ID *</span>
+                    <select id="ApplicationID" class="form-control" ng-model="OTAARegisterForm.ApplicationID" ng-options="id for id in applicationIDs" ng-change="updateOTAAMulticastAddrArray()">
+                    </select>
+                </div>
+            </div>
+            <!-- HTML Validation 2: Device EUI -->
+            <div class="dashboard-content-body-form-group control-group" ng-class="{'has-error': !registerDeviceFormOTAA.DevEUI.$valid, 'has-success': registerDeviceFormOTAA.DevEUI.$valid}">
+                <div class="col-sm-8 col-md-8 col-lg-8 col-sm-offset-4 col-md-offset-4 col-lg-offset-4" ng-show="!registerDeviceFormOTAA.DevEUI.$valid">
+                    <span class="help-block">
+                        <strong>Please input 16 numbers or characters</strong>
+                    </span>
+                </div>
+                <div class="input-group col-sm-8 col-md-8 col-lg-8 col-sm-offset-2 col-md-offset-2 col-lg-offset-2">
+                    <span class="input-group-addon">Device EUI *</span>
+                    <input id="DevEUI" name="DevEUI" type="text" class="form-control" placeholder="Device EUI" ng-pattern="EUIPattern" ng-model="OTAARegisterForm.DevEUI"
+                        required autocomplete="off">
+                </div>
+            </div>
+            <div class="dashboard-content-body-form-group control-group">
+                <div class="input-group col-sm-8 col-md-8 col-lg-8 col-sm-offset-2 col-md-offset-2 col-lg-offset-2">
+                    <span class="input-group-addon">Device Type *</span>
+                    <select id="DevType" class="form-control" ng-model="OTAARegisterForm.DevType" ng-options="type for type in deviceTypes" ng-change="updateOTAASubTypes()">
+                    </select>
+                </div>
+            </div>
+            <div class="dashboard-content-body-form-group control-group" ng-if="OTAASubTypes.length !== 0">
+                <div class="input-group col-sm-8 col-md-8 col-lg-8 col-sm-offset-2 col-md-offset-2 col-lg-offset-2">
+                    <span class="input-group-addon">Sub Type </span>
+                    <select id="SubType" class="form-control" ng-model="OTAARegisterForm.SubType" ng-options="type for type in OTAASubTypes">
+                    </select>
+                </div>
+            </div>
+            <div class="dashboard-content-body-form-group control-group">
+                <div class="input-group col-sm-8 col-md-8 col-lg-8 col-sm-offset-2 col-md-offset-2 col-lg-offset-2">
+                    <span class="input-group-addon">Band ID *</span>
+                    <select class="form-control" id="BandID" ng-model="OTAARegisterForm.BandID" ng-options="type for (key, type) in bandIDs">
+                    </select>
+                </div>
+            </div>
+            <div class="dashboard-content-body-form-group control-group">
+                <div class="input-group col-sm-8 col-md-8 col-lg-8 col-sm-offset-2 col-md-offset-2 col-lg-offset-2">
+                    <span class="input-group-addon">Class *</span>
+                    <select class="form-control" id="Class" ng-model="OTAARegisterForm.Class" ng-options="type for (key, type) in OTAAClasses">
+                    </select>
+                </div>
+            </div>
+            <div class="dashboard-content-body-form-group control-group" ng-show="showOTAAMtAddrArr()">
+                <div class="input-group col-sm-8 col-md-8 col-lg-8 col-sm-offset-2 col-md-offset-2 col-lg-offset-2">
+                    <span class="input-group-addon">MulticastAddrArray </span>
+                    <multiselect ng-model="OTAARegisterForm.MulticastAddrArray" options="OTAAMulticastAddrArray" placeholder="Choose Multicast Addresses"></multiselect>
+                </div>
+            </div>
+
+            <!-- 3.1 Optional Fields, Collapse Panel -->
+            <div class="dashboard-content-body-form-group control-group">
+                <div class="input-group col-sm-8 col-md-8 col-lg-8 col-sm-offset-2 col-md-offset-2 col-lg-offset-2">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <a data-toggle="collapse" data-target="#register-device-form-collapse-OTAA-demo" ng-click="changeOTAACollapse()">
+                                <h4 class="panel-title">
+                                    <i class="fa fa-plus" aria-hidden="true" ng-show="OTAACollapse"></i>
+                                    <i class="fa fa-minus" aria-hidden="true" ng-show="!OTAACollapse"></i>
+                                    <span>Optional Fields</span>
+                                </h4>
+                            </a>
+                        </div>
+                        <div id="register-device-form-collapse-OTAA-demo" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <div class="dashboard-content-body-form-group control-group">
+                                    <div class="input-group col-sm-12 col-md-12 col-lg-12">
+                                        <span class="input-group-addon">AppKey </span>
+                                        <input id="AppKey" name="AppKey" type="text" class="form-control" ng-model="OTAARegisterForm.AppKey">
+                                    </div>
+                                </div>
+                                <div class="dashboard-content-body-form-group control-group">
+                                    <div class="input-group col-sm-12 col-md-12 col-lg-12">
+                                        <span class="input-group-addon">Description </span>
+                                        <input id="Description" name="Description" type="text" class="form-control" ng-model="OTAARegisterForm.Description">
+                                    </div>
+                                </div>
+                                <div class="dashboard-content-body-form-group control-group">
+                                    <div class="input-group col-sm-12 col-md-12 col-lg-12">
+                                        <span class="input-group-addon">Latitude </span>
+                                        <input id="RefLat" name="RefLat" type="number" class="form-control" ng-model="OTAARegisterForm.RefLat">
+                                    </div>
+                                </div>
+                                <div class="dashboard-content-body-form-group control-group">
+                                    <div class="input-group col-sm-12 col-md-12 col-lg-12">
+                                        <span class="input-group-addon">Longitude </span>
+                                        <input id="RefLon" name="RefLon" type="number" class="form-control" ng-model="OTAARegisterForm.RefLon">
+                                    </div>
+                                </div>
+                                <div class="dashboard-content-body-form-group control-group">
+                                    <div class="input-group col-sm-12 col-md-12 col-lg-12">
+                                        <span class="input-group-addon">Altitude </span>
+                                        <input id="RefAlt" name="RefAlt" type="number" class="form-control" ng-model="OTAARegisterForm.RefAlt">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dashboard-content-body-form-group dashboard-content-body-form-submit">
+                <div class="control-label col-sm-8 col-md-8 col-lg-8 col-sm-offset-2 col-md-offset-2 col-lg-offset-2 submit-button-wrapper">
+                    <div class="controls">
+                        <button class="btn btn-primary" ng-click="finish('OTAA')">Create</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

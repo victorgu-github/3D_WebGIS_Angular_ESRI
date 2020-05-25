@@ -1,0 +1,9 @@
+
+.leaflet-datatable .data-table-container {
+    z-index: 10;
+    border: 1px solid #24272E;
+}
+
+.leaflet-datatable .data-table-toggle {
+    bottom: 10px;
+}

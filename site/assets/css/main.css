@@ -1,0 +1,238 @@
+/*
+HTML STYLE
+*/
+html{
+  width: 100%;
+  overflow:hidden;
+  height: 100%;
+  background-color: #24272E;
+}
+
+body {
+  margin-bottom: 0;
+}
+
+/* tables */
+.table {
+  font-size: 0.95em;
+}
+.table td {
+  white-space: nowrap;
+}
+
+/* textarea style */
+textarea {
+  resize: none;
+}
+
+/*
+INDEX PAGE OTHER STYLE
+*/
+
+.break-word {
+  overflow-wrap: break-word;
+}
+
+/* examples title and summary spacing */
+.marketing h4 + p {
+  margin-bottom: 28px;
+}
+
+/* warning for non-webgl browsers */
+.web-gl-warning {
+  color: #b52e31;
+  font-weight: bold;
+}
+
+/* dismissable alert to warn about docs version */
+.version-alert {
+  position: fixed;
+  bottom: -24px;
+  width: 80%;
+  left: calc(50% - 40%);
+  text-align: center;
+  font-size: small;
+  z-index: 100;
+}
+
+/* angular color overrides of calcite-bootstrap (red highlight, white background, black font/header) */
+body {
+  background-color: #ededed;
+  color: #24272E;
+}
+a {
+  color: #b52e31;
+}
+a:focus,
+a:hover {
+  color: #b52e31;
+}
+.badge {
+  background-color: #b52e31;
+}
+.list-group-item.active,
+.list-group-item.active:focus,
+.list-group-item.active:hover {
+  background-color: #b52e31;
+  border-color: #b52e31;
+}
+a.list-group-item:focus,
+a.list-group-item:hover,
+button.list-group-item:focus,
+button.list-group-item:hover {
+  /*color: #000000;*/
+  background-color: #f8f8f8;
+}
+
+#nav-container{
+  width:100%;
+  padding: 0 3% 0 1%;
+}
+
+#3D_WebGIS_Angular_ESRI-logo:hover {
+  color: #9d9d9d;
+}
+
+#alertDiv{
+  display:none;
+}
+
+.main-content {
+  position: relative;
+  height: 100%;
+  min-height: 0;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.error-template-container {
+  position: absolute;
+  top: 0px;
+  bottom: 60px;
+  left: 0px;
+  width: 100%;
+  background-color: #24272E;
+  color: #ffffff;
+}
+
+.error-template-container .error-message {
+  position: absolute;
+  top: 0px;
+  height: 100%;
+  left: 0px;
+  width: 100%;
+}
+
+hr {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border: 0;
+  border-top: 1px solid #3d404c;
+}
+
+/**
+    Scene view styles
+ */
+.sceneViewTitle .btn:hover {
+  color: #9d9d9d;
+}
+
+/**
+    Scrollbar styles, only works for webkit OS browsers
+ */
+::-webkit-scrollbar-track-piece {
+  background: #e9e9e9
+}
+::-webkit-scrollbar-thumb {
+  background: #9d9d9d
+}​
+
+/*login page css */
+.form-signin {
+  max-width: 330px;
+  padding: 15px;
+  margin: 0 auto;
+}
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+  margin-bottom: 10px;
+}
+.form-signin .checkbox {
+  font-weight: normal;
+}
+.form-signin .form-control {
+  position: relative;
+  height: auto;
+  -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 10px;
+  font-size: 16px;
+}
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+.form-signin input[type="text"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+  background-color: #FAFFBD;
+}
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  background-color: #FAFFBD;
+}
+.form-signin .row {
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+.form-signin .row a {
+  height: 40px;
+  padding: 10px 0px;
+  margin: 0px 1px;
+  background-color: #24272E;
+  border: none;
+}
+
+.form-signin .row a:hover {
+  background-color: #808080;
+}
+
+.form-signin .row a.active {
+  color: #fff;
+  background-color: #286090;
+  border-color: #204d74;
+}
+
+
+.fixPopupBottom{
+  bottom:auto !important
+}
+
+.leaflet-heatmap-layer{
+  z-index: 201 !important;
+}
+
+/* Redesign the esri-container framework */
+/* Set main-container to absolute element, config it to fill the rest space */
+#main-container {
+    position: absolute;
+    top: 50px;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    padding: 0;
+}
+
+#main-container.loginPage {
+    height: 100%;
+}
+
+@media screen and (max-width: 400px) {
+  #sidebar-toggle a {
+    width: 10px;
+  }
+}

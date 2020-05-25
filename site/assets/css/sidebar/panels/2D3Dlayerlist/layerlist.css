@@ -1,0 +1,117 @@
+/*
+    Layer list styles
+*/
+
+.item-title {
+    text-align: center;
+    color: #9d9d9d;
+    font-size: 24px;
+    margin-bottom: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+    line-height: 36px;
+}
+
+.item-title .panel-close {
+    float: right;
+    color: #9d9d9d;
+    margin-top: 5px;
+}
+
+.item-title .panel-close:hover {
+    cursor: pointer;
+    color: #FFFFFF;
+}
+
+.layer-invisible:hover,
+.layer-visible:hover {
+    color: #9d9d9d;
+}
+
+.layerList li {
+    list-style-type: none;
+}
+
+.layerList .layer-item {
+    margin: 5px;
+    color: #9d9d9d;
+    background-color: #171717;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.layerList .pull-right {
+    margin-right: 5px;
+}
+
+.layerList .highlight:hover {
+    cursor: pointer;
+    color: #FFFFFF;
+}
+
+.layerList .layer-title {
+    margin-left: 10px;
+    margin-right: 5px;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.layerList .layer-content-item {
+    margin-left: 5px;
+}
+
+.layerList .layer-content {
+    background-color: #24272E;
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 5px;
+}
+
+.layerList .layer-content-item {
+    margin-bottom: 5px;
+}
+
+.layerList .angular-ui-tree-nodes.sub-layers {
+    padding-left: 10px;
+}
+
+.layerList .sub-layer-desc {
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+    border-bottom: 1px dotted #9d9d9d;
+}
+
+.layerList .sub-layer-desc span {
+    margin-left: 5px;
+}
+
+.layerList .sub-layers {
+    padding-top: 10px;
+    background-color: #24272E;
+    border-radius: 5px;
+    margin-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 5px;
+}
+
+.layerList .sub-layer-item {
+    margin-bottom: 5px;
+}
+
+.layerList .rzslider .rz-pointer:after {
+    top: 6px;
+    left: 6px;
+}
+
+.layerList .rzslider .rz-pointer {
+    top: -8px;
+    width: 20px;
+    height: 20px;
+    background-color: #1e73be;
+}
+
+/*we don't want to hide sublayer visibility toggle*/
+.sub-layers .sub-layer-item .fa-eye,
+.sub-layers .sub-layer-item .fa-eye-slash {
+    /*display: none;*/
+}

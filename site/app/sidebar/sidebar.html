@@ -1,0 +1,39 @@
+<div ng-controller="SidebarCtrl">
+    <pageslide id="index-sidebar" ng-if="authToken != null && !isCellPhone"
+               ps-open="sidebar.checked" ps-push="true" ps-zindex="100"
+               ps-side="left" ps-size="{{sidebar.sidebarSize}}" ps-key-listener="false"
+               ps-click-outside="false"
+               ps-container="esri-container-wrapper"
+               class="sidebar-container-dark">
+        <div class="sidebar-wrapper" id="sidebar">
+            <nav>
+                <ul class="sidebar-nav nav">
+                    <li ng-repeat="item in sidebar.items" ng-class="{selected: sidebar.currentPanel === item.name}">
+                        <a ng-if="item.link === undefined" ng-click="togglePanel(item.name)">
+                            <fa name="{{item.icon}}" size="2" class="icon"></fa>
+                            <span>{{item.name | translate}}</span>
+                        </a>
+                        <a ng-if="item.link !== undefined" ng-click="redirect(item.link)">
+                            <fa name="{{item.icon}}" size="2" class="icon"></fa>
+                            <span>{{item.name | translate}}</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <pageslide ps-open="sidebar.menuChecked" ps-push="true" ps-zindex="100"
+                       ps-side="left" ps-size="{{sidebar.menuSize}}" ps-key-listener="false"
+                       ps-click-outside="false" ps-offset="{{sidebar.sidebarSize}}"
+                       ps-container="esri-container"
+                       class="sidebar-menu">
+                <div class="slide-panel">
+                    <div class="slide-panel-head"></div>
+                    <div ng-repeat="item in filterPanelItems(sidebar.items)">
+                        <div ng-show="item.isActive">
+                            <ng-include src="item.templateUrl"></ng-include>
+                        </div>
+                    </div>
+                </div>
+            </pageslide>
+        </div>
+    </pageslide>
+</div>

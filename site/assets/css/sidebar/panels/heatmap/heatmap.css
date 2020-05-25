@@ -1,0 +1,76 @@
+/*
+    Heatmap styles
+*/
+.heat-map-container {
+    padding-left: 10px;
+    padding-right: 10px;
+    color: #000;
+}
+
+.heat-map-container .invisible {
+    display: none;
+}
+
+.heat-map-container hr {
+    margin-top: 25px;
+}
+
+.heat-map-container .heat-map--filter {
+    margin-bottom: 20px;
+}
+
+.heat-map-container .dropdown--items {
+    min-height: 32px;
+}
+
+.heat-map-container .dropdown--title {
+    color: #9d9d9d;
+    font-size: 16px;
+}
+
+.heat-map-container .btn {
+    text-align: left;
+}
+
+.heat-map-container .caret {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.heat-map-container .dropdown-menu {
+
+}
+
+.heat-map-container .dropdown-menu li {
+    padding-left: 10px;
+}
+
+.heat-map-container .dropdown-menu li:hover{
+    cursor: pointer;
+    background-color: #d4d4d4;
+}
+
+.heat-map-container .actions {
+    margin-top: 20px;
+}
+
+.heat-map-container .actions .actions--clear {
+    position: relative;
+    float: left;
+}
+
+.heat-map-container .actions .actions--apply {
+    position: relative;
+    float: right;
+}
+
+.heat-map-container .heat-map--slider {
+    padding: 0 5px 0;
+}
+
+.heat-map-container .heat-map--slider .heat-map--slider__attribute {
+    color: #9d9d9d;
+    font-size: 16px;
+}

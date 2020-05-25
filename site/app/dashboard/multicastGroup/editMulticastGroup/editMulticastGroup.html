@@ -1,0 +1,160 @@
+<div class="dashboard-edit-page-container container">
+  <!-- 1.Return to Multicast Groups Table -->
+  <div class="return-panel">
+    <div class="return-panel-header">
+      <h3>
+        <span class="glyphicon glyphicon-share"></span>
+        <a class="return-panel-header-link" href="{{multicastGroupTableUrl}}">Return</a>
+      </h3>
+    </div>
+  </div>
+
+  <div class="dashboard-edit-page-body container">
+    <div class="dashboard-edit-page-body-title row">
+      <div class="text-center col-sm-12 col-md-12 col-lg-12">
+        <span>
+          <h2>Editing LoRa Multicast Group</h2>
+        </span>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-12 col-md-12 col-lg-12">
+        <!-- Error Message -->
+        <div class="dashboard-edit-page-body-invalid-msg alert alert-danger" role="alert" ng-show="!initializing && formStatus === 'invalid'">
+          <button type="button" class="close" ng-click="closeAlert()" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <strong>Error occurs due to: </strong>{{errorMessage}}
+        </div>
+
+        <div class="dashboard-edit-page-body-content-loader content-loader" ng-show="initializing">
+          <div class="content-loader-inner">
+            <label> ●</label>
+            <label> ●</label>
+            <label> ●</label>
+            <label> ●</label>
+            <label> ●</label>
+            <label> ●</label>
+          </div>
+        </div>
+
+        <form name="step1" class="dashboard-edit-page-edit-device-form" ng-show="!initializing">
+          <!-- 4.1 Row 1 -->
+          <div class="col-sm-12 col-md-12 col-lg-12">
+            <div class="form-group col-sm-4 col-md-4 col-lg-4">
+              <label for="ApplicationID" class="control-label">
+                Application ID
+              </label>
+              <input type="text" class="form-control" id="ApplicationID" ng-model="editEntry.ApplicationID" disabled readonly>
+            </div>
+            <div class="form-group col-sm-4 col-md-4 col-lg-4">
+              <label for="MulticastAddr" class="control-label">
+                Multicast Address
+              </label>
+              <input type="text" class="form-control" id="MulticastAddr" ng-model="editEntry.MulticastAddr" disabled readonly>
+            </div>
+            <div class="form-group col-sm-4 col-md-4 col-lg-4">
+              <label for="Name" class="control-label">
+                Name
+              </label>
+              <input type="text" class="form-control" id="Name" ng-model="editEntry.Name">
+            </div>
+          </div>
+          <!-- 4.2 Row 2 -->
+          <div class="col-sm-12 col-md-12 col-lg-12">
+            <div class="form-group col-sm-4 col-md-4 col-lg-4">
+              <label for="Description" class="control-label">
+                Description
+              </label>
+              <input type="text" class="form-control" id="Description" ng-model="editEntry.Description">
+            </div>
+            <div class="form-group col-sm-4 col-md-4 col-lg-4">
+              <label for="FCntDown" class="control-label">
+                FCntDown
+              </label>
+              <input type="number" class="form-control" id="FCntDown" ng-model="editEntry.FCntDown">
+            </div>
+            <div class="form-group col-sm-4 col-md-4 col-lg-4">
+              <label for="TxPower" class="control-label">
+                TxPower
+              </label>
+              <input type="number" class="form-control" id="TxPower" ng-model="editEntry.TxPower">
+            </div>
+          </div>
+          <!-- 4.3 Row 3 -->
+          <div class="col-sm-12 col-md-12 col-lg-12">
+            <div class="form-group col-sm-4 col-md-4 col-lg-4">
+              <label for="PingNbClassB" class="control-label">
+                PingNbClassB
+              </label>
+              <input type="number" class="form-control" id="PingNbClassB" ng-model="editEntry.PingNbClassB">
+            </div>
+            <div class="form-group col-sm-4 col-md-4 col-lg-4">
+              <label for="PingOffsetClassB" class="control-label">
+                PingOffsetClassB
+              </label>
+              <input type="number" class="form-control" id="PingOffsetClassB" ng-model="editEntry.PingOffsetClassB">
+            </div>
+            <div class="form-group col-sm-4 col-md-4 col-lg-4">
+              <label for="Freq" class="control-label">
+                Freq
+              </label>
+              <input type="number" class="form-control" step="0.001" id="Freq" ng-model="editEntry.Freq">
+            </div>
+          </div>
+          <!-- 4.4 Row 4 -->
+          <div class="col-sm-12 col-md-12 col-lg-12">
+            <div class="form-group col-sm-4 col-md-4 col-lg-4">
+              <label for="Dr" class="control-label">
+                Dr
+              </label>
+              <input type="number" class="form-control" id="Dr" ng-model="editEntry.Dr">
+            </div>
+            <div class="form-group col-sm-4 col-md-4 col-lg-4">
+              <label for="Confirmed" class="control-label">
+                Confirmed
+              </label>
+              <input type="number" class="form-control" id="Confirmed" ng-model="editEntry.Confirmed">
+            </div>
+            <div class="form-group col-sm-4 col-md-4 col-lg-4">
+              <label for="FPort" class="control-label">
+                FPort
+              </label>
+              <input type="number" class="form-control" id="FPort" ng-model="editEntry.FPort">
+            </div>
+          </div>
+          <!-- 4.5 Row 5 -->
+          <div class="col-sm-12 col-md-12 col-lg-12">
+            <div class="form-group col-sm-4 col-md-4 col-lg-4">
+              <label for="EncryptedMacCmds" class="control-label">
+                EncryptedMacCmds
+              </label>
+              <input type="text" class="form-control" id="EncryptedMacCmds" ng-model="editEntry.EncryptedMacCmds">
+            </div>
+            <div class="form-group col-sm-4 col-md-4 col-lg-4">
+              <label for="UnencryptedMacCmds" class="control-label">
+                UnencryptedMacCmds
+              </label>
+              <input type="text" class="form-control" id="UnencryptedMacCmds" ng-model="editEntry.UnencryptedMacCmds">
+            </div>
+            <div class="form-group col-sm-4 col-md-4 col-lg-4">
+              <label for="UserPayloadData" class="control-label">
+                UserPayloadData
+              </label>
+              <input type="text" class="form-control" id="UserPayloadData" ng-model="editEntry.UserPayloadData">
+            </div>
+          </div>
+
+          <div class="dashboard-edit-page-edit-device-form-submit-button-padding">
+            <div class="col-sm-12 col-md-12 col-lg-12">
+              <button type="button" class="pull-right btn btn-primary" ng-click="submit(step1.$valid)">
+                Submit
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

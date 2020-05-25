@@ -1,0 +1,37 @@
+<div class="container loraDev-command-edit-container" ng-controller="EditLoraDevCountForGenUsrAppCtrl">
+    <div class="row">
+        <div class="col-sm-6 col-md-6 col-lg-6 col-sm-offset-3 col-md-offset-3 col-lg-offset-3">
+            <div class="input-group loraDev-command-edit-inputGroup">
+                <span class="input-group-addon">Device EUI *</span>
+                <input type="text" class="form-control" ng-model="cntDevEUI" disabled/>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-6 col-md-6 col-lg-6 col-sm-offset-3 col-md-offset-3 col-lg-offset-3">
+            <div class="input-group loraDev-command-edit-inputGroup">
+                <span class="input-group-addon">FCnt UP *</span>
+                <input type="number" class="form-control" ng-model="cntEditEntry.FCntUp" ng-change="updateAttribute('FCntUp')" />
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-6 col-md-6 col-lg-6 col-sm-offset-3 col-md-offset-3 col-lg-offset-3">
+            <div class="input-group loraDev-command-edit-inputGroup">
+                <span class="input-group-addon">FCnt Down *</span>
+                <input type="number" class="form-control" ng-model="cntEditEntry.FCntDown" ng-change="updateAttribute('FCntDown')" />
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-6 col-md-6 col-lg-6 col-sm-offset-3 col-md-offset-3 col-lg-offset-3">
+            <div class="loraDev-command-edit-button">
+                <button class="btn btn-primary pull-right" ng-click="finish(editLoraDevCount.$valid)">Submit</button>
+                <button class="btn btn-danger pull-right" ng-click="reset()">Reset</button>
+            </div>
+        </div>
+    </div>
+</div>

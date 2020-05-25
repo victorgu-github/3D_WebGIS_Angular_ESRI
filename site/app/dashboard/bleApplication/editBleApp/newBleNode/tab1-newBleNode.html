@@ -1,0 +1,96 @@
+<!-- 1.Loading Pulse -->
+<div class="row">
+    <div class="dashboard-content-body-loading-pulse" ng-show="formStatus === 'submitted'">
+        <div class="loading-pulse"></div>
+    </div>
+</div>
+<!-- 2.Error Message -->
+<div class="row dashboard-content-body-error-msg">
+    <div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1 alert alert-danger" role="alert"
+        ng-show="formStatus === 'invalid'">
+        <button type="button" class="close" ng-click="closeAlert()" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        <strong>Error occurs due to: </strong>{{errorMessage}}
+    </div>
+</div>
+<!-- 3.Content and Submit Button -->
+<div class="row">
+    <div ng-class="getBleNodeRegisterFormClass()" ng-show="formStatus !== 'submitted'">
+        <form id="registerBleNodeForm" name="registerBleNodeForm">
+            <!-- HTML Validation 1: Device Name -->
+            <div class="dashboard-content-body-form-group control-group" ng-if="queryBleAppIDExist">
+                <div class="input-group col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1">
+                    <span class="input-group-addon">bleApp (ID:Name) *</span>
+                    <input id="bleAppID" name="bleAppID" type="text" class="form-control" ng-model="registerEntry.bleAppID" disabled>
+                </div>
+            </div>
+            <div class="dashboard-content-body-form-group control-group" ng-if="!queryBleAppIDExist">
+                <div class="input-group col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1">
+                    <span class="input-group-addon">bleApp (ID:Name) *</span>
+                    <select id="bleAppID" class="form-control" ng-model="registerEntry.bleAppID" ng-options="key as value for (key , value) in bleAppMap" ng-change="updateReturnUrl()">
+                    </select>
+                </div>
+            </div>
+
+            <div class="dashboard-content-body-form-group control-group">
+                <div class="input-group col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1">
+                    <span class="input-group-addon">macAddress *</span>
+                    <input id="macAddress" name="macAddress" type="text" class="form-control" ng-model="registerEntry.macAddress" ng-disabled="disabledBleMacAddress">
+                </div>
+            </div>
+
+            <div class="dashboard-content-body-form-group control-group">
+                <div class="input-group col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1">
+                    <span class="input-group-addon">name </span>
+                    <input id="name" name="name" type="text" class="form-control" ng-model="registerEntry.name">
+                </div>
+            </div>
+
+            <div class="dashboard-content-body-form-group control-group">
+                <div class="input-group col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1">
+                    <span class="input-group-addon">deviceType </span>
+                    <input id="deviceType" name="deviceType" type="text" class="form-control" ng-model="registerEntry.deviceType">
+                </div>
+            </div>
+
+            <div class="row dashboard-content-body-form-group control-group add-foreignKeys-row">
+                <div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1 add-foreignKeys">
+                        <div class="btn btn-primary pull-left" ng-click="addAForeignKey()">Add foreignKeys</div>
+                </div>
+            </div>
+
+            <div class="row dashboard-content-body-form-group control-group">
+                <div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1 well add-foreignKeys-well" ng-if="registerEntry.foreignKeys.length !== 0">
+                    <div ng-repeat="obj in registerEntry.foreignKeys track by $index">
+                        <div class="row">
+                            <div class="form-group col-sm-3 col-md-3 col-lg-3">
+                                <label for="keyName">keyName</label>
+                                <input type="text" class="form-control" id="keyName" ng-model="obj.keyName">
+                            </div>
+                            <div class="form-group col-sm-3 col-md-3 col-lg-3">
+                                <label for="keyValue">keyValue</label>
+                                <input type="text" class="form-control" id="keyValue" ng-model="obj.keyValue">
+                            </div>
+                            <div class="form-group col-sm-4 col-md-4 col-lg-4">
+                                <label for="description">description</label>
+                                <input type="text" class="form-control" id="description" ng-model="obj.description">
+                            </div>
+                            <div class="form-group col-sm-2 col-md-2 col-lg-2">
+                                <div class="btn btn-primary pull-right" ng-click="removeAForeignKey($index)">Remove foreignKeys</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dashboard-content-body-form-group dashboard-content-body-form-submit">
+                <div class="control-label col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1 submit-button-wrapper">
+                    <div class="controls">
+                        <button class="btn btn-primary" ng-click="finish(registerBleNodeForm.$valid)">Create</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

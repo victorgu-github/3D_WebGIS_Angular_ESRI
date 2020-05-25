@@ -1,0 +1,24 @@
+<div class="container register-device-container-gen-usr-app dashboard-uib-tabset">
+    <!-- Return to Overview -->
+    <div class="return-panel">
+        <div class="return-panel-header">
+            <h3>
+                <span class="glyphicon glyphicon-share"></span>
+                <a class="return-panel-header-link" ng-click="returnPreviousPage()">Return</a>
+            </h3>
+        </div>
+    </div>
+    <div class="row dashboard-content-panel-for-gen-usr">
+        <uib-tabset active="active">
+            <!-- First Tab for ABP -->
+            <uib-tab class="uib-tab" index="0" heading="ABP">
+                <div ng-include="'/dashboard/generalUserApp/editGeneralUserAppForGenUsr/newLoraDevForGenUsrApp/tab1-ABP-single-register.html'"></div>
+            </uib-tab>
+
+            <!-- Second Tab for OTAA -->
+            <uib-tab class="uib-tab" index="1" heading="OTAA">
+                <div ng-include="'/dashboard/generalUserApp/editGeneralUserAppForGenUsr/newLoraDevForGenUsrApp/tab2-OTAA-single-register.html'"></div>
+            </uib-tab>
+        </uib-tabset>
+    </div>
+</div>

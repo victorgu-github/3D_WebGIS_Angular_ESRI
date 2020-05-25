@@ -1,0 +1,94 @@
+<div class="account-profile-container" ng-show="!displayPageNotFoundTemplate">
+    <div class="account-profile-navigation-panel">
+        <div class="account-profile-navigation-title">
+            {{'ACCOUNT.PROFILE.NAME' | translate}}
+        </div>
+        <ul class="account-profile-navigation-items">
+            <li class="account-profile-navigation-item" ng-repeat="panel in panels" ng-class="{active: panel.isActive}">
+                <div ng-click="navigateTo(panel)">
+                    <fa name="{{panel.icon}}"></fa>
+                    <span class="account-profile-navigation-item-title">{{panel.displayName | translate}}</span>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="account-profile-content-panel container">
+        <div class="row">
+            <div class="account-profile-content-panel-well-container col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1">
+                <div class="account-profile-content-panel-well well well-lg">
+                    <div class="row">
+                        <div class="col-sm-3 col-md-3 col-lg-3 col-sm-offset-3 col-md-offset-3 col-lg-offset-3">
+                            <span class="account-profile-content-panel-icon glyphicon glyphicon-user"></span>
+                        </div>
+                        <div class="col-sm-6 col-md-6 col-lg-6">
+                            <h4>{{userInfo.firstName}} {{userInfo.lastName}}</h4>
+                            <p>
+                                <i class="account-profile-content-panel-i glyphicon glyphicon-envelope"></i> &nbsp; {{'ACCOUNT.PROFILE.EMAIL' | translate}}: {{userInfo.email}}
+                                <br />
+                                <i class="account-profile-content-panel-i fa fa-user-circle-o"></i> &nbsp; {{'ACCOUNT.PROFILE.ACCESS_ROLE' | translate}}: {{userInfo.accessRole}}
+                                <br />
+                                <i class="account-profile-content-panel-i fa fa-map-marker"></i> &nbsp; {{'ACCOUNT.PROFILE.CURRENT_SCENARIO' | translate}}: {{currentScenarioDetail.scenarioName}}
+                                <br />
+                            </p>
+                        </div>
+                    </div>
+                    <!-- Split info -->
+                    <div class="row">
+                        <div class="col-sm-8 col-md-8 col-lg-8 col-sm-offset-2 col-md-offset-2 col-lg-offset-2">
+                            <p>
+                                <i class="account-profile-content-panel-i fa fa-globe"></i> &nbsp;&nbsp;{{'ACCOUNT.PROFILE.FEATURE_LAYER_BASE_URL' | translate}}: {{settings.featureLayerBaseURL}}
+                                <br />
+                                <hr />
+                                <i class="account-profile-content-panel-i fa fa-globe"></i> &nbsp;&nbsp;{{'ACCOUNT.PROFILE.TILED_LAYER_BASE_URL' | translate}}: {{settings.tiledLayerBaseURL}}
+                                <br />
+                                <hr />
+                            </p>
+                        </div>
+                    </div>
+                    <!-- scrollable dropdown menu -->
+                    <div class="account-profile-content-panel-dropdown row">
+                        <div class="col-sm-8 col-md-8 col-lg-8 col-sm-offset-2 col-md-offset-2 col-lg-offset-2">
+                            <div>
+                                <span>
+                                    <h4>
+                                        <strong>{{'ACCOUNT.PROFILE.OVERVIEW.SELECT_SCENARIO_INFO' | translate}}: </strong>
+                                    </h4>
+                                </span>
+                            </div>
+                            <div class="account-profile-content-panel-i dropdown">
+                                <select class="account-profile-content-panel-dropdown-button btn btn-default" ng-init="scenario = currentScenarioDetail"
+                                    ng-model="scenario" ng-options="scenario.scenarioName for scenario in scenarios">
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- dropdown element display -->
+                    <div class="account-profile-content-panel-dropdown-display row">
+                        <div class="col-sm-8 col-md-8 col-lg-8 col-sm-offset-2 col-md-offset-2 col-lg-offset-2">
+                            <p>
+                                <i class="account-profile-content-panel-i fa fa-map-marker"></i> &nbsp;&nbsp;&nbsp;{{'ACCOUNT.PROFILE.OVERVIEW.SCENARIO_NAME' | translate}}: &nbsp;&nbsp;{{scenario.scenarioName}}
+                                <br />
+                                <hr />
+                                <i class="account-profile-content-panel-i fa fa-indent"></i> &nbsp;&nbsp;{{'ACCOUNT.PROFILE.OVERVIEW.BLE_ID' | translate}}: &nbsp;&nbsp;{{scenario.bleAppID}}
+                                <br />
+                                <hr />
+                                <i class="account-profile-content-panel-i fa fa-indent"></i> &nbsp;&nbsp;{{'ACCOUNT.PROFILE.OVERVIEW.LORA_APP_ID' | translate}}: &nbsp;&nbsp;{{scenario.loraAppID}}
+                                <br />
+                                <hr />
+                            </p>
+                        </div>
+                    </div>
+                    <div class="account-profile-content-panel-exit row">
+                        <div class="col-sm-8 col-md-8 col-lg-8 col-sm-offset-2 col-md-offset-2 col-lg-offset-2">
+                            <a href="/#/" class="btn btn-primary pull-right">{{'ACCOUNT.PROFILE.EXIT' | translate}}</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div ng-show="displayPageNotFoundTemplate">
+    <div ng-include="'_shared/errorTemplate/errorTemplate.html'"></div>
+</div>

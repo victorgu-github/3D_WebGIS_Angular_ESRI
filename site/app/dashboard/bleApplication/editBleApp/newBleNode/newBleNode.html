@@ -1,0 +1,22 @@
+<div class="container register-device-container-gen-usr-app dashboard-uib-tabset">
+    <div class="return-panel">
+        <div class="return-panel-header">
+            <h3>
+                <span class="glyphicon glyphicon-share"></span>
+                <a class="return-panel-header-link" href="{{bleAppEditPageUrl}}">Return</a>
+            </h3>
+        </div>
+    </div>
+
+    <div class="row dashboard-content-panel-for-gen-usr" ng-controller="NewBleNodeCtrl">
+        <uib-tabset active="active">
+            <!-- First Tab for ABP -->
+            <uib-tab class="uib-tab" index="0" heading="Main">
+                <div ng-include="'/dashboard/bleApplication/editBleApp/newBleNode/tab1-newBleNode.html'"></div>
+            </uib-tab>
+            <uib-tab class="uib-tab" index="1" heading="Batch">
+                <div ng-include="'/dashboard/bleApplication/editBleApp/newBleNode/tab2-newBatchBleNodes.html'"></div>
+            </uib-tab>
+        </uib-tabset>
+    </div>
+</div>

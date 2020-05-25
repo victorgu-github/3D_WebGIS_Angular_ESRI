@@ -1,0 +1,119 @@
+<div class="container monitor-2dmap-shared-container">
+    <!-- 1.Overview Backward -->
+    <div class="overview-backward monitor-2dmap-shared-overview-backward">
+        <span class="monitor-2dmap-shared-overview-backward-left">
+            <i class="fa fa-chevron-circle-left" aria-hidden="true"></i>
+            <a href="{{overviewPageUrl}}">{{backToOverview | translate}}</a>
+        </span>
+        <span class="monitor-2dmap-shared-overview-backward-center">
+            {{'DASHBOARD.LORA_GATEWAY_2DMAP' | translate}}
+        </span>
+    </div>
+    <hr/>
+    <!-- 2.Monitor Map View -->
+    <div class="monitor-2Dmap-shared-content">
+        <div class="row">
+            <div id="2DMap" class="monitor-2Dmap col-sm-12 col-md-12 col-lg-12">
+                <!-- 3.Side Bar -->
+                <div id="sidebar" class="sidebar collapsed">
+                    <!-- Nav tabs -->
+                    <div class="sidebar-tabs">
+                        <ul role="tablist">
+                            <li>
+                                <a href="#home" role="tab">
+                                    <i class="fa fa-bars"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Tab panes -->
+                    <div class="sidebar-content">
+                        <div class="sidebar-pane" id="home">
+                            <h1 class="sidebar-header">
+                                LoRa Gateway Info
+                                <span class="sidebar-close">
+                                    <i class="fa fa-caret-left"></i>
+                                </span>
+                            </h1>
+                            <hr>
+                            <select id="myselect" class="selectpicker" data-style="btn-primary" data-width="100%" multiple>
+
+                                <option data-icon="glyphicon-map-marker" ng-repeat="layer in layers" value="{{layer.id}}">{{layer.title}}</option>
+
+                            </select>
+                            <hr>
+                            <!-- 3.1 Display Lora Gateway Number with Highcharts Semi Circle -->
+                            <h5>
+                                <label>LoRa Gateway Number</label>
+                            </h5>
+                            <div id="lora-gateway-map-view-graph1" class="lora-gateway-map-view-graph1">
+                            </div>
+                            <hr>
+                            <!-- 3.2 Display Lora Gateway Uplink and DownLink Data with Bootstrap Table -->
+                            <h5>
+                                <label>Uplink & Downlink Info (Last Hour)</label>
+                            </h5>
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th scope="col"></th>
+                                        <th scope="col">
+                                            <h6>
+                                                <b>Sum</b>
+                                            </h6>
+                                        </th>
+                                        <th scope="col">
+                                            <h6>
+                                                <b>Avg</b>
+                                            </h6>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="row in numOfPacketsTable track by $index">
+                                        <td ng-repeat="col in row track by $index">
+                                            <h6>{{col}}</h6>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <hr>
+                            <!-- 3.3 Display Lora Gateway Cover Area Info -->
+                            <h5>
+                                <label>Cover Area Info</label>
+                            </h5>
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th scope="col"></th>
+                                        <th scope="col">
+                                            <h6>
+                                                <b>Sum</b>
+                                            </h6>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="row in coverAreaTable track by $index">
+                                        <td ng-repeat="col in row track by $index">
+                                            <h6>{{col}}</h6>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <hr>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="loraGateway-monitor-content-body-loading-pulse" ng-show="initializing">
+    <div class="loading-pulse loraGateway-monitor-loading-pulse"></div>
+</div>
+<!-- 4.Monitor Map View Datatable -->
+<div id="lora-gateway-monitor-2Dmap-datatable" ng-if="authToken != null" ng-include="'dashboard/monitor/mapview/monitorMapDatatable/monitorMapDatatable.html'"></div>
+<!-- page footer row -->
+<div id="lora-gateway-monitor-2Dmap-footer" class="footer"></div>

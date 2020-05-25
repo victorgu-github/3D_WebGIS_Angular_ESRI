@@ -1,0 +1,21 @@
+<div class="tree-node tree-node-content">
+    <span class="highlight layer-title" ng-click="layer.toggleItems();refreshSlider();">
+        {{layer.displayName}}
+    </span>
+    <i class="fa highlight" aria-hidden="true"
+       ng-class="{'fa-eye': layer.isVisible(), 'fa-eye-slash': !layer.isVisible()}"
+       ng-click="toggleLayerVisibility(layer)"></i>
+    <i class="pull-right glyphicon highlight"
+       ng-show="layer.isCluster"
+       ng-click="layer.toggleItems();refreshSlider();"
+       ng-class="{'glyphicon-chevron-down': layer.isOpen,
+                   'glyphicon-chevron-right': !layer.isOpen}"></i>
+    <ul ng-show="layer.isOpen" class="layer-content">
+        <li class="layer-opacity-slider" ng-show="layer.isCluster">
+            <span>Cluster Size: </span>
+            <rzslider rz-slider-model="layer.mapLayer"
+                      rz-slider-value="layer.clusterSize"
+                      rz-slider-options="layer.clusterOptions"></rzslider>
+        </li>
+    </ul>
+</div>

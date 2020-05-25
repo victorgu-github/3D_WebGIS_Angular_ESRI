@@ -1,0 +1,410 @@
+/* Edit Page Container CSS */
+.dashboard-edit-page-container {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: calc(100% - 0px);
+    height: calc(100% - 50px);
+    overflow-y: auto;
+    overflow-x: hidden;
+    background-color: #24272E;
+}
+
+/* Edit Page Body CSS */
+.dashboard-edit-page-body {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    margin-top: 10px;
+    padding-left: 5%;
+    padding-right: 5%;
+    color: grey;
+}
+
+.dashboard-edit-page-body-title {
+    margin-bottom: 5px;
+    color: #ffffff;
+}
+
+.dashboard-edit-page-body h2 {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.dashboard-edit-page-body-invalid-msg {
+    text-align: center;
+}
+
+.dashboard-edit-page-body-content-loader {
+    margin-top: 300px;
+}
+
+.dashboard-edit-page-body .nav-tabs {
+    margin-bottom: 15px;
+}
+
+.dashboard-edit-page-body .nav-tabs>li {
+    background-color: #808080;
+    border: none;
+}
+
+.dashboard-edit-page-body .nav-tabs>li>a {
+    color: #000000;
+    border: none;
+}
+
+
+.dashboard-edit-page-body .nav-tabs>li.active>a,
+.dashboard-edit-page-body .nav-tabs>li.active>a:focus {
+    border: none;
+}
+
+/* 
+Edit Page Form CSS Style 1
+For Edit Lora Device, Edit Lora Gateway, Edit Multicast Group,
+    Edit Ble Node, Edit Mengyang Sheep Info
+*/
+.dashboard-edit-page-edit-device-form {
+    color: #ffffff;
+}
+
+.dashboard-edit-page-edit-device-form .add-foreignKeys {
+    margin: 5px 0px;
+    width: 100px;
+}
+
+.dashboard-edit-page-edit-device-form .well {
+    background-color: #2F323B;
+    margin: 20px 0px;
+}
+
+.dashboard-edit-page-edit-device-form .well .btn {
+    margin-top: 25px
+}
+
+.dashboard-edit-page-edit-device-form > .row:first-child fieldset legend {
+    display: none;
+    border: none;
+}
+
+.dashboard-edit-page-edit-device-form input:disabled {
+    background-color: #808080;
+    color: #ffffff;
+}
+
+.dashboard-edit-page-edit-device-form select:disabled {
+    background-color: #808080;
+    color: #ffffff;
+}
+
+.dashboard-edit-page-edit-device-form .disabled-class {
+    background-color: #808080;
+    color: #ffffff;
+}
+
+.dashboard-edit-page-edit-device-form .input-group span {
+    font-size: 14px;
+    background-color: #24272E;
+    border: none;
+}
+
+.dashboard-edit-page-edit-device-form .nz-toggle-tooltip {
+    background: #808080;
+}
+
+.dashboard-edit-page-edit-device-form .nz-toggle-wrap.horizontal .nz-toggle-tooltip:before {
+    border-bottom: #808080;
+}
+
+.dashboard-edit-page-edit-device-form .nz-toggle-tooltip span {
+    background-color: #808080;
+}
+
+.dashboard-edit-page-edit-device-form-submit-button > div {
+    padding-right: 0px;
+}
+
+.dashboard-edit-page-edit-device-form-submit-button-padding > div {
+    margin-top: 15px;
+    padding-right: 30px;
+}
+
+.dashboard-edit-page-edit-device-form-submit-button button {
+    margin: 20px 0px 30px 0px;
+}
+
+.toggle-span-wrap {
+    padding-top: 0px;
+    padding-left: 0px;
+    background-color: #24272E;
+    border: none;
+}
+
+/* 
+Edit Page Form CSS Style 2
+For Edit Ble Application, For Edit General Application 
+*/
+.dashboard-edit-page-edit-app-form {
+    margin: 5px 15px;
+    background-color: #2F323B;
+}
+
+.dashboard-edit-page-edit-app-form.dashboard-edit-page-edit-app-form-for-general-user-app {
+    margin-bottom: 40px;
+    background-color: #2F323B;
+}
+
+.dashboard-edit-page-edit-app-form .input-group-wrapper {
+    padding: 0px 5px;
+}
+
+.dashboard-edit-page-edit-app-form .input-group {
+    margin-bottom: 5px;
+}
+
+.dashboard-edit-page-edit-app-form .input-group-addon {
+    min-width: 165px;
+}
+
+.dashboard-edit-page-edit-app-form .btn {
+    margin: 10px 19px 0px 0px;
+}
+
+.dashboard-edit-page-edit-app-form-group {
+    padding: 0px 30px;
+    margin-bottom: 25px;
+}
+
+.dashboard-edit-page-edit-app-form-group .panel-heading a:hover {
+    text-decoration: none;
+}
+
+.dashboard-edit-page-edit-app-form-group .panel-title {
+    color: #000000;
+    word-spacing: 10px;
+}
+
+.dashboard-edit-page-edit-app-form-group a {
+    color: #000000;
+}
+
+.dashboard-edit-page-edit-app-form-group a:hover {
+    color: #000000;
+    text-decoration: none;
+}
+
+.dashboard-edit-page-edit-app-form-group a h4 span{
+    margin-left: 15px;
+}
+
+.dashboard-edit-page-edit-app-form-group .gen-usr-app-collapse {
+    width: 100%;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.dashboard-edit-page-edit-app-form-group .gen-usr-app-collapse-mobile {
+    width: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.dashboard-edit-page-edit-app-form-group.dashboard-edit-page-edit-app-form-group-gen-usr-app {
+    display: flex;
+}
+
+.dashboard-edit-page-edit-app-form-group.dashboard-edit-page-edit-app-form-group-gen-usr-app .toggle-span-wrap {
+    background-color: #ffffff;
+}
+
+.dashboard-edit-page-edit-app-form-group.dashboard-edit-page-edit-app-form-group-gen-usr-app .toggle.btn {
+    min-width: 80px;
+}
+
+.dashboard-edit-page-edit-app-form-err-row {
+    text-align: center;
+    font-size: 30px;
+    margin-top: 10%;
+    margin-bottom: 10%;
+}
+
+.dashboard-edit-page-edit-app-table-row {
+    margin: 15px 15px;
+    background-color: #2F323B;
+    border-radius: 5px;
+}
+
+.dashboard-edit-page-edit-app-table-row table thead tr th,
+.dashboard-edit-page-edit-app-table-row table tbody tr td {
+    max-width: 100px;
+    text-align: center;
+    color: #ffffff;
+}
+
+.dashboard-edit-page-edit-app-submit-btn {
+    margin: 15px 15px;
+}
+
+.dashboard-edit-page-edit-app-submit-btn .num-ble-tag {
+    color: #ffffff;
+    margin-right: 25px;
+}
+
+#edit-gen-usr-app-table thead th {
+    vertical-align: middle;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: clip;
+    color: #ffffff;
+}
+
+#edit-gen-usr-app-table tbody td {
+    vertical-align: middle;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: clip;
+    color: #ffffff;
+}
+
+#edit-gen-usr-app-table tbody tr:hover td {
+    color: #000000;
+}
+
+/* Mobile CSS Style */
+
+.dashboard-edit-page-edit-app-form-mobile {
+    margin: 5px 0px;
+    background-color: #2F323B;
+}
+
+.dashboard-edit-page-edit-app-form-mobile .input-group-wrapper {
+    padding: 0px 5px;
+}
+
+.dashboard-edit-page-edit-app-form-mobile .input-group {
+    margin: 0px 0px 5px 0px;
+}
+
+.dashboard-edit-page-edit-app-form-mobile .input-group-addon {
+    font-size: 10px;
+    min-width: 125px;
+}
+
+.dashboard-edit-page-edit-app-form-mobile .btn {
+    margin: 10px 19px 0px 0px;
+}
+
+.dashboard-edit-page-edit-app-table-row-mobile {
+    margin: 15px 0px;
+    background-color: #2F323B;
+    border-radius: 5px;
+}
+
+.dashboard-edit-page-edit-app-table-row-mobile .btn {
+    padding: 6px 6px;
+    margin-right: 0px;
+    margin-bottom: 15px;
+}
+
+.dashboard-edit-page-edit-app-submit-btn-mobile {
+    margin: 15px 0px;
+}
+
+.dashboard-edit-page-edit-app-submit-btn-mobile .num-ble-tag {
+    color: #ffffff;
+    margin-right: 25px;
+}
+
+.edit-general-userapp-new-dev-row .btn {
+    margin-right: 15px;
+}
+
+/* Popup Modal CSS style */
+
+.device-table-modal-dialog {
+    position: absolute;
+    left: 100px;
+    right: 100px;
+}
+
+.device-table-modal-dialog-header button{
+    color: #DBDBDB;
+    opacity: 1;
+}
+
+#device-table-modal-dialog-uib {
+    margin:10px 15px;
+}
+
+#device-table-modal-dialog-uib ul {
+    border-bottom: 1px solid #DBDBDB;
+}
+
+/* Need use id to overwrite the bootstrap style */
+#device-table-modal-dialog-uib ul li a{
+    background-color: grey;
+    border: none;
+    color: white;
+}
+
+.device-table-modal-dialog-uib-row {
+    margin-top: 10px;
+}
+
+/* Need use id to overwrite the bootstrap style */
+#device-table-modal-dialog-uib-row-elem {
+    background-color: #7f7f7f;
+    color: white;
+    border: none;
+}
+
+.first-column {
+    width: 50%;
+    float: left;
+  }
+  
+.second-column {
+    width: 50%;
+    float: right;
+}
+
+/* For maintanence modal popup */
+.device-table-maintanence-modal-content {
+    position: absolute;
+    left: -150px;
+    right: -150px;
+}
+
+.device-table-maintanence-modal-content .modal-header button {
+    color: #DBDBDB;
+    opacity: 1;
+}
+
+@media screen and (max-width: 700px) {
+    .dashboard-edit-page-body .nav-tabs>li.active {
+        background-color: #808080;
+    }
+
+    .dashboard-edit-page-body .nav-tabs>li.active>a, 
+    .dashboard-edit-page-body .nav-tabs>li.active>a:focus {
+        font-size: 12px;
+        margin-bottom: 1px;
+        padding-bottom: 7px;
+        border: none;
+    }
+
+    .dashboard-edit-page-body .nav-tabs>li>a {
+        font-size: 10px;
+    }
+
+    .device-table-modal-dialog {
+        position: absolute;
+        left: 20px;
+        right: 20px;
+    }
+
+    .edit-general-userapp-new-dev-row .btn {
+        margin-right: 0px;
+        margin-bottom: 15px;
+    }
+}

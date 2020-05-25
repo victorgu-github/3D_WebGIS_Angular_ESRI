@@ -1,0 +1,116 @@
+/* 
+   datatable control header 
+*/
+.autorefresh {
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.control-header-container .control-header {
+    display: flex;
+    justify-content: flex-end;
+    padding: 2px 10px;
+    background: #272A32;
+    color: #ededed;
+}
+
+.control-header-container .control-header .refresh-toggles {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Horizontal center alignment */
+    margin-right: auto;
+}
+
+.onoffswitch {
+    position: relative;
+    width: 90px;
+    margin-left: 10px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+.onoffswitch-checkbox {
+    display: none;
+}
+
+.onoffswitch-label {
+    display: block;
+    overflow: hidden;
+    cursor: pointer;
+    border: 1px solid #171717;
+    border-radius: 20px;
+    margin-bottom: 0;
+}
+
+.onoffswitch-inner {
+    display: block;
+    width: 200%;
+    margin-left: -100%;
+    -moz-transition: margin 0.3s ease-in 0s;
+    -webkit-transition: margin 0.3s ease-in 0s;
+    -o-transition: margin 0.3s ease-in 0s;
+    transition: margin 0.3s ease-in 0s;
+}
+
+.onoffswitch-inner:before, .onoffswitch-inner:after {
+    display: block;
+    float: left;
+    width: 50%;
+    height: 30px;
+    padding: 0;
+    line-height: 30px;
+    font-size: 14px;
+    color: #ededed;
+    font-weight: bold;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.onoffswitch-inner:before {
+    content: "ON";
+    padding-left: 10px;
+    background-color: #205f95;
+    color: #ededed;
+    font-weight: 500;
+}
+
+.onoffswitch-inner:after {
+    content: "OFF";
+    padding-right: 10px;
+    background-color: #ededed;
+    color: #171717;
+    text-align: right;
+    font-weight: 700;
+}
+
+.onoffswitch-switch {
+    display: block;
+    width: 18px;
+    margin: 6px;
+    background: #ededed;
+    border: 2px solid #777777;
+    border-radius: 20px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 56px;
+    -moz-transition: all 0.3s ease-in 0s;
+    -webkit-transition: all 0.3s ease-in 0s;
+    -o-transition: all 0.3s ease-in 0s;
+    transition: all 0.3s ease-in 0s;
+}
+
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
+    margin-left: 0;
+}
+
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
+    right: 0;
+}
+
+.pagination {
+    margin-bottom: 4px;
+    margin-top: 5px;
+}

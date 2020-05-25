@@ -1,0 +1,39 @@
+<div class="profile-gen-usr-container" ng-show="!displayPageNotFoundTemplate">
+    <div class="profile-gen-usr-display-row row">
+        <div class="col-sm-2 col-md-2 col-lg-2 col-sm-offset-3 col-md-offset-3 col-lg-offset-3" ng-if="!userInfo.isCellPhone">
+            <span class="account-profile-content-panel-icon-for-gen-usr glyphicon glyphicon-user"></span>
+        </div>
+        <div class="col-sm-4 col-md-4 col-lg-4 col-sm-offset-1 col-md-offset-1 col-lg-offset-1">
+            <p>
+                <i class="account-profile-content-panel-i fa fa-user-circle-o"></i> &nbsp; {{'ACCOUNT.PROFILE.USER_NAME' | translate}}: {{userInfo.userName}}
+                <br />
+                <hr />
+                <i class="account-profile-content-panel-i fa fa-user-circle-o"></i> &nbsp; {{'ACCOUNT.PROFILE.FIRST_NAME' | translate}}: {{userInfo.firstName}}
+                <br />
+                <hr />
+                <i class="account-profile-content-panel-i fa fa-user-circle-o"></i> &nbsp; {{'ACCOUNT.PROFILE.LAST_NAME' | translate}}: {{userInfo.lastName}}
+                <br />
+                <hr />
+                <i class="account-profile-content-panel-i glyphicon glyphicon-envelope"></i> &nbsp; {{'ACCOUNT.PROFILE.EMAIL' | translate}}: {{userInfo.email}}
+                <br />
+                <hr />
+            </p>
+        </div>
+    </div>
+    <div class="profile-gen-usr-display-row row">
+        <div class="col-sm-8 col-md-8 col-lg-8 col-sm-offset-2 col-md-offset-2 col-lg-offset-2">
+            <p>
+                <i class="account-profile-content-panel-i fa fa-indent"></i> &nbsp;&nbsp;{{'ACCOUNT.PROFILE.OVERVIEW.COMPANY_NAME' | translate}}: &nbsp;&nbsp;{{companyName}}
+                <br />
+                <hr />
+            </p>
+        </div>
+        <div class="col-sm-8 col-md-8 col-lg-8 col-sm-offset-2 col-md-offset-2 col-lg-offset-2">
+            <a href="{{data.dashboardOverviewPageUrl}}" class="profile-gen-usr-exit btn btn-primary pull-right">{{'ACCOUNT.PROFILE.EXIT' | translate}}</a>
+        </div>
+    </div>
+</div>
+
+<div ng-show="displayPageNotFoundTemplate">
+    <div ng-include="'_shared/errorTemplate/errorTemplate.html'"></div>
+</div>

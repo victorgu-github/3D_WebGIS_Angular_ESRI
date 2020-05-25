@@ -1,0 +1,68 @@
+/*
+    Interpolation styles
+*/
+.interpolation-container {
+    padding-left: 10px;
+    padding-right: 10px;
+    color: #000;
+}
+
+.interpolation-container .invisible {
+    display: none;
+}
+
+.interpolation-container hr {
+    margin-top: 25px;
+}
+
+.interpolation-container .interpolation--filter {
+    margin-bottom: 20px;
+}
+
+.interpolation-container .dropdown--items {
+    min-height: 32px;
+}
+
+.interpolation-container .dropdown--title {
+    color: #9d9d9d;
+    font-size: 16px;
+}
+
+.interpolation-container .btn {
+    text-align: left;
+}
+
+.interpolation-container .caret {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.interpolation-container .dropdown-menu li {
+    padding-left: 10px;
+}
+
+.interpolation-container .dropdown-menu li:hover{
+    cursor: pointer;
+    background-color: #d4d4d4;
+}
+
+.interpolation-container .actions {
+    margin-top: 20px;
+}
+
+.interpolation-container .actions .actions--clear {
+    position: relative;
+    float: left;
+}
+
+.interpolation-container .actions .actions--apply {
+    position: relative;
+    float: right;
+}
+
+.interpolation-container .interpolation--slider .interpolation--slider__attribute {
+    color: #9d9d9d;
+    font-size: 16px;
+}

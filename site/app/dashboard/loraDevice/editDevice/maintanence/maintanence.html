@@ -1,0 +1,74 @@
+<div class="container loraDev-maintain-edit-container" ng-controller="MaintainEditCtrl">
+    <!-- 1.Dispaly ApplicationID Info -->
+    <div class="row">
+        <div class="col-sm-6 col-md-6 col-lg-6 col-sm-offset-3 col-md-offset-3 col-lg-offset-3">
+            <div class="input-group loraDev-maintain-edit-inputGroup">
+                <span class="input-group-addon short-length-title">Application ID *</span>
+                <input type="text" class="form-control" ng-model="mtEditEntry.ApplicationID" disabled/>
+            </div>
+        </div>
+    </div>
+    <!-- 2.Display DevEUI Info -->
+    <div class="row">
+        <div class="col-sm-6 col-md-6 col-lg-6 col-sm-offset-3 col-md-offset-3 col-lg-offset-3">
+            <div class="input-group loraDev-maintain-edit-inputGroup">
+                <span class="input-group-addon short-length-title">Device EUI *</span>
+                <input type="text" class="form-control" ng-model="mtEditEntry.DevEUI" disabled/>
+            </div>
+        </div>
+    </div>
+    <!-- 3.Display Maintenance Status -->
+    <div class="row">
+        <div class="col-sm-6 col-md-6 col-lg-6 col-sm-offset-3 col-md-offset-3 col-lg-offset-3">
+            <div class="input-group loraDev-maintain-edit-inputGroup">
+                <span class="input-group-addon form-control long-length-title">Maintenance Status *</span>
+                <span class="input-group-addon check-box">
+                    <input type="checkbox" ng-model="mtEditEntry.CurrentMtStatus" ng-checked="mtEditEntry.CurrentMtStatus" ng-true-value="true" ng-false-value="false"
+                    />
+                </span>
+            </div>
+        </div>
+    </div>
+    <!-- 4.Display Maintenance Comment -->
+    <!-- Display comment and submit button rule: only InitialMtStatus !== CurrentMtStatus display comment and submit button.
+    which also means we only allow edit comment and submit when change maintenance status -->
+    <div class="row">
+        <div class="col-sm-6 col-md-6 col-lg-6 col-sm-offset-3 col-md-offset-3 col-lg-offset-3">
+            <div class="input-group loraDev-maintain-edit-inputGroup">
+                <span class="input-group-addon long-length-title">Maintenance Comments *</span>
+                <textarea rows="2" class="form-control" ng-model="mtEditEntry.mtComments" />
+            </div>
+        </div>
+    </div>
+    <!-- 5.Display Previous Maintenance Start Time-->
+    <!-- Display maintenance status start time and previous comment rules:
+    1.InitialMtStatus === true display, InitialMtStatus !== true not display, which means lora device initial status is in maintenance display.
+      Otherwise, not display.
+    2.InitialMtStatus === true and CurrentMtStatus === true display, initial status is in maintenance and not change maintenance status, display start time and previous maintenance comment
+    3.InitialMtStatus === true and CurrentMtStatus !== true not display, initial status is in maintenance and change maintenance status, not display start time and previous maintenance comment -->
+    <div class="row" ng-show="mtEditEntry.InitialMtStatus" >
+        <div class="col-sm-6 col-md-6 col-lg-6 col-sm-offset-3 col-md-offset-3 col-lg-offset-3">
+            <div class="input-group loraDev-maintain-edit-inputGroup">
+                <span class="input-group-addon short-length-title">Previous Maintenance Start Time </span>
+                <input type="text" class="form-control" ng-model="mtEditEntry.mtStartTime" disabled readonly/>
+            </div>
+        </div>
+    </div>
+    <!-- 6.Display Previous Maintenance Comment -->
+    <div class="row" ng-show="mtEditEntry.InitialMtStatus" >
+        <div class="col-sm-6 col-md-6 col-lg-6 col-sm-offset-3 col-md-offset-3 col-lg-offset-3">
+            <div class="input-group loraDev-maintain-edit-inputGroup">
+                <span class="input-group-addon long-length-title">Previous Maintenance Comments </span>
+                <textarea rows="2" class="form-control" ng-model="mtEditEntry.mtPreviousComments" disabled readonly/>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-6 col-md-6 col-lg-6 col-sm-offset-3 col-md-offset-3 col-lg-offset-3">
+            <div class="loraDev-maintain-edit-button">
+                <button class="btn btn-primary pull-right" ng-click="finish()">Submit</button>
+            </div>
+        </div>
+    </div>
+</div>

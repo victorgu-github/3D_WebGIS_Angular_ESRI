@@ -1,0 +1,110 @@
+<div class="container loraDev-command-edit-container" ng-controller="EditLoraDevCommandForGenUsrAppCtrl">
+
+    <div class="row">
+        <div class="col-sm-6 col-md-6 col-lg-6 col-sm-offset-3 col-md-offset-3 col-lg-offset-3">
+            <div class="input-group loraDev-command-edit-inputGroup">
+                <span class="input-group-addon short-length-title">Device EUI *</span>
+                <input type="text" class="form-control" ng-model="cmdDevEUI" disabled/>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-6 col-md-6 col-lg-6 col-sm-offset-3 col-md-offset-3 col-lg-offset-3">
+            <div class="input-group loraDev-command-edit-inputGroup">
+                <span class="input-group-addon short-length-title">Fport *</span>
+                <input type="number" class="form-control" ng-model="cmdEditEntry.FPort" ng-change="updateAttribute('FPort')" />
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-6 col-md-6 col-lg-6 col-sm-offset-3 col-md-offset-3 col-lg-offset-3">
+            <div class="input-group loraDev-command-edit-inputGroup">
+                <span class="input-group-addon long-length-title">Encrypted Mac Cmds *</span>
+                <input type="text" class="form-control" ng-model="cmdEditEntry.EncryptedMacCmds" ng-change="updateAttribute('EncryptedMacCmds')"
+                />
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-6 col-md-6 col-lg-6 col-sm-offset-3 col-md-offset-3 col-lg-offset-3">
+            <div class="input-group loraDev-command-edit-inputGroup">
+                <span class="input-group-addon long-length-title">Unencrypted Mac Cmds *</span>
+                <input type="text" class="form-control" ng-model="cmdEditEntry.UnencryptedMacCmds" ng-change="updateAttribute('UnencryptedMacCmds')"
+                />
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-6 col-md-6 col-lg-6 col-sm-offset-3 col-md-offset-3 col-lg-offset-3">
+            <div class="input-group loraDev-command-edit-inputGroup">
+                <span class="input-group-addon long-length-title">User Payload Data *</span>
+                <input type="text" class="form-control" ng-model="cmdEditEntry.UserPayloadData" ng-change="updateAttribute('UserPayloadData')"
+                />
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-6 col-md-6 col-lg-6 col-sm-offset-3 col-md-offset-3 col-lg-offset-3">
+            <div class="input-group loraDev-command-edit-inputGroup">
+                <span class="input-group-addon form-control long-length-title">Downlink Confirmed *</span>
+                <span class="input-group-addon check-box">
+                    <input type="checkbox" ng-model="cmdEditEntry.DownlinkConfirmed" ng-change="updateAttribute('DownlinkConfirmed')" ng-checked="cmdEditEntry.DownlinkConfirmed === true"
+                        ng-true-value="true" ng-false-value="false" />
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-6 col-md-6 col-lg-6 col-sm-offset-3 col-md-offset-3 col-lg-offset-3">
+            <div class="input-group loraDev-command-edit-inputGroup">
+                <span class="input-group-addon form-control long-length-title">Has Encrypted Cmd Delivered *</span>
+                <span class="input-group-addon check-box">
+                    <input type="checkbox" ng-model="cmdEditEntry.HasEncryptedMacCmdDelivered" ng-change="updateAttribute('HasEncryptedMacCmdDelivered')"
+                        ng-checked="cmdEditEntry.HasEncryptedMacCmdDelivered === '01'" ng-true-value="'01'" ng-false-value="'00'"
+                    />
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-6 col-md-6 col-lg-6 col-sm-offset-3 col-md-offset-3 col-lg-offset-3">
+            <div class="input-group loraDev-command-edit-inputGroup">
+                <span class="input-group-addon form-control long-length-title">Has Unencrypted Cmd Delivered *</span>
+                <span class="input-group-addon check-box">
+                    <input type="checkbox" ng-model="cmdEditEntry.HasUnencryptedMacCmdDelivered" ng-change="updateAttribute('HasUnencryptedMacCmdDelivered')"
+                        ng-checked="cmdEditEntry.HasUnencryptedMacCmdDelivered === '01'" ng-true-value="'01'" ng-false-value="'00'"
+                    />
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-6 col-md-6 col-lg-6 col-sm-offset-3 col-md-offset-3 col-lg-offset-3">
+            <div class="input-group loraDev-command-edit-inputGroup">
+                <span class="input-group-addon form-control long-length-title">Has User Payload Delivered *</span>
+                <span class="input-group-addon check-box">
+                    <input type="checkbox" ng-model="cmdEditEntry.HasUserPayloadDataDelivered" ng-change="updateAttribute('HasUserPayloadDataDelivered')"
+                        ng-checked="cmdEditEntry.HasUserPayloadDataDelivered === '01'" ng-true-value="'01'" ng-false-value="'00'"
+                    />
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-6 col-md-6 col-lg-6 col-sm-offset-3 col-md-offset-3 col-lg-offset-3">
+            <div class="loraDev-command-edit-button">
+                <button class="btn btn-primary pull-right" ng-click="finish()">Submit</button>
+                <button class="btn btn-danger pull-right" ng-click="reset()">Reset</button>
+            </div>
+        </div>
+    </div>
+</div>

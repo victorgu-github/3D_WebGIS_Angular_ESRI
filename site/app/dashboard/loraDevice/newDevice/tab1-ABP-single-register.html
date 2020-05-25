@@ -1,0 +1,164 @@
+<!-- 1.Loading Pulse -->
+<div class="row">
+    <div class="dashboard-content-body-loading-pulse" ng-show="ABPFormStatus === 'submitted'">
+        <div class="loading-pulse"></div>
+    </div>
+</div>
+<!-- 2.Error Message -->
+<div class="row dashboard-content-body-error-msg">
+    <div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1 alert alert-danger" role="alert"
+        ng-show="ABPFormStatus === 'invalid'">
+        <button type="button" class="close" ng-click="ABPCloseAlert()" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        <strong>Error occurs due to: </strong>{{ABPErrorMessage}}
+    </div>
+</div>
+<!-- 3.Content and Submit Button -->
+<div class="row">
+    <div class="col-sm-12 col-md-12 col-lg-12 dashboard-content-body-form" ng-show="ABPFormStatus !== 'submitted'">
+        <form name="registerDeviceFormABP">
+            <!-- HTML Validation 1: Device Name -->
+            <div class="dashboard-content-body-form-group control-group" ng-class="{'has-error': !registerDeviceFormABP.DeviceName.$valid, 'has-success': registerDeviceFormABP.DeviceName.$valid}">
+                <div class="input-group col-sm-8 col-md-8 col-lg-8 col-sm-offset-2 col-md-offset-2 col-lg-offset-2">
+                    <span class="input-group-addon">Device Name *</span>
+                    <input id="DeviceName" name="DeviceName" type="text" class="form-control" placeholder="Give a name for your device." ng-model="ABPRegisterForm.Name"
+                        required>
+                </div>
+            </div>
+            <div class="dashboard-content-body-form-group control-group">
+                <div class="input-group col-sm-8 col-md-8 col-lg-8 col-sm-offset-2 col-md-offset-2 col-lg-offset-2">
+                    <span class="input-group-addon">Application ID *</span>
+                    <select id="ApplicationID" class="form-control" ng-model="ABPRegisterForm.ApplicationID" ng-options="id for id in applicationIDs" ng-change="updateABPMulticastAddrArray()">
+                    </select>
+                </div>
+            </div>
+            <!-- HTML Validation 2: Device EUI -->
+            <div class="dashboard-content-body-form-group control-group" ng-class="{'has-error': !registerDeviceFormABP.DevEUI.$valid, 'has-success': registerDeviceFormABP.DevEUI.$valid}">
+                <div class="col-sm-8 col-md-8 col-lg-8 col-sm-offset-4 col-md-offset-4 col-lg-offset-4" ng-show="!registerDeviceFormABP.DevEUI.$valid">
+                    <span class="help-block">
+                        <strong>Please input 16 numbers or characters</strong>
+                    </span>
+                </div>
+                <div class="input-group col-sm-8 col-md-8 col-lg-8 col-sm-offset-2 col-md-offset-2 col-lg-offset-2">
+                    <span class="input-group-addon">Device EUI *</span>
+                    <input id="DevEUI" name="DevEUI" type="text" class="form-control" placeholder="Device EUI" ng-pattern="EUIPattern" ng-model="ABPRegisterForm.DevEUI"
+                        required autocomplete="off">
+                </div>
+            </div>
+            <div class="dashboard-content-body-form-group control-group">
+                <div class="input-group col-sm-8 col-md-8 col-lg-8 col-sm-offset-2 col-md-offset-2 col-lg-offset-2">
+                    <span class="input-group-addon">Device Type *</span>
+                    <select id="DevType" class="form-control" ng-model="ABPRegisterForm.DevType" ng-options="type for type in deviceTypes" ng-change="updateABPSubTypes()">
+                    </select>
+                </div>
+            </div>
+            <div class="dashboard-content-body-form-group control-group" ng-if="ABPSubTypes.length !== 0">
+                <div class="input-group col-sm-8 col-md-8 col-lg-8 col-sm-offset-2 col-md-offset-2 col-lg-offset-2">
+                    <span class="input-group-addon">Sub Type </span>
+                    <select id="SubType" class="form-control" ng-model="ABPRegisterForm.SubType" ng-options="type for type in ABPSubTypes">
+                    </select>
+                </div>
+            </div>
+            <div class="dashboard-content-body-form-group control-group">
+                <div class="input-group col-sm-8 col-md-8 col-lg-8 col-sm-offset-2 col-md-offset-2 col-lg-offset-2">
+                    <span class="input-group-addon">Band ID *</span>
+                    <select id="BandID" class="form-control" ng-model="ABPRegisterForm.BandID" ng-options="type for (key, type) in bandIDs">
+                    </select>
+                </div>
+            </div>
+            <div class="dashboard-content-body-form-group control-group">
+                <div class="input-group col-sm-8 col-md-8 col-lg-8 col-sm-offset-2 col-md-offset-2 col-lg-offset-2">
+                    <span class="input-group-addon">Class *</span>
+                    <select id="Class" class="form-control" ng-model="ABPRegisterForm.Class" ng-options="type for (key, type) in ABPClasses">
+                    </select>
+                </div>
+            </div>
+            <div class="dashboard-content-body-form-group control-group" ng-show="showABPMtAddrArr()">
+                <div class="input-group col-sm-8 col-md-8 col-lg-8 col-sm-offset-2 col-md-offset-2 col-lg-offset-2">
+                    <span class="input-group-addon">MulticastAddrArray </span>
+                    <multiselect ng-model="ABPRegisterForm.MulticastAddrArray" options="ABPMulticastAddrArray" placeholder="Choose Multicast Addresses"></multiselect>
+                </div>
+            </div>
+            
+            <!-- HTML Validation 3: Device Address -->
+            <div class="dashboard-content-body-form-group control-group" ng-class="{'has-error': !registerDeviceFormABP.DevAddr.$valid, 'has-success': registerDeviceFormABP.DevAddr.$valid}">
+                <div class="col-sm-8 col-md-8 col-lg-8 col-sm-offset-4 col-md-offset-4 col-lg-offset-4" ng-show="!registerDeviceFormABP.DevAddr.$valid">
+                    <span class="help-block">
+                        <strong>Please input 8 numbers or characters</strong>
+                    </span>
+                </div>
+                <div class="input-group col-sm-8 col-md-8 col-lg-8 col-sm-offset-2 col-md-offset-2 col-lg-offset-2">
+                    <span class="input-group-addon">Device Address *</span>
+                    <input id="DevAddr" name="DevAddr" type="text" class="form-control" placeholder="Device Address" ng-pattern="AddrPattern"
+                        ng-model="ABPRegisterForm.DevAddr" required autocomplete="off">
+                </div>
+            </div>
+
+            <!-- 3.1 Optional Fields, Collapse Panel -->
+            <div class="dashboard-content-body-form-group control-group">
+                <div class="input-group col-sm-8 col-md-8 col-lg-8 col-sm-offset-2 col-md-offset-2 col-lg-offset-2">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <a data-toggle="collapse" data-target="#register-device-form-collapse-ABP-demo" ng-click="changeABPCollapse()">
+                                <h4 class="panel-title">
+                                    <i class="fa fa-plus" aria-hidden="true" ng-show="ABPCollapse"></i>
+                                    <i class="fa fa-minus" aria-hidden="true" ng-show="!ABPCollapse"></i>
+                                    <span>Optional Fields</span>
+                                </h4>
+                            </a>
+                        </div>
+                        <div id="register-device-form-collapse-ABP-demo" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <div class="dashboard-content-body-form-group control-group">
+                                    <div class="input-group col-sm-12 col-md-12 col-lg-12">
+                                        <span class="input-group-addon">NwkSKey </span>
+                                        <input id="NwkSKey" name="NwkSKey" type="text" class="form-control" ng-model="ABPRegisterForm.NwkSKey">
+                                    </div>
+                                </div>
+                                <div class="dashboard-content-body-form-group control-group">
+                                    <div class="input-group col-sm-12 col-md-12 col-lg-12">
+                                        <span class="input-group-addon">AppSKey </span>
+                                        <input id="AppSKey" name="AppSKey" type="text" class="form-control" ng-model="ABPRegisterForm.AppSKey">
+                                    </div>
+                                </div>
+                                <div class="dashboard-content-body-form-group control-group">
+                                    <div class="input-group col-sm-12 col-md-12 col-lg-12">
+                                        <span class="input-group-addon">Description </span>
+                                        <input id="Description" name="Description" type="text" class="form-control" ng-model="ABPRegisterForm.Description">
+                                    </div>
+                                </div>
+                                <div class="dashboard-content-body-form-group control-group">
+                                    <div class="input-group col-sm-12 col-md-12 col-lg-12">
+                                        <span class="input-group-addon">Latitude </span>
+                                        <input id="RefLat" name="RefLat" type="number" class="form-control" ng-model="ABPRegisterForm.RefLat">
+                                    </div>
+                                </div>
+                                <div class="dashboard-content-body-form-group control-group">
+                                    <div class="input-group col-sm-12 col-md-12 col-lg-12">
+                                        <span class="input-group-addon">Longitude </span>
+                                        <input id="RefLon" name="RefLon" type="number" class="form-control" ng-model="ABPRegisterForm.RefLon">
+                                    </div>
+                                </div>
+                                <div class="dashboard-content-body-form-group control-group">
+                                    <div class="input-group col-sm-12 col-md-12 col-lg-12">
+                                        <span class="input-group-addon">Altitude </span>
+                                        <input id="RefAlt" name="RefAlt" type="number" class="form-control" ng-model="ABPRegisterForm.RefAlt">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dashboard-content-body-form-group dashboard-content-body-form-submit">
+                <div class="control-label col-sm-8 col-md-8 col-lg-8 col-sm-offset-2 col-md-offset-2 col-lg-offset-2 submit-button-wrapper">
+                    <div class="controls">
+                        <button class="btn btn-primary" ng-click="finish('ABP')">Create</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

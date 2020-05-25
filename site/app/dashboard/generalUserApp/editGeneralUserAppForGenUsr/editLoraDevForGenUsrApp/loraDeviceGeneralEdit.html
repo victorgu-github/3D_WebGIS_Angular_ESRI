@@ -1,0 +1,196 @@
+<!-- Edit LoRa Device -->
+<form name="editLoraDeviceForm" class="dashboard-edit-page-edit-device-form">
+  <!-- 1.Fieldset1: Important Fields -->
+  <div class="row">
+    <fieldset class="col-sm-12 col-md-12 col-lg-12">
+      <legend class="text-info"></legend>
+      <!-- 1.1 Important info row 1 -->
+      <div class="row">
+        <div class="form-group col-sm-3 col-md-3 col-lg-3">
+          <label for="Name">Name</label>
+          <input type="text" id="Name" class="form-control" ng-model="editEntry.Name">
+        </div>
+        <div class="form-group col-sm-3 col-md-3 col-lg-3">
+          <label for="DevEUI">DevEUI</label>
+          <input type="text" id="DevEUI" class="form-control" ng-model="editEntry.DevEUI" disabled>
+        </div>
+        <div class="form-group col-sm-3 col-md-3 col-lg-3">
+          <label for="AppEUI">AppEUI</label>
+          <input type="text" id="AppEUI" class="form-control" ng-model="editEntry.AppEUI" disabled>
+        </div>
+        <div class="form-group col-sm-3 col-md-3 col-lg-3">
+          <label for="BandID">BandID</label>
+          <select class="form-control" id="BandID" ng-model="editEntry.BandID" ng-options="type for (key, type) in bandIDs" disabled>
+          </select>
+        </div>
+      </div>
+      <!-- 1.2 Important info row 2 -->
+      <div class="row">
+        <div class="form-group col-sm-3 col-md-3 col-lg-3">
+          <label for="DevType">DevType</label>
+          <select class="form-control" id="DevType" ng-model="editEntry.DevType" ng-options="type for type in deviceTypes" ng-change="updateSubTypes()">
+          </select>
+        </div>
+        <div class="form-group col-sm-3 col-md-3 col-lg-3">
+          <label for="SubType">SubType</label>
+          <select class="form-control" id="SubType" ng-model="editEntry.SubType" ng-options="type for type in subTypes" ng-class="{'disabled-class': !subTypes}"
+            ng-disabled="!subTypes">
+          </select>
+        </div>
+        <div class="form-group col-sm-3 col-md-3 col-lg-3">
+          <label for="Class">Class</label>
+          <select class="form-control" id="Class" ng-model="editEntry.Class" ng-options="type for (key, type) in classes" disabled>
+          </select>
+        </div>
+        <div class="form-group col-sm-3 col-md-3 col-lg-3">
+          <label for="MulticastAddrArray">MulticastAddrArray</label>
+          <input type="text" class="form-control" id="MulticastAddrArray" placeholder="Choose Multicast Addresses" 
+            ng-if="disabledMulticastAddrArray" ng-model="editEntry.MulticastAddrArray"
+            ng-class="{'disabled-class': disabledMulticastAddrArray}" ng-disabled="disabledMulticastAddrArray">
+          <multiselect ng-model="editEntry.MulticastAddrArray" ng-if="!disabledMulticastAddrArray"
+            ng-class="{'disabled-class': disabledMulticastAddrArray}" ng-disabled="disabledMulticastAddrArray"
+            options="multicastAddrArray" placeholder="Choose Multicast Addresses"></multiselect>
+        </div>
+      </div>
+      <!-- 1.3 Important info row 3 -->
+      <div class="row">
+        <div class="form-group col-sm-3 col-md-3 col-lg-3">
+          <label for="DevAddr">DevAddr</label>
+          <input type="text" class="form-control" id="DevAddr" ng-model="editEntry.DevAddr" disabled>
+        </div>
+        <div class="form-group col-sm-3 col-md-3 col-lg-3">
+          <label for="RefLat">Latitude</label>
+          <input type="number" class="form-control" id="RefLat" ng-model="editEntry.RefLat">
+        </div>
+        <div class="form-group col-sm-3 col-md-3 col-lg-3">
+          <label for="RefLon">Longitude</label>
+          <input type="number" class="form-control" id="RefLon" ng-model="editEntry.RefLon">
+        </div>
+        <div class="form-group col-sm-3 col-md-3 col-lg-3">
+          <label for="RefAlt">Altitude</label>
+          <input type="number" class="form-control" id="RefAlt" ng-model="editEntry.RefAlt">
+        </div>
+      </div>
+    </fieldset>
+  </div>
+  <!-- 2.Fieldset2: Modifiable Keys -->
+  <div class="row">
+    <fieldset class="col-sm-12 col-md-12 col-lg-12">
+      <legend class="text-info"></legend>
+      <!-- 2.1 Modifiable keys row 1 -->
+      <div class="row">
+        <div class="form-group col-sm-3 col-md-3 col-lg-3">
+          <label for="NwkSKey">NwkSKey</label>
+          <input type="text" class="form-control" id="NwkSKey" ng-model="editEntry.NwkSKey">
+        </div>
+        <div class="form-group col-sm-3 col-md-3 col-lg-3">
+          <label for="AppKey">AppKey</label>
+          <input type="text" class="form-control" id="AppKey" ng-model="editEntry.AppKey">
+        </div>
+        <div class="form-group col-sm-3 col-md-3 col-lg-3">
+          <label for="AppSKey">AppSKey</label>
+          <input type="text" class="form-control" id="AppSKey" ng-model="editEntry.AppSKey">
+        </div>
+      </div>
+    </fieldset>
+  </div>
+  <!-- 3.Fieldset3: Others -->
+  <div class="row">
+    <fieldset class="col-sm-12 col-md-12 col-lg-12">
+      <legend class="text-info"></legend>
+      <!-- 3.1 Others row 1 -->
+      <div class="row">
+        <div class="form-group col-sm-3 col-md-3 col-lg-3">
+          <label for="Description">Description</label>
+          <textarea class="form-control" id="Description" rows="1" ng-model="editEntry.Description"></textarea>
+        </div>
+        <div class="form-group col-sm-3 col-md-3 col-lg-3">
+          <label for="ADRInterval">ADRInterval</label>
+          <input type="number" class="form-control" id="ADRInterval" ng-model="editEntry.ADRInterval">
+        </div>
+        <div class="form-group col-sm-3 col-md-3 col-lg-3">
+          <label for="DrClassBC">DrClassB</label>
+          <input type="number" class="form-control" id="DrClassBC" ng-model="editEntry.DrClassBC">
+        </div>
+        <div class="form-group col-sm-3 col-md-3 col-lg-3">
+          <label for="FreqClassBC">FreqClassB</label>
+          <input type="number" class="form-control" id="FreqClassBC" ng-model="editEntry.FreqClassBC">
+        </div>
+      </div>
+      <!-- 3.2 Others row 2 -->
+      <div class="row">
+        <div class="form-group col-sm-3 col-md-3 col-lg-3">
+          <label for="InstallationMargin">InstallationMargin</label>
+          <input type="number" class="form-control" id="InstallationMargin" ng-model="editEntry.InstallationMargin">
+        </div>
+        <div class="form-group col-sm-3 col-md-3 col-lg-3">
+          <label for="NbTrans">NbTrans</label>
+          <input type="number" class="form-control" id="NbTrans" ng-model="editEntry.NbTrans">
+        </div>
+        <div class="form-group col-sm-3 col-md-3 col-lg-3">
+          <label for="PingNbClassB">PingNbClassB</label>
+          <input type="number" class="form-control" id="PingNbClassB" ng-model="editEntry.PingNbClassB" disabled>
+        </div>
+        <div class="form-group col-sm-3 col-md-3 col-lg-3">
+          <label for="PingOffsetClassB">PingOffsetClassB</label>
+          <input type="number" class="form-control" id="PingOffsetClassB" ng-model="editEntry.PingOffsetClassB" disabled>
+        </div>
+      </div>
+      <!-- 3.3 Others row 3 -->
+      <div class="row">
+        <div class="form-group col-sm-3 col-md-3 col-lg-3">
+          <label for="PktLossRate">PktLossRate</label>
+          <input type="number" class="form-control" id="PktLossRate" ng-model="editEntry.PktLossRate" disabled>
+        </div>
+        <div class="form-group col-sm-3 col-md-3 col-lg-3">
+          <label for="Rx1DROffset">Rx1DROffset</label>
+          <input type="number" class="form-control" id="Rx1DROffset" ng-model="editEntry.Rx1DROffset">
+        </div>
+        <div class="form-group col-sm-3 col-md-3 col-lg-3">
+          <label for="Rx2DR">Rx2DR</label>
+          <input type="number" class="form-control" id="Rx2DR" ng-model="editEntry.Rx2DR">
+        </div>
+        <div class="form-group col-sm-3 col-md-3 col-lg-3">
+          <label for="RxDelay">RxDelay</label>
+          <input type="number" class="form-control" id="RxDelay" ng-model="editEntry.RxDelay">
+        </div>
+      </div>
+      <!-- 3.4 Others row 4 -->
+      <div class="row">
+        <div class="form-group col-sm-3 col-md-3 col-lg-3">
+          <label for="RxWindowNumber">RxWindowNumber</label>
+          <input type="number" class="form-control" id="RxWindowNumber" ng-model="editEntry.RxWindowNumber">
+        </div>
+        <div class="form-group col-sm-3 col-md-3 col-lg-3">
+          <label for="TxPower">TxPower</label>
+          <input type="number" class="form-control" id="TxPower" ng-model="editEntry.TxPower">
+        </div>
+        <div class="form-group col-sm-3 col-md-3 col-lg-3">
+          <label for="RelaxFCnt">RelaxFCnt</label>
+          <div class="input-group">
+            <span class="input-group-addon" id="basic-addon1">
+              <nz-toggle class="pull-left tip-bottom" ng-model="editEntry.RelaxFCnt" val-true="true" val-false="false" tip-true="'&nbsp;1&nbsp;'"
+                tip-false="'&nbsp;0&nbsp;'"></nz-toggle>
+            </span>
+          </div>
+        </div>
+        <div class="form-group col-sm-3 col-md-3 col-lg-3">
+          <label for="UseAppSetting">UseAppSetting</label>
+          <div class="input-group">
+            <span class="input-group-addon" id="basic-addon1">
+              <nz-toggle class="pull-left tip-bottom" ng-model="editEntry.UseAppSetting" val-true="true" val-false="false" tip-true="'True'"
+                tip-false="'False'"></nz-toggle>
+            </span>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+  <row class="dashboard-edit-page-edit-device-form-submit-button">
+    <div class="col-sm-12 col-md-12 col-lg-12">
+      <button type="button" class="pull-right btn btn-primary" ng-click="finish(editLoraDeviceForm.$valid)">
+        Submit
+      </button>
+    </div>
+    </div>
+</form>

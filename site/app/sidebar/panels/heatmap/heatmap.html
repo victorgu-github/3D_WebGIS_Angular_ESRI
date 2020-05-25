@@ -1,0 +1,85 @@
+<div ng-controller="HeatMapCtrl">
+    <ng-include src="'sidebar/panels/_shared/_panel_header.html'"></ng-include>
+
+    <div class="heat-map-container">
+
+        <div class="heat-map--filter">
+            <div class="dropdown--title">
+                <label>
+                    {{'SIDEBAR.HEAT_MAP.HEAT_LAYER' | translate}}:
+                </label>
+            </div>
+            <div class="dropdown--items dropdown">
+                <button class="btn btn-default dropdown-toggle col-sm-12 col-md-12 col-lg-12"
+                        type="button" data-toggle="dropdown">
+                    <span>{{selectedLayer | translate}}</span>
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu col-sm-12 col-md-12 col-lg-12">
+                    <li ng-repeat="layer in heatLayers"
+                        ng-class="{'selected': layer === selectedLayer}"
+                        ng-click="onChangeLayer(layer)">{{layer | translate}}
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="heat-map--filter">
+            <div class="dropdown--title">
+                <label>
+                    {{'SIDEBAR.HEAT_MAP.HEAT_LAYER_ATTR' | translate}}:
+                </label>
+            </div>
+            <div class="dropdown--items dropdown">
+                <button class="btn btn-default dropdown-toggle col-sm-12 col-md-12 col-lg-12"
+                        type="button" data-toggle="dropdown">
+                    <span>{{selectedAttribute | translate}}</span>
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu col-sm-12 col-md-12 col-lg-12">
+                    <li ng-repeat="attribute in layerAttributes"
+                        ng-class="{'selected': attribute === selectedAttribute}"
+                        ng-click="onChangeAttribute(attribute)">{{attribute | translate}}
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <ul class="heat-map--slider">
+            <li class="heat-map--slider__attributes" ng-repeat="(key, value) in heatLayerMap"
+                ng-show="selectedLayer === key">
+                <div class="heat-map--slider__attribute">
+                    <span>{{'SIDEBAR.HEAT_MAP.RADIUS' | translate}}: </span>
+                    <rzslider rz-slider-model="value.mapLayer"
+                              rz-slider-value="value.radius"
+                              rz-slider-options="value.radiusOptions"
+                              disabled="value.heat === null"></rzslider>
+                </div>
+                <div class="heat-map--slider__attribute">
+                    <span>{{'SIDEBAR.HEAT_MAP.BLUR' | translate}}: </span>
+                    <rzslider rz-slider-model="value.mapLayer"
+                              rz-slider-value="value.blur"
+                              rz-slider-options="value.blurOptions"
+                              disabled="value.heat === null"></rzslider>
+                </div>
+            </li>
+        </ul>
+
+        <hr/>
+
+        <div class="actions">
+            <button type="button" class="actions--clear btn btn-default"
+                    ng-class="{disabled: status === 'applying'}"
+                    ng-click="clearAll()">{{'SIDEBAR.HEAT_MAP.CLEAR_ALL' | translate}}</button>
+
+            <a class="actions--apply btn btn-primary" ng-class="{disabled: status === 'applying'}" ng-click="drawHeatMap()">
+                <span class="glyphicon glyphicon-refresh spinning"
+                      ng-class="{invisible: status === 'applied'}"></span>
+                <span ng-class="{invisible: status === 'applied'}">{{'SIDEBAR.HEAT_MAP.APPLYING' | translate}}</span>
+                <span ng-class="{invisible: status === 'applying'}">{{'SIDEBAR.HEAT_MAP.APPLY' | translate}}</span>
+            </a>
+        </div>
+
+    </div>
+
+</div>

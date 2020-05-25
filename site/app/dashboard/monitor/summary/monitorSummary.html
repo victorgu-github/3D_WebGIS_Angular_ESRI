@@ -1,0 +1,156 @@
+<div class="container loraDevice-monitor-container">
+    <div class="overview-backward">
+        <a href="/#/dashboard/overview">
+            <i class="fa fa-chevron-circle-left" aria-hidden="true"></i>
+            <span>{{'DASHBOARD.BACK_TO_OVERVIEW' | translate}}</span>
+        </a>
+    </div>
+    <hr/>
+    <div class="row loraDevice-monitor-navbar">
+        <div class="col-sm-12 col-md-12 col-lg-12">
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <span class="loraDevice-monitor-title">{{'DASHBOARD.LORA_DEVICES' | translate}}</span>
+                    </div>
+                    <ul class="nav navbar-nav navbar-right monitor-navbar">
+                        <li class="active">
+                            <a href="/#/dashboard/device/loraDevices/monitorSummary">{{'DASHBOARD.SUMMARY' | translate}}</a>
+                        </li>
+                        <li>
+                            <a href="/#/dashboard/device/loraDevices/monitorDatatable">{{'DASHBOARD.DATATABLE' | translate}}</a>
+                        </li>
+                        <li>
+                            <a href="/#/dashboard/device/loraDevices/monitor2DMap">{{'DASHBOARD.MAP_VIEW' | translate}}</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <div class="loraDevice-monitor-content">
+        <div class="row" ng-hide="hideSummaryPage">
+            <div class="col-sm-12 col-md-12 col-lg-12 loraDevice-monitor-summary">
+                <div class="loraDevice-monitor-summary-table">
+                    <div class="loraDevice-monitor-summary-table-row1">
+                        <span>{{'DASHBOARD.SUMMARY_INFO' | translate}}</span>
+                    </div>
+                    <div class="loraDevice-monitor-summary-table-row2">
+                        <div class="loraDevice-monitor-summary-table-row2-col1">
+                            <span>{{'DASHBOARD.APPLICATION_ID' | translate}}</span>
+                        </div>
+                        <div class="loraDevice-monitor-summary-table-row2-col2">
+                            <div class="dropdown">
+                                <select class="btn btn-primary" ng-model="applicationID"
+                                        ng-options="appID for appID in applicationIDs" ng-change="updateByAppID()"
+                                        ng-disabled="isLoading">
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="loraDevice-monitor-summary-table-row3">
+                        <div class="loraDevice-monitor-summary-table-row3-col1">
+                            <span>{{'DASHBOARD.DEVICE_TYPE' | translate}}</span>
+                        </div>
+                        <div class="loraDevice-monitor-summary-table-row3-col2">
+                            <div class="dropdown">
+                                <select class="btn btn-primary" ng-model="deviceType"
+                                        ng-options="devType for devType in deviceTypes"
+                                        ng-change="updateByDevType()"
+                                        ng-disabled="isLoading">
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="loraDevice-monitor-summary-table-row4">
+                        <div class="loading" ng-show="isLoading">
+                            <i class="fa fa-spinner fa-spin fa-3x fa-fw"></i>
+                            <span class="sr-only">{{'DASHBOARD.LOADING' | translate}}</span>
+                        </div>
+                        <span ng-show="isLoaded">{{'DASHBOARD.NUMBER_OF_DEVICES' | translate}}: {{numOfDevices}}</span>
+                    </div>
+                </div>
+                <div id="loraDevice-monitor-summary-graph1" class="loraDevice-monitor-summary-graph1" ng-show="highChartShow">
+                    <div class="loading" ng-show="isLoading">
+                        <i class="fa fa-spinner fa-spin fa-3x fa-fw"></i>
+                        <span class="sr-only">{{'DASHBOARD.LOADING' | translate}}</span>
+                    </div>
+                </div>
+                <div id="loraDevice-monitor-summary-graph2" class="loraDevice-monitor-summary-graph2" ng-show="highChartShow">
+                    <div class="loading" ng-show="isLoading">
+                        <i class="fa fa-spinner fa-spin fa-3x fa-fw"></i>
+                        <span class="sr-only">{{'DASHBOARD.LOADING' | translate}}</span>
+                    </div>
+                </div>
+                <div id="loraDevice-monitor-summary-graph3" class="loraDevice-monitor-summary-graph3" ng-show="highChartShow">
+                    <div class="loading" ng-show="isLoading">
+                        <i class="fa fa-spinner fa-spin fa-3x fa-fw"></i>
+                        <span class="sr-only">{{'DASHBOARD.LOADING' | translate}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row" ng-hide="hideSummaryPage">
+            <div class="col-sm-12 col-md-12 col-lg-12 loraDevice-monitor-history">
+                <div class="loraDevice-monitor-history-table">
+                    <div class="loraDevice-monitor-history-table-row1">
+                        <span>{{'DASHBOARD.DEVICE_HISTORY_CHART' | translate}}</span>
+                    </div>
+                    <div class="loraDevice-monitor-history-table-row2">
+                        <div class="loraDevice-monitor-history-table-row2-col1">
+                            <span>{{'DASHBOARD.START_TIME' | translate}}</span>
+                        </div>
+                        <div class="loraDevice-monitor-history-table-row2-col2 form-group">
+                            <input type="datetime-local" class="form-control" ng-model="historyStartTime" step="3600"/>
+                        </div>
+                    </div>
+                    <div class="loraDevice-monitor-history-table-row3">
+                        <div class="loraDevice-monitor-history-table-row3-col1">
+                            <span>{{'DASHBOARD.END_TIME' | translate}}</span>
+                        </div>
+                        <div class="loraDevice-monitor-history-table-row3-col2 form-group">
+                            <input type="datetime-local" class="form-control" ng-model="historyEndTime" step="3600"/>
+                        </div>
+                    </div>
+                    <div class="loraDevice-monitor-history-table-row4">
+                        <div class="loraDevice-monitor-history-table-row4-col1">
+                            <span>{{'DASHBOARD.DEVICE_TYPE' | translate}}</span>
+                        </div>
+                        <div class="loraDevice-monitor-history-table-row4-col2">
+                            <div class="dropdown">
+                                <select class="btn btn-primary monitor-history-select" ng-model="historyDeviceType"
+                                        ng-options="deviceType for deviceType in historyDeviceTypes"
+                                        ng-change="updateAttribute()" ng-disabled="isLoading">
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="loraDevice-monitor-history-table-row5">
+                        <div class="loraDevice-monitor-history-table-row5-col1">
+                            <span>{{'DASHBOARD.DEVICE_ATTRIBUTE' | translate}}</span>
+                        </div>
+                        <div class="loraDevice-monitor-history-table-row5-col2">
+                            <div class="dropdown">
+                                <select class="btn btn-primary monitor-history-select" ng-model="attribute"
+                                        ng-options="attribute for attribute in attributes"
+                                        ng-disabled="isLoading">
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="loraDevice-monitor-history-table-row6">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-primary monitor-history-submit" ng-click="drawHistoryHighChart()">{{'DASHBOARD.CREATE' | translate}}</button>
+                        </div>
+                    </div>
+                </div>
+                <div id="loraDevice-monitor-history-graph" class="loraDevice-monitor-history-graph">
+                    <div class="loading" ng-show="isLoading">
+                        <i class="fa fa-spinner fa-spin fa-3x fa-fw"></i>
+                        <span class="sr-only">{{'DASHBOARD.LOADING' | translate}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

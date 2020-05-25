@@ -1,0 +1,63 @@
+.loraDev-maintain-edit-container {
+    position: absolute;
+    margin-top: 50px;
+    left: 0;
+    width: 100%;
+}
+
+.loraDev-maintain-edit-inputGroup {
+    margin: 10px 0px;
+    background-color: white;
+    border-radius: 5px;
+}
+
+.loraDev-maintain-edit-inputGroup .short-length-title {
+    min-width: 250px;
+    max-width: 250px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.loraDev-maintain-edit-inputGroup .long-length-title {
+    min-width: 250px;
+    max-width: 250px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.loraDev-maintain-edit-inputGroup .check-box {
+    padding-right: 50px;
+    background-color: white;
+}
+
+.loraDev-maintain-edit-inputGroup input {
+    background-color: #ffffff;
+}
+
+loraDev-maintain-edit-button {
+    padding: 20px 0px;
+}
+
+.loraDev-maintain-edit-button .btn{
+    margin: 50px 0px 10px 10px;
+}
+
+@media screen and (max-width: 700px) {
+    .loraDev-maintain-edit-inputGroup .short-length-title {
+        min-width: 188px;
+        max-width: 188px;
+        font-size: 10px;
+        font-weight: bold;
+    }
+    
+    .loraDev-maintain-edit-inputGroup .long-length-title {
+        min-width: 188px;
+        max-width: 188px;
+        font-size: 10px;
+        font-weight: bold;
+    }
+
+    .loraDev-maintain-edit-inputGroup .input-group-addon {
+        min-width: 162px;
+    }
+}

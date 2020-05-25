@@ -1,0 +1,116 @@
+<div class="dashboard-shared-table-container container">
+    <!-- Return Back To Overview Page -->
+    <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-12">
+            <div class="overview-backward">
+                <a href="/#/dashboard/overview">
+                    <i class="fa fa-chevron-circle-left" aria-hidden="true"></i>
+                    <span>Back to Overview</span>
+                </a>
+            </div>
+            <hr/>
+        </div>
+    </div>
+
+    <!-- Filter And Search Bar -->
+    <div class="row">
+        <div class="dashboard-shared-table-filter-search-bar">
+            <div class="input-group">
+                <span class="input-group-addon">AppID Filter</span>
+                <select class="form-control" ng-model="filterVal" ng-options="id for id in applicationIDs" ng-change="searchDevice()"></select>
+            </div>
+            <div class="input-group">
+                <span class="input-group-addon">Search</span>
+                <input type="text" class="form-control" ng-model="searchVal" ng-change="searchDevice()" />
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Animation & No Data Message & Table -->
+    <div class="row">
+        <div class="dashboard-shared-table-details col-sm-12 col-md-12 col-lg-12">
+            <div class="content-loader" ng-show="initializing">
+                <div class="content-loader-inner">
+                    <label> ●</label>
+                    <label> ●</label>
+                    <label> ●</label>
+                    <label> ●</label>
+                    <label> ●</label>
+                    <label> ●</label>
+                </div>
+            </div>
+
+            <div class="dashboard-shared-table-no-data" ng-show="!initializing && tableBody.length === 0">
+                <div class="dashboard-shared-table-no-data-message">
+                    <h1>No data found in the system</h1>
+                </div>
+            </div>
+
+            <div class="table-container">
+                <table id="displayMulticastGroupTable" class="table table-hover" ng-show="!initializing && tableBody.length !== 0">
+                    <thead ng-class="getTableHeaderClass()">
+                        <tr>
+                            <th>
+                                <i class="fa fa-cog" aria-hidden="true"></i>
+                            </th>
+                            <th ng-repeat="item in tableHeader track by $index" ng-click="sortTable(item)">
+                                {{item}}
+                                <i class="fa fa-arrow-up" ng-show="sortMap[item] === true && sortAscMap[item] === true"></i>
+                                <i class="fa fa-arrow-down" ng-show="sortMap[item] === true && sortAscMap[item] !== true"></i>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody class="table-body">
+                        <tr ng-repeat="row in tableBody track by $index" class="data-table-row">
+                            <td align="center">
+                                <a class="btn btn-default" ng-click="showDeviceInfo(row)">
+                                    <i class="fa fa-book"></i>
+                                </a>
+                                <a class="btn btn-default" ng-click="editMulticastGroup(row)">
+                                    <i class="fa fa-pencil"></i>
+                                </a>
+                                <a class="btn btn-danger" ng-click="deleteMulticastGroup(row)">
+                                    <i class="fa fa-trash"></i>
+                                </a>
+                            </td>
+                            <td title="{{col}}" ng-repeat="col in row track by $index">
+                                {{col}}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="device-table-modal-dialog" role="document">
+                        <div class="dashboard-modal-content modal-content">
+                            <div class="device-table-modal-dialog-header modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                <h3 class="modal-title" id="myModalLabel">
+                                    <b>
+                                        <h2>
+                                            <em>LoRa Multicast Group Information</em>
+                                        </h2>
+                                    </b>
+                                </h3>
+                            </div>
+                            <uib-tabset id="device-table-modal-dialog-uib" active="active">
+                                <!-- First Tab for General Editing -->
+                                <uib-tab class="uib-tab" index="0" heading="General Information">
+                                    <div class="device-table-modal-dialog-uib-row row">
+                                        <div ng-repeat="elem in popupRowInfo track by $index" class="col-sm-6 col-md-4 col-lg-3">
+                                            <div class="form-group">
+                                                <label for="usr">{{elem.header}}</label>
+                                                <input type="text" id="device-table-modal-dialog-uib-row-elem" class="form-control" value="{{elem.body}}" readonly>
+                                            </div>
+                                        </div>
+                                </uib-tab>
+                            </uib-tabset>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

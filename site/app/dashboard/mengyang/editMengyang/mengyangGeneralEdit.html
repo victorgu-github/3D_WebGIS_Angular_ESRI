@@ -1,0 +1,99 @@
+<form name="editMengyangForm" class="dashboard-edit-page-edit-device-form">
+    <!-- 1.Fieldset1: Important Fields -->
+    <div class="row">
+        <fieldset class="col-sm-12 col-md-12 col-lg-12">
+            <legend class="text-info"></legend>
+            <!-- 1.1 Important Fields row 1 -->
+            <div class="row">
+                <div class="form-group col-sm-4 col-md-4 col-lg-4">
+                    <label for="pastureID">牧场</label>
+                    <input type="text" id="pastureID" class="form-control" ng-model="data.pastureID" disabled>
+                </div>
+                <div class="form-group col-sm-4 col-md-4 col-lg-4">
+                    <label for="mengyangID">蒙羊耳标1</label>
+                    <input type="text" id="mengyangID" class="form-control" ng-model="editEntry.mengyangID" disabled>
+                </div>
+                <div class="form-group col-sm-4 col-md-4 col-lg-4">
+                    <label for="mengyangID2">蒙羊耳标2</label>
+                    <input type="text" id="mengyangID2" class="form-control" ng-model="editEntry.mengyangID2" disabled>
+                </div>
+            </div>
+            <!-- 1.2 Important Fields row 2 -->
+            <div class="row">
+                <div class="form-group col-sm-4 col-md-4 col-lg-4">
+                    <label for="dateOfBirth">出生日期*</label>
+                    <input type="date" id="dateOfBirth" class="form-control" ng-model="editEntry.dateOfBirth" required>
+                </div>
+                <div class="form-group col-sm-4 col-md-4 col-lg-4">
+                    <label for="birthWeight">初生重(kg)*</label>
+                    <input type="number" id="birthWeight" step="0.00000000000000000001" class="form-control" ng-model="editEntry.birthWeight" required>
+                </div>
+                <div class="form-group col-sm-4 col-md-4 col-lg-4">
+                    <label for="gender">性别*</label>
+                    <input type="text" id="gender" class="form-control" ng-model="editEntry.gender" required>
+                </div>
+            </div>
+            <!-- 1.3 Important Fields row 3 -->
+            <div class="row">
+                <div class="form-group col-sm-4 col-md-4 col-lg-4">
+                    <label for="origin">来源*</label>
+                    <input type="text" class="form-control" id="origin" ng-model="editEntry.origin" required>
+                </div>
+                <div class="form-group col-sm-4 col-md-4 col-lg-4">
+                    <label for="fatherID">父耳标</label>
+                    <input type="text" class="form-control" id="fatherID" ng-model="editEntry.fatherID">
+                </div>
+                <div class="form-group col-sm-4 col-md-4 col-lg-4">
+                    <label for="motherID">母耳标</label>
+                    <input type="text" class="form-control" id="motherID" ng-model="editEntry.motherID">
+                </div>
+            </div>
+            <!-- 1.4 Important Fields row 4 -->
+            <div class="row">
+                <div class="form-group col-sm-4 col-md-4 col-lg-4">
+                    <label for="comments">备注</label>
+                    <input type="text" class="form-control" id="comments" ng-model="editEntry.comments">
+                </div>
+                <div class="form-group col-sm-4 col-md-4 col-lg-4">
+                    <label for="variety">品种</label>
+                    <input type="text" class="form-control" id="variety" ng-model="editEntry.variety">
+                </div>
+            </div>
+        </fieldset>
+    </div>
+
+    <!-- 2.Fieldset2: Optional Fields -->
+    <div class="row">
+        <fieldset class="col-sm-12 col-md-12 col-lg-12">
+            <legend class="text-info"></legend>
+            <!-- 2.1 Optional Fields row 1 -->
+            <div class="input-group">
+                <span class="input-group-addon" style="background-color:#eee; min-width: 100px">照片</span>
+                <input id="pictureInfo" type="text" class="form-control" readonly>
+                <label class="input-group-btn">
+                    <span class="btn btn-primary" ng-click="deletePicture()" style="background-color: #337ab7; border-radius:0px"> 删除
+                    </span>
+                </label>
+                <label class="input-group-btn">
+                    <span class="btn btn-primary" ng-click="resetPicture()" style="background-color: #337ab7; border-radius:0px"> 重置
+                    </span>
+                </label>
+                <label class="input-group-btn">
+                    <span class="btn btn-primary" style="background-color: #337ab7">
+                        浏览&hellip;
+                        <input id="picture" type="file" accept="image/*" style="display: none;" onchange="angular.element(this).scope().pictureBrowse()"
+                            multiple required>
+                    </span>
+                </label>
+            </div>
+        </fieldset>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-12 dashboard-edit-page-edit-device-form-submit-button">
+            <button type="button" class="pull-right btn btn-primary" ng-click="finish(editMengyangForm.$valid)">
+                提交
+            </button>
+        </div>
+    </div>
+</form>

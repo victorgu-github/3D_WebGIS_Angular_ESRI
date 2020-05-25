@@ -1,0 +1,145 @@
+.zmq-payload-channel-history-data-container {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: calc(100% - 0px);
+    height: calc(100% - 50px);
+    background-color: #24272E;
+}
+
+.zmq-payload-channel-history-data-content {
+    position: absolute;
+    top: 65px;
+    height: 100%;
+    left: 25px;
+    width: calc(100% - 50px);
+}
+
+.zmq-payload-channel-history-data-well {
+    margin-top: 10px;
+    background-color: #24272E;
+}
+
+.zmq-payload-channel-history-data-well .row:not(:last-of-type) {
+    margin-bottom: 15px;
+}
+
+.channel-history-well-span {
+    position: absolute;
+    top: -4px;
+    left: calc(5% + 20px);
+    font-size: 20px;
+    background-color: #24272E;
+    color: #949BA2;
+    padding: 0px 5px;
+}
+
+.zmq-payload-well-span {
+    position: absolute;
+    top: 91px;
+    left: calc(5% + 20px);
+    font-size: 20px;
+    background-color: #24272E;
+    color: #949BA2;
+    padding: 0px 5px;
+}
+
+.zmq-payload-channel-history-data-inputGroup .input-group-addon {
+    min-width: 120px;
+}
+
+.zmq-payload-channel-history-data-inputGroup input {
+    background-color: #ffffff;
+}
+
+#channelHistoryDataModal .zmq-payload-channel-history-data-inputGroup .input-group-addon {
+    min-width: 250px;
+}
+
+/* For zmq payload data modal table */
+.device-table-zmq-payload-modal-table {
+    position: absolute;
+    top: 250px;
+    bottom: 60px;
+    left: 15px;
+    width: calc(100% - 30px);
+}
+
+.device-table-zmq-payload-modal-table .content-loader {
+    top: 45%;
+}
+
+.device-table-zmq-payload-modal-table .no-data {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.device-table-zmq-payload-modal-table .table-container {
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    background-color: #ffffff;
+}
+
+.device-table-zmq-payload-modal-table table {
+    display: table;
+    table-layout: fixed;
+    position: absolute;
+    top: 50px;
+    bottom: 10px;
+    width: 100%;
+}
+
+.device-table-zmq-payload-modal-table table thead {
+    position: fixed;
+    top: 366px;
+    left: 125px;
+    width: calc(100% - 181px);
+    height: 50px;
+    background: #eee;
+    color: #000000;
+    table-layout: fixed;
+    display: table;
+    z-index: 3;
+    border-radius: 2px;
+}
+
+.device-table-zmq-payload-modal-table table tbody {
+    position: relative;
+    table-layout: fixed;
+    display: table;
+    top: 0;
+    width: 100%;
+    line-height: 3em;
+    z-index:2;
+}
+
+.device-table-zmq-payload-modal-table table th {
+    line-height: 20px;
+    min-width: 140px;
+    max-width: 140px;
+    font-size: medium;
+    text-align: center;
+    vertical-align: middle;
+    overflow: hidden;
+    text-overflow: clip;
+}
+
+.device-table-zmq-payload-modal-table table td {
+    line-height: 20px;
+    min-width: 140px;
+    max-width: 140px;
+    font-size: small;
+    text-align: center;
+    vertical-align: middle;
+    overflow: hidden;
+    text-overflow: clip;
+}

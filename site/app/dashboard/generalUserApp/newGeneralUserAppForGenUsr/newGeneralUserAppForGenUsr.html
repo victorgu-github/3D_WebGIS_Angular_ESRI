@@ -1,0 +1,41 @@
+<div class="container dashboard-content-container" ng-controller="NewGeneralUserAppCtrlForGenUsr">
+    <div class="row">
+        <div class="dashboard-content-header col-sm-12 col-md-12 col-lg-12">
+            <h3>New Application</h3>
+            <div class="dashboard-content-header-separator"></div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="dashboard-content-body-loading-pulse col-sm-12 col-md-12 col-lg-12" ng-show="formStatus === 'submitted'">
+            <div class="loading-pulse"></div>
+        </div>
+    </div>
+    <div class="row dashboard-content-body-error-msg">
+        <div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1 alert alert-danger" role="alert"
+            ng-show="formStatus === 'invalid'">
+            <button type="button" class="close" ng-click="closeAlert()" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <strong>Error occurs due to: </strong>{{errorMessage}}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-12 dashboard-content-body-form">
+            <form name="step1">
+                <div class="dashboard-content-body-form-group control-group">
+                    <div class="input-group col-sm-8 col-md-8 col-lg-8 col-sm-offset-2 col-md-offset-2 col-lg-offset-2">
+                        <span class="input-group-addon">Application Name</span>
+                        <input type="text" class="form-control" id="usrName" ng-model="generalUserApplicationName">
+                    </div>
+                </div>
+                <div class="dashboard-content-body-form-group dashboard-content-body-form-submit">
+                    <div class="control-label col-sm-8 col-md-8 col-lg-8 col-sm-offset-2 col-md-offset-2 col-lg-offset-2 submit-button-wrapper batch-submit">
+                        <div class="controls">
+                            <button class="btn btn-primary" ng-click="submit()">Create</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

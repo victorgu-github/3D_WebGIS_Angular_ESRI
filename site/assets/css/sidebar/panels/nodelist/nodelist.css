@@ -1,0 +1,48 @@
+/*
+    nodelist styles
+*/
+.nodeList {
+    margin-bottom: 6px;
+    background-color: transparent;
+    border-radius: 5px;
+}
+
+.nodeList .node {
+    cursor: pointer;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-bottom: 6px;
+    background-color: #171717;
+    border-radius: 5px;
+    height: 40px;
+    line-height: 40px;
+    width: 96%;
+    padding-right: 5px;
+}
+
+.nodeList .node:hover {
+    color: #FFFFFF;
+}
+
+.nodeList .node .fa {
+    font-size: 18px;
+    margin-left: 15px;
+}
+
+.nodeList .nodeMac {
+    margin-left: 15px;
+    font-size: 18px;
+}
+
+.nodeList .node-color {
+    display: inline-block;
+    background-color: #FFFFFF;
+    height: 20px;
+    border-radius:50%;
+    width: 20px;
+    float: right;
+    top: 50%;
+    position: relative;
+    transform: translateY(-50%);
+    right: 8px;
+}

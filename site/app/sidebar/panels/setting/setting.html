@@ -1,0 +1,33 @@
+<div class="setting" ng-controller="SettingCtrl">
+    <div class="setting-item-title">
+        <span>{{setting.name | translate}}</span>
+        <fa name="times-circle-o" class="panel-close" ng-click="togglePanel(item.name)"></fa>
+    </div>
+
+    <!-- panel1: Environment Setting -->
+    <form class="setting-item">
+        <h4 class="setting-panels-title"> {{setting.panels[0].title | translate}} </h4>
+        <div class="setting-item__content clearfix">
+            <span>{{'DAY_TIME' | translate}}</span>
+            <span>{{'REAL_TIME' | translate}}</span>
+            <span>{{'NIGHT_TIME' | translate}}</span>
+        </div>
+        <div class="btn-group setting-item__buttons clearfix" role="group">
+            <button type="button" class="btn btn-default"
+                    ng-class="{active: currentEnvironment === ENVIRONMENT.DAY_TIME}"
+                    ng-click="changeDayTimeViewDisplay()">
+                <fa name="sun-o" size="2"></fa>
+            </button>
+            <button type="button" class="btn btn-default"
+                    ng-class="{active: currentEnvironment === ENVIRONMENT.REAL_TIME}"
+                    ng-click="changeRealWorldDisplay()">
+                <fa name="clock-o" size="2"></fa>
+            </button>
+            <button type="button" class="btn btn-default"
+                    ng-class="{active: currentEnvironment === ENVIRONMENT.NIGHT_TIME}"
+                    ng-click="changeNightViewDisplay()">
+                <fa name="moon-o " size="2"></fa>
+            </button>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,115 @@
+/*
+BOOSTRAP STYLE
+*/
+
+/* bootstrap jumbotron */
+.jumbotron {
+    background: #091926 url('../img/jumbotron-background.jpg') no-repeat right;
+    color: #fff;
+  }
+  
+  .primary-jumbotron-title {
+    position: absolute;
+  }
+  
+  .show-hide-jumbotron-title {
+    transition: opacity linear 0.75s;
+  }
+  
+  .show-hide-jumbotron-title.ng-hide {
+    opacity: 0;
+    display: block !important;
+  }
+
+  .navbar.navbar-inverse.navbar-static-top {
+    max-height: 50px;
+    margin-bottom: 0;
+  }
+  
+  /* navbar size and position overrides of calcite-bootstrap */
+  /* bootstrap navbar -- dark theme*/
+  .navbar.navbar-inverse.navbar-static-top.navbar-dark {
+    background-color: #24272E;
+  }
+
+   /* bootstrap navbar -- bright theme*/
+  .navbar.navbar-inverse.navbar-static-top.navbar-bright {
+    background-color: #e5e5e5;
+  }
+
+  .navbar.navbar-inverse.navbar-static-top.navbar-bright i,
+  .navbar.navbar-inverse.navbar-static-top.navbar-bright span {
+    color: #000000;
+  }
+  
+  .navbar-inverse a.navbar-brand {
+    color: #9d9d9d;
+  }
+  .navbar-header {
+    float: left;
+  }
+  .navbar-brand {
+    color: #9d9d9d;
+    font-size: 22px;
+    font-weight: 200;
+  }
+  .navbar-brand .fa:hover,
+  .navbar-brand span:hover{
+    cursor: pointer;
+  }
+  .navbar-brand span {
+    margin-left: 10px;
+  }
+  .navbar-brand.home {
+    line-height: 21px;
+    padding-left: 10px;
+  }
+  .navbar-right {
+    float: right;
+  }
+  .navbar-right .dropdown a{
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+  .navbar-right .language-switch {
+    min-width: 100px;
+  }
+  .navbar-right .language-switch .dropdown-menu a {
+    padding-left: 10px;
+  }
+  .navbar-right .dropdown a:hover{
+    cursor: pointer;
+    background-image: none;
+  }
+  .navbar-nav>li {
+    float: left;
+  }
+
+  .navbar-nav>li>a:focus,
+  .navbar-nav>li>a:hover,
+  .navbar-nav>li>div:hover{
+    background-image: linear-gradient(to top,transparent 92%,#b52e31 93%,#b52e31 100%);
+  }
+  .nav>li>a:focus,
+  .nav>li>a:hover, 
+  .navbar-nav>li>div{
+    text-decoration: none;
+    background-color: #f8f8f8;
+  }
+  .nav-tabs>li>a:hover{
+    border-top: 2px solid #b52e31;
+  }
+
+  .navbar-inverse .navbar-nav > li > a{
+    font-size: 18px;
+  }
+
+  @media (max-width: 768px) {
+    /* bootstrap's extra small devices (width less than 768px) */
+    /* reduced default padding to fit nav links along 1 row */
+    .navbar-nav>li>a, 
+    .navbar-nav>li>div{
+      padding-left: 8px;
+      padding-right: 8px;
+    }
+  }

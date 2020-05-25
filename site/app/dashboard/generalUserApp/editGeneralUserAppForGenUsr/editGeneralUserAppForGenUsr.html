@@ -1,0 +1,112 @@
+<div class="dashboard-edit-page-container container">
+    <!-- Return to Overview -->
+    <div class="return-panel">
+        <div class="return-panel-header">
+            <h3>
+                <span class="glyphicon glyphicon-share"></span>
+                <a class="return-panel-header-link" href="{{generalUsrAppTableUrl}}">Return</a>
+            </h3>
+        </div>
+    </div>
+
+    <div class="dashboard-edit-page-body container">
+
+        <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-12">
+                <!-- Error Message -->
+                <div class="dashboard-edit-page-body-invalid-msg alert alert-danger" role="alert" ng-show="formStatus === 'invalid'">
+                    <button type="button" class="close" ng-click="closeAlert()" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <strong>Error occurs due to: </strong>{{errorMessage}}
+                </div>
+
+                <div class="dashboard-edit-page-body-content-loader content-loader" ng-show="initializing">
+                    <div class="content-loader-inner">
+                        <label> ●</label>
+                        <label> ●</label>
+                        <label> ●</label>
+                        <label> ●</label>
+                        <label> ●</label>
+                        <label> ●</label>
+                    </div>
+                </div>
+
+                <form name="editGeneralUserApplicationForm" ng-class="getEditGeneralUserAppFormClass()">
+                    <div class="input-group col-sm-12 col-md-12 col-lg-12">
+                        <span class="input-group-addon">App Name</span>
+                        <input type="text" class="form-control" id="usrName" ng-model="generalUserApplicationName" ng-change="displaySubmit()">
+                        <span class="input-group-addon btn btn-primary" ng-show="showSubmitBtn" ng-click="submit()">Submit</span>
+                    </div>
+                    <div class="input-group col-sm-12 col-md-12 col-lg-12">
+                        <span class="input-group-addon">Created Time</span>
+                        <input id="createdTime" name="createdTime" type="text" class="form-control" ng-model="createdTime" disabled>
+                    </div>
+                    <div class="input-group col-sm-12 col-md-12 col-lg-12">
+                        <span class="input-group-addon">Modified Time</span>
+                        <input id="modifiedTime" name="modifiedTime" type="text" class="form-control" ng-model="modifiedTime" disabled>
+                    </div>
+                    <div class="input-group col-sm-12 col-md-12 col-lg-12" ng-show="displayScenarioID">
+                        <span class="input-group-addon">Scenario Name</span>
+                        <input id="scenarioName" name="scenarioName" type="text" class="form-control" ng-model="scenarioID" disabled>
+                    </div>
+                </form>
+                <div ng-class="getGeneralUserAppTableClass()">
+                    <!-- Display No Data Message -->
+                    <div class="dashboard-edit-page-edit-app-form-err-row row" ng-show="!initializing && tableBody.length === 0">
+                        <div class="col-sm-12 col-md-12 col-lg-12">
+                            <span ng-show="noDataHint">
+                                <fa name="table" size="1"></fa>
+                                No Data For This Application
+                            </span>
+                            <span ng-show="!nodataHint">
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Display Lora Device Table -->
+                    <table id="edit-gen-usr-app-table" class="table table-hover" ng-show="!initializing && tableBody.length !== 0">
+                        <thead class="table-header">
+                            <tr>
+                                <th>
+                                    <i class="fa fa-cog" aria-hidden="true"></i>
+                                </th>
+                                <th ng-repeat="item in tableHeader track by $index">
+                                    {{item}}
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody class="table-body">
+                            <tr ng-repeat="row in tableBody track by $index" ng-class="checkTableRowClass(row)">
+                                <td align="center">
+                                    <a title="LoRa Device General Info" class="btn btn-default" ng-click="showDeviceInfo($index)">
+                                        <i class="fa fa-book"></i>
+                                    </a>
+                                    <a title="Edit LoRa Device" class="btn btn-default" ng-click="editDevice($index)">
+                                        <i class="fa fa-pencil"></i>
+                                    </a>
+                                    <a title="Delete LoRa Device" class="btn btn-danger" ng-click="deleteDevice($index)">
+                                        <i class="fa fa-trash"></i>
+                                    </a>
+                                </td>
+                                <td title="{{col}}" ng-repeat="col in row track by $index">
+                                    {{col}}
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <!-- Create a new lora device -->
+                    <div class="edit-general-userapp-new-dev-row row">
+                        <div class="col-sm-12 col-md-12 col-lg-12">
+                            <button class="btn btn-primary pull-right" ng-click="createDev()">New Device</button>
+                        </div>
+                    </div>
+
+                    <!-- Modal Parts -->
+                    <div ng-include="'/dashboard/deviceTable/modals/generalInfoModal.html'"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

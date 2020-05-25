@@ -1,0 +1,65 @@
+{
+  "rules": {
+    "vars-on-top": "error",
+    "no-var": "error",
+    "no-console": "off",
+    "no-debugger": "error",
+    "curly": [
+      "error",
+      "multi-line"
+    ],
+    "eqeqeq": [
+      "error",
+      "always",
+      {
+        "null": "ignore"
+      }
+    ],
+    //    "indent": [
+    //      "warning",
+    //      2
+    //    ],
+    "keyword-spacing": [
+      "error",
+      {
+        "before": true,
+        "after": true,
+        "overrides": {
+          "return": {
+            "after": true
+          },
+          "throw": {
+            "after": true
+          },
+          "case": {
+            "after": true
+          }
+        }
+      }
+    ],
+    "semi": [
+      "error",
+      "always"
+    ]
+  },
+  "env": {
+    "browser": true,
+    "es6": true,
+    "mocha": true
+  },
+  "globals": {
+    "$": true,
+    "angular": false,
+    "expect": true,
+    "L": true,
+    "PruneClusterForLeaflet": true,
+    "PruneCluster": true,
+    "inject": true,
+    "module": true,
+    "$rootScope": true,
+    "require": true,
+    "process": true,
+    "sinon": true
+  },
+  "extends": "eslint:recommended"
+}

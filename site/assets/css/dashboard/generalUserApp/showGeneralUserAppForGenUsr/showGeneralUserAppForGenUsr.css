@@ -1,0 +1,18 @@
+#dashboard-content-container-show-gen-usr-app {
+    position: absolute;
+    top: 0px;
+    bottom: 60px;
+    left: 0px;
+    width: 100%;
+    overflow-y: auto;
+}
+
+#dashboard-content-container-show-gen-usr-app .toggle-span-wrap {
+    width: 80px;
+    margin-top: 15px;
+    background-color: #ffffff;
+}
+
+#dashboard-content-container-show-gen-usr-app .toggle.btn {
+    min-width: 80px;
+}

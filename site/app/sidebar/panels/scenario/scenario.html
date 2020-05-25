@@ -1,0 +1,13 @@
+<div class="scenario-list" ng-controller="ScenarioCtrl">
+    <ng-include src="'sidebar/panels/_shared/_panel_header.html'"></ng-include>
+    <div ng-repeat="scenario in scenarios" class="scenario-item"
+         ng-class="{active: scenario.isActive}"
+         ng-click="onScenarioClick(scenario)">
+        <div class="scenario-name">
+            <span>{{scenario.scenarioName}}</span>
+        </div>
+        <div class="scenario-thumbnail">
+            <img ng-src="{{scenario.thumbnail_url}}" title="{{scenario.scenarioName}}">
+        </div>
+    </div>
+</div>

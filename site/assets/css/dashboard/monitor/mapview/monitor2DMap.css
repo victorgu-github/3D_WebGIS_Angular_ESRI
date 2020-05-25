@@ -1,0 +1,134 @@
+/* loraDevice-monitor-mapview style*/
+.loraDevice-monitor-2DMap {
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+    background-color: #a9a9a9;
+    border-radius: 4px;
+    z-index: 10;
+}
+
+/* Lora Gateway Monitor Map View CSS Style */
+.loraGateway-monitor-2DMap {
+    position: absolute;
+    top: 0px;
+    bottom: 20px;
+    left: 15px;
+    width: calc(100% - 30px);
+    background-color: #a9a9a9;
+    border-radius: 4px;
+    z-index: 1;
+}
+
+.loraGateway-monitor-content-body-loading-pulse {
+    position: absolute;
+    top: 0px;
+    height: 100vh;
+    left: 0px;
+    width: 100%;
+    z-index: 10000;
+}
+
+.loraGateway-monitor-content-body-loading-pulse .loading-pulse {
+    margin: 0 auto;
+    top: 35%;
+    transform: translateY(-50%);
+    background-color: #808080;
+}
+
+.loraGateway-monitor-content-body-loading-pulse .loraGateway-monitor-loading-pulse::before {
+    background-color: #808080;
+}
+
+.loraGateway-monitor-content-body-loading-pulse .loraGateway-monitor-loading-pulse::after {
+    background-color: #808080;
+}
+
+/* 1.Side Bar */
+.loraGateway-monitor-2DMap #sidebar {
+    height: 95%;
+    border: none;
+}
+
+.loraGateway-monitor-2DMap .sidebar-tabs {
+    height: 40px;
+    border-radius: 4px;
+}
+
+.loraGateway-monitor-2DMap .sidebar-tabs ul li:hover {
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px; 
+}
+
+.loraGateway-monitor-2DMap .sidebar-tabs ul li.active {
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+
+.loraGateway-monitor-2DMap .sidebar-content {
+    opacity: 0.8;
+    border-bottom-left-radius: 4px;
+}
+
+/* 3. datatable */
+#lora-gateway-monitor-2Dmap-datatable .data-table-container .dynamic-data-table {
+    background-color: #808080;
+    color: #ffffff;
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+    opacity: 0.9;
+}
+
+#lora-gateway-monitor-2Dmap-datatable .leaflet-datatable .data-table-toggle .toggle-content,
+#lora-gateway-monitor-2Dmap-datatable .data-table-container .close,
+#lora-gateway-monitor-2Dmap-datatable .data-table-container .dynamic-data-table .empty-table .messages,
+#lora-gateway-monitor-2Dmap-datatable .data-table-container .dynamic-data-table .empty-table .hint {
+    color: #ffffff;
+}
+
+#lora-gateway-monitor-2Dmap-datatable .data-table-container .nav-tabs {
+    border-bottom: none;
+    margin: 2px 0px;
+}
+
+#lora-gateway-monitor-2Dmap-datatable .data-table-container .nav.nav-tabs li a,
+#lora-gateway-monitor-2Dmap-datatable .control-header-container .control-header {
+    background-color: #666666;
+    border: none;
+    font-weight: bold;
+}
+
+#lora-gateway-monitor-2Dmap-datatable .data-table-container .dynamic-data-table .empty-table {
+    height: 100%;
+    width:  100%;
+    letter-spacing: 1px;
+    background-color: #808080;
+    border-top: 2px solid;
+    border-bottom: 2px solid;
+    padding-bottom: 20px;
+}
+
+#lora-gateway-monitor-2Dmap-datatable .data-table-container .dynamic-data-table tbody tr {
+    color: #808080;
+}
+
+#lora-gateway-monitor-2Dmap-datatable .data-table-container .dynamic-data-table tbody tr:hover {
+    color: #ffffff;
+}
+
+.loraGateway-click-popup {
+    margin-bottom: 55px;
+}
+
+/* 4.footer */
+#lora-gateway-monitor-2Dmap-footer {
+    left: 15px;
+    width: calc(100% - 30px);
+    background-color: #24272E;
+    color: #ffffff;
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+    z-index: 100;
+}

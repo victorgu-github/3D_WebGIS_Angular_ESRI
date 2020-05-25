@@ -1,0 +1,44 @@
+<div class="dashboard-edit-page-container container">
+    <div class="return-panel">
+        <div class="return-panel-header">
+            <h3>
+                <span class="glyphicon glyphicon-share"></span>
+                <a class="return-panel-header-link" href="{{data.overviewPageUrl}}">返回</a>
+            </h3>
+        </div>
+    </div>
+
+    <div class="dashboard-edit-page-body container">
+        <div class="dashboard-edit-page-body-title row">
+            <div class="text-center col-sm-12 col-md-12 col-lg-12">
+                <span>
+                    <h2>编辑羊只信息</h2>
+                </span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-12">
+                <!-- Error Message -->
+                <div class="dashboard-edit-page-body-invalid-msg alert alert-danger" role="alert" ng-show="data.formStatus === 'invalid'">
+                    <button type="button" class="close" ng-click="closeAlert()" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <strong>错误原因: </strong>{{data.errorMessage}}
+                </div>
+
+                <div class="dashboard-edit-page-body-content-loader content-loader" ng-show="data.initializing">
+                    <div class="content-loader-inner">
+                        <label> ●</label>
+                        <label> ●</label>
+                        <label> ●</label>
+                        <label> ●</label>
+                        <label> ●</label>
+                        <label> ●</label>
+                    </div>
+                </div>
+
+                <div ng-include="'/dashboard/mengyang/editMengyang/mengyangGeneralEdit.html'" ng-show="!data.initializing"></div>
+            </div>
+        </div>
+    </div>
+</div>

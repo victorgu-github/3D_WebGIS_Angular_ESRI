@@ -1,0 +1,13 @@
+<div id="leaflet2Dmap-container">
+    <div id="leaflet2Dmap"></div>
+</div>
+
+<div ng-if="authToken != null" ng-include="'2Dmap/datatable/dataTable2D.html'"></div>
+
+<div class="scene-view-alert alert alert-danger text-center" ng-if="!esriTokenExist && !isCellPhone" role="alert">
+    This map cannot be shown properly because an error in your map token. Please log out and log in again.
+</div>
+
+<div class="scene-view-alert-mobile alert alert-danger text-center" ng-if="!esriTokenExist && isCellPhone" role="alert">
+    This map cannot be shown properly because an error in your map token. Please log out and log in again.
+</div>

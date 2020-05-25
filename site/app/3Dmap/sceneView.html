@@ -1,0 +1,45 @@
+<div class="sceneViewTitle" ng-if="vm.indoor" >
+    <div class="btn" ng-click="vm.backToGlobalScene()">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        {{'CONTROL.BACK' | translate}}
+    </div>
+    <span id="sceneTitle" >{{sceneTitle}}</span>
+</div>
+
+
+<div class="web-gl-warning" ng-show="vm.showViewError">WebGL is not supported on your platform/browser.</div>
+
+<esri-scene-view map="vm.map"
+                 on-load="vm.onViewLoaded"
+                 on-error="vm.onViewError"
+                 ng-hide="vm.showViewError">
+</esri-scene-view>
+<div ng-if="authToken != null" ng-include="'3Dmap/datatable/dataTable.html'"></div>
+
+<!--chart Modal-->
+<div ng-controller="chartCtrl" class="modal fade" id="chartModal" tabindex="-1" role="dialog" aria-labelledby="chartModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" id="chartModalDialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="row">
+                    <h5 class="modal-title col-xs-11" ng-bind="'HISTORY_DATA' | translate"></h5>
+                    <button type="button" class="close col-xs-1" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            </div>
+            <div class="modal-body">
+               <div id="chartContainer"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="scene-view-alert alert alert-danger text-center" ng-if="!esriTokenExist && !isCellPhone" role="alert">
+    This map cannot be shown properly because an error in your map token. Please log out and log in again.
+</div>
+
+<div class="scene-view-alert-mobile alert alert-danger text-center" ng-if="!esriTokenExist && isCellPhone" role="alert">
+    This map cannot be shown properly because an error in your map token. Please log out and log in again.
+</div>

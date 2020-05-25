@@ -1,0 +1,16 @@
+
+# ignore node_modules
+node_modules/*
+node_modeuls/
+
+# ignore .vscode folder (vscode editor settings) 
+.vscode/*
+
+# ignore .idea/ (Jetbrains IDE)
+.idea/
+
+# ignore coverage
+coverage/
+
+# ignore dist
+dist/

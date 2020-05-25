@@ -1,0 +1,32 @@
+<div class="container dashboard-content-container dashboard-uib-tabset">
+    <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-12 dashboard-content-header">
+            <h3>New LoRa Device</h3>
+            <div class="dashboard-content-header-separator"></div>
+        </div>
+    </div>
+
+    <div class="row dashboard-content-panel" ng-controller="NewDeviceCtrl">
+        <uib-tabset active="active">
+            <!-- First Tab for ABP -->
+            <uib-tab class="uib-tab" index="0" heading="ABP">
+                <div ng-include="'/dashboard/loraDevice/newDevice/tab1-ABP-single-register.html'"></div>
+            </uib-tab>
+
+            <!-- Second Tab for OTAA -->
+            <uib-tab class="uib-tab" index="1" heading="OTAA">
+                <div ng-include="'/dashboard/loraDevice/newDevice/tab2-OTAA-single-register.html'"></div>
+            </uib-tab>
+
+            <!-- Third Tab for ABP Batch-->
+            <uib-tab class="uib-tab" index="2" heading="ABP Batch">
+                <div ng-include="'/dashboard/loraDevice/newDevice/tab3-ABP-batch-register.html'"></div>
+            </uib-tab>
+
+            <!-- Forth Tab for OTAA Batch -->
+            <uib-tab class="uib-tab" index="3" heading="OTAA Batch">
+                <div ng-include="'/dashboard/loraDevice/newDevice/tab4-OTAA-batch-register.html'"></div>
+            </uib-tab>
+        </uib-tabset>
+    </div>
+</div>

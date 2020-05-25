@@ -1,0 +1,109 @@
+<div class="row">
+    <div class="dashboard-content-body-loading-pulse" ng-show="OTAABatchFormStatus === 'submitted'">
+        <div class="loading-pulse"></div>
+    </div>
+</div>
+<div class="row dashboard-content-body-error-msg">
+    <div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1 alert alert-danger" role="alert"
+        ng-show="OTAABatchFormStatus === 'invalid'">
+        <button type="button" class="close" ng-click="OTAABatchCloseAlert()" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        <strong>Error occurs due to: </strong>{{OTAABatchErrorMessage}}
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-12 col-md-12 col-lg-12 dashboard-content-body-form" ng-show="OTAABatchFormStatus !== 'submitted'">
+        <form name="registerDeviceFormOTAABatch">
+            <!-- New Batch File Upload Section -->
+            <!-- COMPONENT START -->
+            <div class="dashboard-content-body-form-group control-group">
+                <div class="input-group col-sm-8 col-md-8 col-lg-8 col-sm-offset-2 col-md-offset-2 col-lg-offset-2">
+                    <div class="input-group">
+                        <span class="input-group-addon">Batch File *</span>
+                        <input id="OTAABatchFileInfo" type="text" class="form-control" readonly>
+                        <label class="input-group-btn">
+                            <span class="btn btn-primary">
+                                Browse&hellip;
+                                <input id="OTAABatchFile" type="file" accept=".csv" style="display: none;" onchange="angular.element(this).scope().OTAABatchBrowse()"
+                                    multiple required>
+                            </span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <!-- COMPONENT END -->
+            <div class="dashboard-content-body-form-group control-group">
+                <div class="input-group col-sm-8 col-md-8 col-lg-8 col-sm-offset-2 col-md-offset-2 col-lg-offset-2 dashboard-content-body-form-batch-button">
+                    <div class="btn-group pull-right">
+                        <!-- <button type="button" class="btn btn-warning"><a href="./csv_Template.csv" download>Excel Temp</button> -->
+                        <a id="OTAABatchFileDownload" class="btn btn-primary" ng-click="getOTAABatchFile()">CSV Template</a>
+                        <button type="button" class="btn btn-primary" ng-click="OTAABatchReset()">Reset</button>
+                        <button type="button" class="btn btn-primary" ng-click="OTAABatchUpload()">Upload</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Old Lora Device Info Input Section -->
+            <div class="dashboard-content-body-form-group control-group">
+                <div class="input-group col-sm-8 col-md-8 col-lg-8 col-sm-offset-2 col-md-offset-2 col-lg-offset-2">
+                    <span class="input-group-addon">Application ID *</span>
+                    <select id="ApplicationID" class="form-control" ng-model="OTAABatchRegisterForm.ApplicationID" ng-options="id for id in applicationIDs"
+                        ng-change="updateOTAABatchMulticastAddrArray()">
+                    </select>
+                </div>
+            </div>
+            <div class="dashboard-content-body-form-group control-group">
+                <div class="input-group col-sm-8 col-md-8 col-lg-8 col-sm-offset-2 col-md-offset-2 col-lg-offset-2">
+                    <span class="input-group-addon">Device Type *</span>
+                    <select id="DevType" class="form-control" ng-model="OTAABatchRegisterForm.DevType" ng-options="type for type in deviceTypes"
+                        ng-change="updateOTAABatchSubTypes()">
+                    </select>
+                </div>
+            </div>
+            <div class="dashboard-content-body-form-group control-group" ng-if="OTAABatchSubTypes.length !== 0">
+                <div class="input-group col-sm-8 col-md-8 col-lg-8 col-sm-offset-2 col-md-offset-2 col-lg-offset-2">
+                    <span class="input-group-addon">Sub Type </span>
+                    <select id="SubType" class="form-control" ng-model="OTAABatchRegisterForm.SubType" ng-options="type for type in OTAABatchSubTypes">
+                    </select>
+                </div>
+            </div>
+            <div class="dashboard-content-body-form-group control-group">
+                <div class="input-group col-sm-8 col-md-8 col-lg-8 col-sm-offset-2 col-md-offset-2 col-lg-offset-2">
+                    <span class="input-group-addon">Band ID *</span>
+                    <select id="BandID" class="form-control" ng-model="OTAABatchRegisterForm.BandID" ng-options="type for (key, type) in bandIDs">
+                    </select>
+                </div>
+            </div>
+            <div class="dashboard-content-body-form-group control-group">
+                <div class="input-group col-sm-8 col-md-8 col-lg-8 col-sm-offset-2 col-md-offset-2 col-lg-offset-2">
+                    <span class="input-group-addon">Class *</span>
+                    <select class="form-control" id="Class" ng-model="OTAABatchRegisterForm.Class" ng-options="type for (key, type) in OTAABatchClasses">
+                    </select>
+                </div>
+            </div>
+            <div class="dashboard-content-body-form-group control-group" ng-show="showOTAABatchMtAddrArr()">
+                <div class="input-group col-sm-8 col-md-8 col-lg-8 col-sm-offset-2 col-md-offset-2 col-lg-offset-2">
+                    <span class="input-group-addon">MulticastAddrArray </span>
+                    <input type="text" id="MulticastAddrArray" name="MulticastAddrArray" ng-model="OTAABatchRegisterForm.MulticastAddrArray"
+                        ng-minlength=1 ng-disabled="OTAABatchRegisterForm.disabledMulticastAddrArray" placeholder="Please Follow the example: 001A4688,001A4699"
+                        class="form-control" ng-if="OTAACSVMulticastAddrExist">
+                    <multiselect ng-model="OTAABatchRegisterForm.MulticastAddrArray" options="OTAABatchMulticastAddrArray" 
+                        placeholder="Choose Multicast Addresses" ng-if="!OTAACSVMulticastAddrExist"></multiselect>
+                </div>
+            </div>
+            <div class="dashboard-content-body-form-group control-group" ng-show="OTAABatchRegisterForm.disabledMulticastAddrArray">
+                <div class="text-center text-info col-sm-8 col-md-8 col-lg-8 col-sm-offset-2 col-md-offset-2 col-lg-offset-2">
+                    <span>MulticastAddrArray from csv file*</span>
+                </div>
+            </div>
+
+            <div class="dashboard-content-body-form-group dashboard-content-body-form-submit">
+                <div class="control-label col-sm-8 col-md-8 col-lg-8 col-sm-offset-2 col-md-offset-2 col-lg-offset-2 submit-button-wrapper batch-submit">
+                    <div class="controls">
+                        <button class="btn btn-primary" ng-click="OTAABatchFinish()">Create</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

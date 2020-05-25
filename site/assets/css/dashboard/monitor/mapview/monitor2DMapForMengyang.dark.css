@@ -1,0 +1,628 @@
+:root {
+    --monitor-2dmap-mengyang-font-color: #7dc0fe;
+    --monitor-2dmap-mengyang-background-light-blue-color: #14213a;
+    --monitor-2dmap-mengyang-background-dark-blue-color: #0d1429;
+    --monitor-2dmap-mengyang-black-icon-color: #000000;
+    --monitor-2dmap-mengyang-white-font-color: #ffffff;
+    --monitor-2dmap-mengyang-yellow-font-color: #ffc155;
+    --monitor-2dmap-mengyang-summary-number-color: #6adce9;
+    --monitor-2dmap-mengyang-summary-char-color: #6995b3;
+}
+
+/* 1. mengyang monitor backward button row */
+/* 
+use nested realize the theme change
+.monitor-2Dmap-mengyang represent the dark parent node
+.monitor-2Dmap-mengyang-bright represent the bright parent node
+each child node className must follow to these two parents' className 
+*/
+.monitor-2Dmap-mengyang .monitor-2dmap-shared-overview-backward-mengyang {
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    height: 50px;
+    color: var(--monitor-2dmap-mengyang-white-font-color);
+    opacity: 0.8;
+    z-index: 1000;
+}
+
+.monitor-2Dmap-mengyang .monitor-2dmap-shared-overview-backward-mengyang span {
+    font-size: 16px;
+}
+
+.monitor-2Dmap-mengyang .monitor-2dmap-shared-overview-backward-left-mengyang {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+}
+
+.monitor-2Dmap-mengyang .monitor-2dmap-shared-overview-backward-left-mengyang i,
+.monitor-2Dmap-mengyang .monitor-2dmap-shared-overview-backward-left-mengyang a {
+    color: var(--monitor-2dmap-mengyang-font-color);
+}
+
+.monitor-2Dmap-mengyang .monitor-2dmap-shared-overview-backward-center-mengyang {
+    position: absolute;
+    transform: translateX(-50%);
+    left: 50%;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.monitor-2Dmap-mengyang .monitor-2dmap-shared-overview-backward-right-mengyang {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    color: var(--monitor-2dmap-mengyang-font-color);
+}
+
+/* 2. mengyang monitor sidebar */
+.monitor-2Dmap-mengyang #sidebar {
+    position: absolute;
+    top: 65px;
+    height: 450px;
+    border: none;
+}
+
+.monitor-2Dmap-mengyang .table.table>thead>tr>th,
+.monitor-2Dmap-mengyang .table.table>tbody>tr>td {
+    padding: 0px;
+}
+
+/* 
+.sidebar-tabs-mengyang overlay the .sidebar-content-mengyang 
+*/
+.monitor-2Dmap-mengyang .sidebar-tabs-mengyang {
+    background-color: var(--monitor-2dmap-mengyang-font-color);
+    z-index: 1;
+}
+
+.monitor-2Dmap-mengyang .sidebar-tabs-mengyang ul li.active {
+    background-color: var(--monitor-2dmap-mengyang-font-color);
+}
+
+.monitor-2Dmap-mengyang .sidebar-tabs-mengyang a:hover {
+    background-color: var(--monitor-2dmap-mengyang-font-color);
+}
+
+.monitor-2Dmap-mengyang .sidebar-tabs-mengyang i {
+    color: var(--monitor-2dmap-mengyang-black-icon-color);
+}
+
+/* 
+when sidebar collapsed, set .sidebar-content-mengyang left 40px
+when sidebar expand, set .sidebar-content-mengyang left 0px, will cover the left pane 1 
+*/
+.monitor-2Dmap-mengyang .sidebar-left.collapsed>.sidebar-content-mengyang {
+    left: 40px;
+    opacity: 1;
+    background-color: var(--monitor-2dmap-mengyang-background-dark-blue-color);
+    color: var(--monitor-2dmap-mengyang-white-font-color);
+    border-bottom-left-radius: 4px;
+}
+
+.monitor-2Dmap-mengyang .sidebar-left .sidebar-content-mengyang {
+    left: 0px;
+    opacity: 1;
+    background-color: var(--monitor-2dmap-mengyang-background-dark-blue-color);
+    color: var(--monitor-2dmap-mengyang-white-font-color);
+    border-bottom-left-radius: 4px;
+}
+
+.monitor-2Dmap-mengyang .sidebar-content-mengyang .sidebar-header{
+    text-align: center;
+    background-color: var(--monitor-2dmap-mengyang-font-color);
+    color: var(--monitor-2dmap-mengyang-black-icon-color);
+}
+
+.monitor-2Dmap-mengyang .sidebar-content-mengyang .btn {
+    position: absolute;
+    right: 10px;
+    color: var(--monitor-2dmap-mengyang-white-font-color);
+    font-weight: bold;
+}
+
+.monitor-2Dmap-mengyang .sidebar-content-mengyang hr {
+    position: absolute;
+    left: 10px;
+    right: 10px;
+    margin-top: 50px;
+}
+
+.monitor-2Dmap-mengyang .sidebar-content-mengyang h4:nth-of-type(2) {
+    margin-top: 75px;
+}
+
+.monitor-2Dmap-mengyang .sidebar-content-mengyang .control-panel-icon {
+    display: inline-block;
+    font-size: 20px;
+    width: 20px;
+}
+
+.monitor-2Dmap-mengyang .sidebar-content-mengyang .control-panel-theme-select {
+    display: inline-block;
+    margin-left: 30px;
+    width: 200px;
+}
+
+/* 3. left panel 1 */
+.monitor-2Dmap-mengyang .left-panel-first {
+    position: absolute;
+    top: 120px;
+    height: 26%;
+    left: 10px;
+    width: 300px;
+    z-index: 1000;
+    padding-left: 5px;
+    padding-right: 5px;
+    opacity: 0.8;
+    background-color: var(--monitor-2dmap-mengyang-background-dark-blue-color);
+}
+
+.monitor-2Dmap-mengyang .left-panel-first h4 {
+    margin-top: 15px;
+    margin-left: 15px;
+    text-align: center;
+    font-weight: bold;
+    color: var(--monitor-2dmap-mengyang-white-font-color);
+}
+
+.monitor-2Dmap-mengyang .left-panel-first .close-btn {
+    margin-top: -5px;
+    margin-right: 10px;
+}
+
+.monitor-2Dmap-mengyang .left-panel-first .close-btn span {
+    color: var(--monitor-2dmap-mengyang-white-font-color);
+}
+
+.monitor-2Dmap-mengyang .left-panel-first .table th {
+    text-align: center;
+    color: var(--monitor-2dmap-mengyang-font-color);
+    border-bottom-width: 0.1mm;
+    border-bottom-color: var(--monitor-2dmap-mengyang-font-color);
+}
+
+.monitor-2Dmap-mengyang .left-panel-first .table tbody tr:nth-child(2n) {
+    padding-left: 10px;
+    background-color: var(--monitor-2dmap-mengyang-background-light-blue-color);
+}
+
+.monitor-2Dmap-mengyang .left-panel-first .table td:nth-child(2n) {
+    text-align: center;
+    color: var(--monitor-2dmap-mengyang-font-color);
+    border-top-width: 0px;
+}
+
+.monitor-2Dmap-mengyang .left-panel-first .table td:nth-child(2n + 1) {
+    text-align: center;
+    color: var(--monitor-2dmap-mengyang-white-font-color);
+    border-top-width: 0px;
+}
+
+.monitor-2Dmap-mengyang #left-panel-1 {
+    position: absolute;
+    top: 30px;
+    bottom: 5px;
+    left: 5px;
+    right: 5px;
+    overflow-y: auto;
+}
+
+.monitor-2Dmap-mengyang #left-panel-1::-webkit-scrollbar
+{
+    width: 10px;
+}
+
+.monitor-2Dmap-mengyang #left-panel-1::-webkit-scrollbar-thumb
+{
+	border-radius: 5px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: var(--monitor-2dmap-mengyang-background-light-blue-color);
+}
+
+.monitor-2Dmap-mengyang #left-panel-1::-webkit-scrollbar-track-piece
+{
+    background-color: var(--monitor-2dmap-mengyang-background-dark-blue-color);
+}
+
+/* 4. left panel 2 */
+.monitor-2Dmap-mengyang .left-panel-second {
+    position: absolute;
+    top: calc(37% + 48px);
+    height: 26%;
+    left: 10px;
+    width: 300px;
+    z-index: 1000;
+    padding-left: 5px;
+    padding-right: 5px;
+    opacity: 0.8;
+    overflow-y: auto;
+    background-color: var(--monitor-2dmap-mengyang-background-dark-blue-color);
+}
+
+.monitor-2Dmap-mengyang .left-panel-second h4 {
+    margin-top: 15px;
+    margin-left: 15px;
+    text-align: center;
+    font-weight: bold;
+    color: var(--monitor-2dmap-mengyang-white-font-color);
+}
+
+.monitor-2Dmap-mengyang .left-panel-second .close-btn {
+    margin-top: -5px;
+    margin-right: 10px;
+}
+
+.monitor-2Dmap-mengyang .left-panel-second .close-btn span {
+    color: var(--monitor-2dmap-mengyang-white-font-color);
+}
+
+.monitor-2Dmap-mengyang .left-panel-second .table th {
+    text-align: center;
+    color: var(--monitor-2dmap-mengyang-font-color);
+    border-bottom-width: 0.1mm;
+    border-bottom-color: var(--monitor-2dmap-mengyang-font-color);
+}
+
+.monitor-2Dmap-mengyang .left-panel-second .table tbody tr:nth-child(2n) {
+    padding-left: 10px;
+    background-color: var(--monitor-2dmap-mengyang-background-light-blue-color);
+}
+
+.monitor-2Dmap-mengyang .left-panel-second .table td:nth-child(2n) {
+    text-align: center;
+    color: var(--monitor-2dmap-mengyang-font-color);
+    border-top-width: 0px;
+}
+
+.monitor-2Dmap-mengyang .left-panel-second .table td:nth-child(2n + 1) {
+    text-align: center;
+    color: var(--monitor-2dmap-mengyang-white-font-color);
+    border-top-width: 0px;
+}
+
+/* 5. bottom panel 1 */
+.monitor-2Dmap-mengyang .bottom-panel-first {
+    position: absolute;
+    bottom: 25px;
+    height: 26%;
+    left: 27.5%;
+    width: 45%;
+    z-index: 1000;
+    padding-left: 5px;
+    padding-right: 5px;
+    opacity: 0.8;
+    background-color: var(--monitor-2dmap-mengyang-background-dark-blue-color);
+}
+
+.monitor-2Dmap-mengyang .bottom-panel-first h4 {
+    text-align: center;
+    font-weight: bold;
+    color: var(--monitor-2dmap-mengyang-white-font-color);
+}
+
+.monitor-2Dmap-mengyang .bottom-panel-first h4:first-child {
+    padding-left: 20px;
+}
+
+.monitor-2Dmap-mengyang .bottom-panel-first h4:nth-child(2) {
+    margin-top: 80px;
+}
+
+.monitor-2Dmap-mengyang .bottom-panel-first .close-btn-right {
+    margin-top: 5px;
+    margin-right: 10px;
+}
+
+.monitor-2Dmap-mengyang .bottom-panel-first .close-btn-right span {
+    color: var(--monitor-2dmap-mengyang-white-font-color);
+}
+
+/* 6. bottom panel 2 */
+.monitor-2Dmap-mengyang .bottom-panel-second {
+    position: absolute;
+    bottom: 25px;
+    height: 26%;
+    left: 10px;
+    width: 24%;
+    z-index: 1000;
+    padding-left: 5px;
+    padding-right: 5px;
+    opacity: 0.8;
+    overflow-y: auto;
+    background-color: var(--monitor-2dmap-mengyang-background-dark-blue-color);
+}
+
+.monitor-2Dmap-mengyang .bottom-panel-second h4 {
+    margin-top: 15px;
+    margin-left: 15px;
+    text-align: center;
+    font-weight: bold;
+    color: var(--monitor-2dmap-mengyang-white-font-color);
+}
+
+.monitor-2Dmap-mengyang .bottom-panel-second .close-btn {
+    margin-top: -5px;
+    margin-right: 10px;
+}
+
+.monitor-2Dmap-mengyang .bottom-panel-second .close-btn span {
+    color: var(--monitor-2dmap-mengyang-white-font-color);
+}
+
+.monitor-2Dmap-mengyang .bottom-panel-second .table th {
+    text-align: center;
+    color: var(--monitor-2dmap-mengyang-font-color);
+    border-bottom-width: 0.1mm;
+    border-bottom-color: var(--monitor-2dmap-mengyang-font-color);
+}
+
+.monitor-2Dmap-mengyang .bottom-panel-second .table tbody tr:nth-child(2n) {
+    padding-left: 10px;
+    background-color: var(--monitor-2dmap-mengyang-background-light-blue-color);
+}
+
+.monitor-2Dmap-mengyang .bottom-panel-second .table td:nth-child(2n) {
+    text-align: center;
+    color: var(--monitor-2dmap-mengyang-font-color);
+    border-top-width: 0px;
+}
+
+.monitor-2Dmap-mengyang .bottom-panel-second .table td:nth-child(2n + 1) {
+    text-align: center;
+    color: var(--monitor-2dmap-mengyang-white-font-color);
+    border-top-width: 0px;
+}
+
+.monitor-2Dmap-mengyang .bottom-panel-second h5 {
+    text-align: center;
+    color: var(--monitor-2dmap-mengyang-yellow-font-color);
+}
+
+/* 7. bottom panel 3 */
+.monitor-2Dmap-mengyang .bottom-panel-third {
+    position: absolute;
+    bottom: 25px;
+    height: 26%;
+    right: 10px;
+    width: 24%;
+    z-index: 1000;
+    padding-left: 5px;
+    padding-right: 5px;
+    opacity: 0.8;
+    background-color: var(--monitor-2dmap-mengyang-background-dark-blue-color);
+}
+
+.monitor-2Dmap-mengyang .bottom-panel-third h4 {
+    margin-top: 15px;
+    margin-left: 15px;
+    text-align: center;
+    font-weight: bold;
+    color: var(--monitor-2dmap-mengyang-white-font-color);
+}
+
+.monitor-2Dmap-mengyang .bottom-panel-third .close-btn {
+    margin-top: -5px;
+    margin-right: 10px;
+}
+
+.monitor-2Dmap-mengyang .bottom-panel-third .close-btn span {
+    color: var(--monitor-2dmap-mengyang-white-font-color);
+}
+
+.monitor-2Dmap-mengyang .bottom-panel-third .video-short-title {
+    position: absolute;
+    top: 13px;
+    left: 50px;
+    font-size: 16px;
+    font-size: bold;
+    z-index: 1;
+    color: var(--monitor-2dmap-mengyang-white-font-color);
+}
+
+.monitor-2Dmap-mengyang .bottom-panel-third .video-dropdown {
+    position: absolute;
+    top: 8px;
+    left: 10px;
+    z-index: 1;
+}
+
+.monitor-2Dmap-mengyang .bottom-panel-third .video-dropdown .radio {
+    margin-left: 5px;
+}
+
+.monitor-2Dmap-mengyang .bottom-panel-third .video-dropdown .btn {
+    margin-right: 5px;
+    color: var(--monitor-2dmap-mengyang-white-font-color);
+}
+
+.monitor-2Dmap-mengyang .bottom-panel-third .video-monitor {
+    position: absolute;
+    top: 50px;
+    bottom: 10px;
+    left: 10px;
+    width: calc(100% - 20px);
+}
+
+/* 8. right panel 1 */
+.monitor-2Dmap-mengyang .right-panel-first {
+    position: absolute;
+    top: 170px;
+    height: calc(63% - 123px);
+    right: 10px;
+    width: 24%;
+    z-index: 1000;
+    padding-left: 5px;
+    padding-right: 5px;
+    opacity: 0.8;
+    background-color: var(--monitor-2dmap-mengyang-background-dark-blue-color);
+}
+
+.monitor-2Dmap-mengyang .right-panel-first h4 {
+    margin-top: 15px;
+    margin-left: 15px;
+    text-align: center;
+    font-weight: bold;
+    color: var(--monitor-2dmap-mengyang-white-font-color);
+}
+
+.monitor-2Dmap-mengyang .right-panel-first .close-btn {
+    margin-top: -5px;
+    margin-right: 10px;
+}
+
+.monitor-2Dmap-mengyang .right-panel-first .close-btn span {
+    color: var(--monitor-2dmap-mengyang-white-font-color);
+}
+
+.monitor-2Dmap-mengyang .right-panel-first span {
+    color: var(--monitor-2dmap-mengyang-font-color);
+}
+
+.monitor-2Dmap-mengyang .right-panel-first span:hover {
+    background-color: var(--monitor-2dmap-mengyang-background-light-blue-color);
+}
+
+/* 9. right panel 2 */
+.monitor-2Dmap-mengyang .right-panel-second {
+    position: absolute;
+    top: 170px;
+    height: 150px;
+    right: 26%;
+    width: 150px;
+    z-index: 1000;
+    padding-left: 5px;
+    padding-right: 5px;
+    opacity: 0.8;
+    background-color: var(--monitor-2dmap-mengyang-background-dark-blue-color);
+}
+
+.monitor-2Dmap-mengyang .right-panel-second #line-one {
+    border-left: 2px solid var(--monitor-2dmap-mengyang-font-color);
+}
+
+.monitor-2Dmap-mengyang .right-panel-second h4 {
+    text-align: left;
+    margin-left:5px;
+    margin-top:10px;
+    font-weight: bold;
+    color: var(--monitor-2dmap-mengyang-white-font-color);
+}
+
+.monitor-2Dmap-mengyang .right-panel-second #line-two .number {
+    margin-left: 5px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 24pt;
+    color: var(--monitor-2dmap-mengyang-summary-number-color);
+}
+
+.monitor-2Dmap-mengyang .right-panel-second #line-two .char {
+    font-size: 16pt;
+    color: var(--monitor-2dmap-mengyang-summary-char-color);
+}
+
+.monitor-2Dmap-mengyang .right-panel-second #line-three .number {
+    margin-left: 5px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 24pt;
+    color: var(--monitor-2dmap-mengyang-yellow-font-color);
+}
+
+.monitor-2Dmap-mengyang .right-panel-second #line-three .char {
+    font-size: 16pt;
+    color: var(--monitor-2dmap-mengyang-summary-char-color);
+}
+
+.monitor-2Dmap-mengyang .borderLeftTop {
+    position: absolute;
+    height: 10px;
+    width: 10px;
+    border-top: 2px solid var(--monitor-2dmap-mengyang-font-color);
+    border-left: 2px solid var(--monitor-2dmap-mengyang-font-color);
+    margin-left: -5px;
+    z-index: 100;
+}
+
+.monitor-2Dmap-mengyang .borderLeftBot {
+    position: absolute;
+    bottom: 0px;
+    height: 10px;
+    width: 10px;
+    border-bottom: 2px solid var(--monitor-2dmap-mengyang-font-color);
+    border-left: 2px solid var(--monitor-2dmap-mengyang-font-color);
+    margin-left: -5px;
+    z-index: 100;
+}
+
+.monitor-2Dmap-mengyang .borderRightTop {
+    position: absolute;
+    right: 0px;
+    height: 10px;
+    width: 10px;
+    border-top: 2px solid var(--monitor-2dmap-mengyang-font-color);
+    border-right: 2px solid var(--monitor-2dmap-mengyang-font-color);
+    z-index: 100;
+}
+
+.monitor-2Dmap-mengyang .borderRightBot {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    height: 10px;
+    width: 10px;
+    border-bottom: 2px solid var(--monitor-2dmap-mengyang-font-color);
+    border-right: 2px solid var(--monitor-2dmap-mengyang-font-color);
+    z-index: 100;
+}
+
+.monitor-2Dmap-mengyang .bottom-panel-first .borderRightTop,
+.monitor-2Dmap-mengyang .bottom-panel-first .borderRightBot {
+    right: -5px;
+}
+
+/* 10. mengyang monitor highcharts */
+.monitor-2Dmap-mengyang-history-graph {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
+.monitor-2Dmap-mengyang-history-graph .loading {
+    height: 26px;
+    margin-top: 12%;
+    margin-left: 50%;
+}
+
+.monitor-2Dmap-mengyang-slide {
+    width: 100%;
+    height: calc(100% - 55px);
+    margin: 0px 0px;
+    overflow: hidden;
+}
+
+.monitor-2Dmap-mengyang-slide li {
+    height: 49px;
+    line-height: 49px;
+    text-align: left;
+    padding: 0px;
+    font-size: 16px;
+    list-style: none;
+    color: var(--monitor-2dmap-mengyang-white-font-color);
+    border-bottom: 1px dashed var(--monitor-2dmap-mengyang-black-icon-color);
+    cursor: pointer;
+}
+
+.monitor-2Dmap-mengyang-slide li span {
+    display: block;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 100%;
+}
+
+.monitor-2Dmap-mengyang-slideUl {
+    padding: 0px 10px;
+}

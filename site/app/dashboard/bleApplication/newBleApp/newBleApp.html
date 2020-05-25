@@ -1,0 +1,89 @@
+<div class="container dashboard-content-container" ng-controller="NewBleAppCtrl">
+    <!-- 1. Title -->
+    <div class="row">
+        <div class="dashboard-content-header col-sm-12 col-md-12 col-lg-12">
+            <h3>New BLE Application</h3>
+            <div class="dashboard-content-header-separator"></div>
+        </div>
+    </div>
+    <!-- 2.Loading Pulse After Submitted -->
+    <div class="row">
+        <div class="dashboard-content-body-loading-pulse col-sm-12 col-md-12 col-lg-12" ng-show="formStatus === 'submitted'">
+            <div class="loading-pulse"></div>
+        </div>
+    </div>
+    <!-- 3. Error Message -->
+    <div class="row dashboard-content-body-error-msg">
+        <div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1 alert alert-danger" role="alert"
+            ng-show="formStatus === 'invalid'">
+            <button type="button" class="close" ng-click="closeAlert()" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <strong>Error occurs due to: </strong>{{errorMessage}}
+        </div>
+    </div>
+    <!-- 4. Register LoRa Multicast Group Body -->
+    <div class="row">
+        <div ng-class="getNewBleAppFormClass()" ng-show="formStatus !== 'submitted'">
+            <form name="step1">
+                <!-- 4.1 Required Fields -->
+                <div class="dashboard-content-body-form-group control-group">
+                    <div class="input-group col-sm-8 col-md-8 col-lg-8 col-sm-offset-2 col-md-offset-2 col-lg-offset-2">
+                        <span class="input-group-addon">bleAppName *</span>
+                        <input id="bleAppName" name="bleAppName" type="text" class="form-control" ng-model="registerEntry.bleAppName">
+                    </div>
+                </div>
+                <div class="dashboard-content-body-form-group control-group">
+                    <div class="input-group col-sm-8 col-md-8 col-lg-8 col-sm-offset-2 col-md-offset-2 col-lg-offset-2">
+                        <span class="input-group-addon">detailDataLoc</span>
+                        <input id="detailDataLoc" name="detailDataLoc" type="text" class="form-control" ng-model="registerEntry.detailDataLoc">
+                    </div>
+                </div>
+                <div class="dashboard-content-body-form-group control-group">
+                    <div class="input-group col-sm-8 col-md-8 col-lg-8 col-sm-offset-2 col-md-offset-2 col-lg-offset-2">
+                        <span class="input-group-addon">relatedCompanyID</span>
+                        <input id="relatedCompanyID" name="relatedCompanyID" type="number" class="form-control" ng-model="registerEntry.relatedCompanyID">
+                    </div>
+                </div>
+                <div class="dashboard-content-body-form-group control-group">
+                    <div class="input-group col-sm-8 col-md-8 col-lg-8 col-sm-offset-2 col-md-offset-2 col-lg-offset-2">
+                        <span class="input-group-addon">centerLat</span>
+                        <input id="centerLat" name="centerLat" type="number" class="form-control" ng-model="registerEntry.centerLat">
+                    </div>
+                </div>
+                <div class="dashboard-content-body-form-group control-group">
+                    <div class="input-group col-sm-8 col-md-8 col-lg-8 col-sm-offset-2 col-md-offset-2 col-lg-offset-2">
+                        <span class="input-group-addon">centerLng</span>
+                        <input id="centerLng" name="centerLng" type="number" class="form-control" ng-model="registerEntry.centerLng">
+                    </div>
+                </div>
+                <div class="dashboard-content-body-form-group control-group">
+                    <div class="input-group col-sm-8 col-md-8 col-lg-8 col-sm-offset-2 col-md-offset-2 col-lg-offset-2">
+                        <span class="input-group-addon">centerAlt</span>
+                        <input id="centerAlt" name="centerAlt" type="number" class="form-control" ng-model="registerEntry.centerAlt">
+                    </div>
+                </div>
+                <div class="dashboard-content-body-form-group control-group">
+                    <div class="input-group col-sm-8 col-md-8 col-lg-8 col-sm-offset-2 col-md-offset-2 col-lg-offset-2">
+                        <span class="input-group-addon">defaultZoomLevel2D</span>
+                        <input id="defaultZoomLevel2D" name="defaultZoomLevel2D" type="number" class="form-control" ng-model="registerEntry.defaultZoomLevel2D">
+                    </div>
+                </div>
+                <div class="dashboard-content-body-form-group control-group">
+                    <div class="input-group col-sm-8 col-md-8 col-lg-8 col-sm-offset-2 col-md-offset-2 col-lg-offset-2">
+                        <span class="input-group-addon">defaultZoomLevel3D</span>
+                        <input id="defaultZoomLevel3D" name="defaultZoomLevel3D" type="number" class="form-control" ng-model="registerEntry.defaultZoomLevel3D">
+                    </div>
+                </div>
+                <!-- 4.3 Submit Button -->
+                <div class="dashboard-content-body-form-group dashboard-content-body-form-submit">
+                    <div class="control-label col-sm-8 col-md-8 col-lg-8 col-sm-offset-2 col-md-offset-2 col-lg-offset-2 submit-button-wrapper">
+                        <div class="controls">
+                            <button class="btn btn-primary" ng-click="finish(step1.$valid)">Create</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

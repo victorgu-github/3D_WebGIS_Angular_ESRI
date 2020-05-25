@@ -1,0 +1,236 @@
+{
+  "3D_WebGIS_Angular_ESRI_MAP": "奥孛睿斯物联",
+  "3D_WebGIS_Angular_ESRI": "奥孛睿斯物联",
+  "COPYRIGHT": "奥孛睿斯物联 版权所有",
+  "COPYRIGHT_BRIEF": "© 奥孛睿斯物联",
+  "CONTROL": {
+    "BACK": "返回"
+  },
+  "ACCOUNT": {
+    "WELCOME": "欢迎",
+    "WELCOME_LOGIN": "欢迎来到奥孛睿斯物联",
+    "SIGN_IN": "登录",
+    "USERNAME": "用户名",
+    "PASSWORD": "密码",
+    "EMAIL_ADDRESS": "邮箱地址",
+    "PANEL_ITEMS": {
+      "3DMAP": "3D地图",
+      "DASHBOARD": "控制板",
+      "USER_PROFILE": "用户信息"
+    },
+    "PROFILE": {
+      "NAME": "用户信息",
+      "EMAIL": "电子邮箱",
+      "ACCESS_ROLE": "用户权限",
+      "CURRENT_SCENARIO": "当前应用场景",
+      "FEATURE_LAYER_BASE_URL": "GIS矢量图层基地址",
+      "TILED_LAYER_BASE_URL": "GIS栅格图层基地址",
+      "OVERVIEW": {
+        "NAME": "信息总览",
+        "SELECT_SCENARIO": "选择应用场景",
+        "SELECT_SCENARIO_INFO": "应用场景信息",
+        "SCENARIO_NAME": "应用场景名称",
+        "BLE_ID": "蓝牙应用编号",
+        "COMPANY_NAME": "公司名称",
+        "LORA_APP_ID": "LoRa应用编号"
+      },
+      "EXIT": "返回",
+      "USER_NAME": "用户名",
+      "FIRST_NAME": "名",
+      "LAST_NAME": "姓"
+    },
+    "LOG_OUT": "退出",
+    "ADMIN": "管理员",
+    "ADMIN_BRIEF": "管",
+    "GENERAL": "普通用户",
+    "GENERAL_BRIEF": "普"
+  },
+  "LANGUAGE": {
+    "SWITCH": "语言: ",
+    "CN": "简体中文",
+    "EN": "英文"
+  },
+  "SIDEBAR": {
+    "LAYER_LIST": "图层列表",
+    "SCENARIO": "应用场景",
+    "BASEMAP": "图层",
+    "HEATMAP": "热度图",
+    "INTRPL": "插值图",
+    "NODELIST": "蓝牙设备",
+    "ALL_NODES": "所有设备",
+    "DASHBOARD": "控制板",
+    "2DMAP": "2D地图",
+    "3DMAP": "3D地图",
+    "SETTINGS": "设置",
+    "UNDERGROUND": "地下",
+    "TIME_SETTINGS": "时间设置",
+    "HEAT_MAP": {
+      "HEAT_LAYER": "插值图层",
+      "HEAT_LAYER_ATTR": "图层属性",
+      "CLEAR_ALL": "清空",
+      "APPLYING": "应用中...",
+      "APPLY": "应用",
+      "LOADING": "载入中...",
+      "INVALID_LAYER": "图层非法",
+      "PLEASE_SELECT_LAYER": "请选择一个图层",
+      "SELECT_AN_LAYER": "选择图层",
+      "SELECT_AN_ATTR": "选择属性",
+      "RADIUS": "半径",
+      "BLUR": "模糊度"
+    },
+    "INTERPOLATION": {
+      "INTERPOLATION_LAYER": "插值图层",
+      "INTERPOLATION_LAYER_ATTR": "图层属性",
+      "CLEAR_ALL": "清空",
+      "APPLYING": "应用中...",
+      "APPLY": "应用",
+      "LOADING": "载入中...",
+      "INVALID_LAYER": "图层非法",
+      "PLEASE_SELECT_LAYER": "请选择一个图层",
+      "SELECT_AN_LAYER": "选择图层",
+      "SELECT_AN_ATTR": "选择属性"
+    }
+  },
+  "DASHBOARD": {
+    "NAME": "控制板",
+    "OVERVIEW": "总览",
+    "OVERVIEW_MENGYANG": "蒙羊",
+    "NEW_LORA_DEVICE": "新建LoRa设备",
+    "NEW_LORA_GATEWAY": "新建LoRa网关",
+    "NEW_APPLICATION": "新建普通用户应用",
+    "NEW_APPLICATION_FOR_GENUSR": "新建应用",
+    "MULTICAST_GROUP": "新建LoRa多播组",
+    "GENERAL_USER_APPLICATION": "普通用户应用",
+    "GENERAL_USER_APPLICATION_DESCRIPTION": "普通用户应用数量: ",
+    "GENERAL_USER": "普通用户",
+    "GENERAL_USER_DESCRIPTION": "普通用户数量: ",
+    "BLE_GATEWAYS": "蓝牙网关",
+    "BLE_GATEWAYS_DESCRIPTION": "蓝牙网关数量: ",
+    "BLE_NODES": "蓝牙设备",
+    "BLE_NODES_DESCRIPTION": "蓝牙设备数量: ",
+    "LORA_DEVICES": "LoRa设备",
+    "LORA_DEVICES_DESCRIPTION": "LoRa设备数量: ",
+    "MULTICAST_GROUPS": "LoRa多播组",
+    "MULTICAST_GROUPS_DESCRIPTION": "LoRa多播组数量: ",
+    "LORA_GATEWAYS": "LoRa网关",
+    "LORA_GATEWAYS_DESCRIPTION": "LoRa网关数量: ",
+    "EDIT": "编辑",
+    "MONITOR": "监控",
+    "OVERVIEW_INFO": "总览信息",
+
+    "BACK_TO_OVERVIEW": "返回总览",
+    "BACK_TO_OVERVIEW_BRIEF": "返回",
+    "SUMMARY": "设备概况",
+    "DATATABLE": "设备数据表",
+    "MAP_VIEW": "设备地图",
+    "LORA_GATEWAY_MAP_VIEW": "网关地图",
+    "LORA_DEVICES_DATATABLE": "Lora设备数据表",
+    "LORA_DEVICES_2DMAP": "LoRa设备地图",
+    "LORA_GATEWAY_2DMAP": "LoRa网关地图",
+
+    "SUMMARY_INFO": "信息概况",
+    "APPLICATION_ID": "应用场景编号",
+    "DEVICE_TYPE": "设备类型",
+    "LOADING": "加载中...",
+    "NUMBER_OF_DEVICES": "设备数量",
+    "DEVICE_HISTORY_CHART": "设备历史图表",
+    "START_TIME": "起始时间",
+    "END_TIME": "结束时间",
+    "DEVICE_ATTRIBUTE": "设备属性",
+    "CREATE": "创建",
+
+    "GENERAL_USR": {
+      "APPLICATION": "应用",
+      "APPLICATION_DESCRIPTION": "应用数量:"
+    },
+
+    "BLE_APPLICATION": "蓝牙应用",
+    "BLE_APPLICATION_DESCRIPTION": "蓝牙应用数量:",
+    "NEW_BLE_APPLICATION": "新建蓝牙应用"
+  },
+  "DATATABLE": {
+    "OPEN": "打开数据表",
+    "CLOSE": "关闭数据表",
+    "NO_TAB_SELECTED": "未选择任何图层",
+    "REOPEN_DATA_VIEW": "请尝试重新打开数据表",
+    "NO_DATA": "没有数据",
+    "VERIFY_NO_DATA": "请检查系统中是否有数据",
+    "PAGINATION": {
+      "FIRST": "第一页",
+      "PREVIOUS": "上一页",
+      "NEXT": "下一页",
+      "LAST": "最后一页"
+    },
+    "CONTROL": {
+      "ADD_NEW_TAB": "添加图层到数据表",
+      "CLOSE_VIEW": "关闭数据表"
+    }
+  },
+  "DYNAMIC_ATTR": {
+    "PLUGBASE": {
+      "VOLTAGE": "电压",
+      "CURRENT": "电流",
+      "POWER": "功率"
+    },
+    "SMOKE_DETECTOR": {
+      "BATTERY_LEVEL": "电池电量",
+      "FLAG": "状态"
+    },
+    "CEILING_LIGHT": {
+      "STATUS": "状态"
+    },
+    "DETECTOR": {
+      "IS_PEOPLE_NEARBY": "探测人数",
+      "HUMIDITY": "湿度",
+      "TEMPERATURE": "温度"
+    },
+    "WINDOOR_SENSOR": {
+      "STATUS": "状态"
+    },
+    "GATEWAY": {
+      "TEMPERATURE": "温度",
+      "AIR_QUALITY": "空气质量",
+      "HUMIDITY": "湿度"
+    }
+  },
+  "DEVICE_CONTROL": {
+    "TURN_OFF_GROUP": "关闭组",
+    "TURN_ON_GROUP": "打开组",
+    "UNKNOWN": "状态未知",
+    "WAITING": "处理中",
+    "TURN_OFF": "关闭",
+    "TURN_ON": "打开",
+    "DEVICE_GROUP_ON_CONFIRM": "确认打开所有选中的设备吗？",
+    "DEVICE_GROUP_OFF_CONFIRM": "确认关闭所有选中的设备吗？"
+  },
+  "HISTORY_CHART_TITLE": {
+    "DETECTOR": "传感器历史数据",
+    "GATEWAY": "历史数据",
+    "LORA_GATEWAY": "LoRa网关历史数据",
+    "ENERGY_USAGE": "能量使用情况",
+    "SMOKE_DETECTOR": "烟感历史数据",
+    "WATER_SENSOR": "检测设备历史",
+    "WATER_TANK": "水箱历史数据"
+  },
+  "DAY_TIME": "白天",
+  "REAL_TIME": "实时",
+  "NIGHT_TIME": "夜晚",
+
+  "BUILDING_FLOORS": "总楼层",
+  "GO_TO_LEVEL": "前往层数",
+  "HISTORY_DATA": "历史数据",
+
+  "realTimeLayer": "蓝牙设备",
+  "gateway20170616": "蓝牙网关",
+  "Fake layer": "仿真图层",
+
+  "Air Quality": "空气质量",
+  "Humidity": "空气湿度",
+  "Temperature": "温度",
+  "Date": "日期",
+  "Time Duration": "时间跨度",
+
+  "Mac Address": "物理地址",
+
+  "dynStatus": "状态"
+}

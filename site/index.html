@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html ng-app="3D_WebGIS_Angular_ESRIMap">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+    <title ng-bind="'3D_WebGIS_Angular_ESRI_MAP' | translate"></title>
+     <base href="/">
+    <!-- load Esri CSS -->
+    <link rel="stylesheet" href="/arcgis_js_api/library/4.6/esri/css/main.css">
+    <script
+            src="https://code.jquery.com/jquery-3.2.1.min.js"
+            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <link rel="icon" href="/assets/img/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="/assets/img/favicon.ico" type="image/x-icon" />
+    <script src="/3D_WebGIS_Angular_ESRI-assets.js" ></script>
+    <!-- load custom styles for this app -->
+</head>
+
+<body>
+<!-- top nav -->
+<nav id="index-navbar" class="navbar navbar-inverse navbar-static-top navbar-dark" ng-if="authToken != null">
+    <div class="container" id="nav-container">
+        <div id="sidebar-toggle" ng-controller="NavigationCtrl">
+            <a class="navbar-brand">
+                <i class="fa fa-bars" aria-hidden="true" ng-click="toggle()"></i>
+            </a>
+            <span id="3D_WebGIS_Angular_ESRI-logo" class="navbar-brand home" ng-bind="'3D_WebGIS_Angular_ESRI' | translate"></span>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown language-switch" ng-hide="hidden" ng-controller="LanguageCtrl as LC">
+                <a class="dropdown-toggle" type="button" data-toggle="dropdown">
+                    <i class="fa fa-globe" aria-hidden="true"></i>
+                    <span ng-bind="currentLanguage"></span>
+                    <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a ng-click="LC.setLanguage('en')">en - English</a></li>
+                    <li><a ng-click="LC.setLanguage('cn')">cn - 简体中文</a></li>
+                </ul>
+            </li>
+            <li>
+                <ng-include src="'account/accountPanel.html'"> </ng-include>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<!-- main content container -->
+<div class="container-fluid" id="main-container"
+     ng-class="{loginPage: userInfo == null}"
+     style="padding:0;">
+    <div class="main-content">
+
+        <!-- page content for ngRoute -->
+        <div id="esri-container-wrapper">
+            <ng-include src="'sidebar/sidebar.html'"></ng-include>
+            <div id="esri-container">
+                <div ng-view=""></div>
+                <!-- page footer row -->
+                <div id="esri-container-footer" class="footer-dark scene-view-footer">
+                    <p ng-if="!userInfo.isCellPhone" ng-bind= "'COPYRIGHT' | translate"></p>
+                    <p ng-if="userInfo.isCellPhone " ng-bind= "'COPYRIGHT_BRIEF' | translate"></p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+<!-- end main content container -->
+
+<!-- version alert controller -->
+<div id="alertDiv" ng-controller="AlertController">
+    <div ng-if="showAlert" class="alert alert-warning alert-dismissible version-alert" role="alert">
+        <button type="button" ng-click="hideAlert()" class="close" data-dismiss="alert" aria-label="Close"><span
+                aria-hidden="true">&times;</span></button>
+        type in whatever you want to alert users!
+        <a href="https://arcgis.github.io/angular-esri-map-site-v1/">the v1 documentation</a>.
+    </div>
+</div>
+
+<!-- load angular-esri-map module -->
+<script src="assets/js/angular-esri-map.js"></script>
+
+<!-- load Esri JavaScript API -->
+<!-- NOTE: defer is only needed b/c of UMD blocks in highlight.min.js -->
+<script defer type="text/javascript" src="/arcgis_js_api/library/4.6/dojo/dojo.js"></script>
+<script type="text/javascript">
+  dojoConfig = {
+    locale: '%3D_WebGIS_Angular_ESRI_locality%',
+    parseOnLoad: true,
+    has: {
+        "esri-promise-compatibility": 0
+      }
+  };
+</script>
+
+</body>
+
+</html>

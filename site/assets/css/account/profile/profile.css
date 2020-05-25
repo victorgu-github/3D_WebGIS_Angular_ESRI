@@ -1,0 +1,146 @@
+/* profile for general user */
+.profile-gen-usr-container {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    color: #ffffff;
+    padding: 50px 15px;
+}
+
+.profile-gen-usr-display-row {
+    padding: 15px;
+}
+
+.profile-gen-usr-exit {
+    margin: 15px 0px;
+}
+
+/* 
+   account profile page 
+*/
+.account-profile-container {
+    font-size: 16px;
+    color: white;
+    background-color: #2a2d35;
+}
+
+/* account-profile-navigation panel css style */
+.account-profile-navigation-panel {
+    position: absolute;
+    width: 200px;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    background-color: #24272E;
+}
+
+.account-profile-navigation-title {
+    color: #9d9d9d;
+    font-size: 22px;
+    text-align: center;
+    margin: 10px 0;
+}
+
+.account-profile-navigation-items {
+    padding-left: 0;
+}
+
+.account-profile-navigation-item {
+    font-size: 20px;
+    padding: 10px 0 10px 15px;
+    color: #9d9d9d;
+    margin-bottom: 10px;
+}
+
+.account-profile-navigation-item:hover {
+    cursor: pointer;
+    background-color: #33353d;
+    border-left: 5px solid #b52e31;
+    color: #ffffff;
+}
+
+.account-profile-navigation-item.active {
+    border-left: 5px solid red;
+    background-color: #2a2d35;
+    color: #ffffff;
+}
+
+.account-profile-navigation-item-title{
+    margin-left: 15px;
+    font-size: 16px;
+}
+
+/* account-profile-content panel css style */
+.account-profile-content-panel {
+    position: relative;
+    height: calc(100vh - 100px);
+    width: calc(100% - 200px);
+    margin-left: 200px;
+}
+
+.account-profile-content-panel-well-container {
+    margin-top: 50px;
+}
+
+.account-profile-content-panel-well {
+    position: relative;
+    height: calc(100vh - 200px);
+    background-color: #2A2D35;
+    border: #2A2D35;
+}
+
+.account-profile-content-panel-icon {
+    font-size: 15vh;
+    margin-top: 1vh;
+    margin-left: 5%;
+}
+
+.account-profile-content-panel-icon-for-gen-usr {
+    font-size: 18vh;
+    margin-top: 1vh;
+    margin-left: 5%;
+}
+
+.account-profile-content-panel-i {
+    margin-top: 4%;
+}
+
+.account-profile-content-panel-dropdown {
+    margin-top: 1vh;
+}
+
+.account-profile-content-panel-dropdown-button {
+    background-color: lightgray;
+}
+
+.account-profile-content-panel-dropdown-display {
+    margin-top: 20px;
+}
+
+.account-profile-content-panel-exit {
+    margin-top: 20px;
+}
+
+/* Responsive design for small screen  */
+@media screen and (max-width: 1050px), screen and (max-height: 850px) {
+    .account-profile-container {
+        font-size: 12px;
+        background-color: #2a2d35;
+    }
+
+    .account-profile-content-panel-i {
+        margin-top: 1%;
+    }
+
+    .account-profile-content-panel-exit {
+        margin-top: 5px;
+    }
+}
+
+@media screen and (min-width: 450px) and (max-width:700px) {
+    .account-profile-content-panel-icon {
+        font-size: 38vh;
+    }
+}

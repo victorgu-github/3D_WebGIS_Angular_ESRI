@@ -1,0 +1,22 @@
+<div class="container dashboard-content-container dashboard-content-container-single-page dashboard-uib-tabset">
+    <div class="return-panel">
+        <div class="return-panel-header">
+            <h3>
+                <span class="glyphicon glyphicon-share"></span>
+                <a class="return-panel-header-link" href="{{data.overviewPageUrl}}">返回</a>
+            </h3>
+        </div>
+    </div>
+
+    <div class="row dashboard-content-panel">
+        <uib-tabset active="active">
+            <!-- First Tab for ABP -->
+            <uib-tab class="uib-tab" index="0" heading="单只注册">
+                <div ng-include="'/dashboard/mengyang/newMengyang/tab1-newMengyang.html'"></div>
+            </uib-tab>
+            <uib-tab class="uib-tab" index="1" heading="批量注册">
+                <div ng-include="'/dashboard/mengyang/newMengyang/tab2-newBatchMengyang.html'"></div>
+            </uib-tab>
+        </uib-tabset>
+    </div>
+</div>

@@ -1,0 +1,15 @@
+.popup2D--title {
+    font-size: 16px;
+    font-weight: 500
+}
+
+.popup2D--separator {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-top: 1px solid #C0C0C0
+}
+
+.popup2D--content {
+    list-style-type: none;
+    padding-left: 0;
+}

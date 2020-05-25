@@ -1,0 +1,46 @@
+/* 
+   scenario 
+*/
+.scenario-list {
+    cursor: pointer;
+    height: 100%;
+}
+
+.scenario-item {
+    margin-top: 10px;
+}
+
+.scenario-item.active,
+.scenario-item:hover {
+    color: #FFFFFF;
+}
+
+.scenario-name,
+.scenario-thumbnail {
+    text-align: center;
+}
+
+.scenario-name {
+    font-weight: 500;
+    letter-spacing: 1px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.scenario-thumbnail {
+    padding-bottom: 10px;
+    padding-top: 10px;
+    border: 2px solid #9d9d9d;
+    box-sizing: content-box;
+    margin-left: 22px;
+    margin-right: 22px;
+}
+
+.active .scenario-name span,
+.scenario-name span:hover {
+    font-size: 20px;
+}
+
+.scenario-name span {
+    font-size: 16px;
+}

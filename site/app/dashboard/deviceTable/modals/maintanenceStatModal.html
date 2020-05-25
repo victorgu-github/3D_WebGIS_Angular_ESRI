@@ -1,0 +1,62 @@
+<div class="modal fade" id="changeMtModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div id="device-table-maintanence-modal-dialog" class="dashboard-modal-content device-table-maintanence-modal-content 
+            modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h3 class="modal-title" id="myModalLabel">
+                    <b>
+                        <em>Change Maintenance Status</em>
+                    </b>
+                </h3>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1">
+                        <div class="input-group loraDev-maintain-edit-inputGroup">
+                            <span class="input-group-addon short-length-title">Application ID *</span>
+                            <input type="text" class="form-control" ng-model="batchMtEntry.batchMtAppID" disabled readonly/>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1">
+                        <div class="input-group loraDev-maintain-edit-inputGroup">
+                            <span class="input-group-addon short-length-title">Device EUI *</span>
+                            <input type="text" class="form-control" ng-model="batchMtEntry.batchMtDevEUI" disabled readonly/>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1">
+                        <div class="input-group loraDev-maintain-edit-inputGroup">
+                            <span class="input-group-addon form-control long-length-title">Maintenance Status *</span>
+                            <span class="input-group-addon check-box">
+                                <input type="checkbox" ng-model="batchMtEntry.batchMtStatus" ng-checked="batchMtEntry.batchMtStatus" ng-true-value="true" ng-false-value="false"/>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Display comment and submit button rules:
+                1.Don't diplay previous comment in batch change maintenance status
+                2.Only display comment text area and submit button when change device maintenance status -->
+                <div class="row">
+                    <div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1">
+                        <div class="input-group loraDev-maintain-edit-inputGroup">
+                            <span class="input-group-addon long-length-title">Maintenance Comments *</span>
+                            <textarea rows="2" class="form-control" ng-model="batchMtEntry.batchMtComments" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary pull-right" ng-click="batchChangeMtStatus()">Change Maintenance Status</button>
+            </div>
+        </div>
+    </div>
+</div>

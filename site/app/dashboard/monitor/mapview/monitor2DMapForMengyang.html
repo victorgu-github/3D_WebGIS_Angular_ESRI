@@ -1,0 +1,273 @@
+<div class="container monitor-2dmap-shared-container">
+    <!-- 1.Monitor Map View -->
+    <div ng-class="data.theme">
+        <div class="row">
+            <div id="2DMap" class="monitor-2Dmap col-sm-12 col-md-12 col-lg-12">
+                <!-- 2.Overview Backward -->
+                <div class="overview-backward monitor-2dmap-shared-overview-backward-mengyang">
+                    <span class="monitor-2dmap-shared-overview-backward-left-mengyang">
+                        <i class="fa fa-chevron-circle-left" aria-hidden="true"></i>
+                        <a href="{{overviewPageUrl}}">返回</a>
+                    </span>
+                    <span class="monitor-2dmap-shared-overview-backward-center-mengyang">
+                        <img src="/assets/img/集团标志2.png" alt="集团标志" width="180" height="35">
+                    </span>
+                    <span my-current-time="format" class="monitor-2dmap-shared-overview-backward-right-mengyang"></span>
+                </div>
+                <!-- 3.Side Bar -->
+                <div id="sidebar" class="sidebar collapsed">
+                    <!-- Nav tabs -->
+                    <div class="sidebar-tabs sidebar-tabs-mengyang">
+                        <ul role="tablist">
+                            <li>
+                                <a href="#home" role="tab">
+                                    <i class="fa fa-bars"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Tab panes -->
+                    <div class="sidebar-content sidebar-content-mengyang">
+                        <div id="home" class="sidebar-pane">
+                            <!-- sidebar-header -->
+                            <h1 class="sidebar-header">
+                                控制面板
+                                <span class="sidebar-close">
+                                    <i class="fa fa-caret-left"></i>
+                                </span>
+                            </h1>
+                            <!-- sidebar-content -->
+                            <h4>
+                                <b>显示 / 隐藏面板</b>
+                            </h4>
+                            <div ng-repeat="(key, panel) in data.controlPanels">
+                                <label class="checkbox-container">{{panel.title}}
+                                    <input type="checkbox" ng-model="panel.isChecked">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                            <a class="btn btn-primary pull-right" ng-click="submit()">提交</a>
+                            <hr/>
+                            <h4>
+                                <b>切换主题</b>
+                            </h4>
+                            <div class="control-panel-icon">
+                                <i class="fa fa-camera" aria-hidden="true"></i>
+                            </div>
+                            <select class="form-control control-panel-theme-select" ng-model="data.currentTheme" ng-options="theme for theme in data.themes" ng-change="changeTheme()">
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <!-- 4. left panel 1 -->
+                <div class="left-panel-first" ng-show="data.controlPanels.sheepNumberPanel.isDisplay">
+                    <div class="borderLeftTop"></div>
+                    <div class="borderLeftBot"></div>
+                    <div class="borderRightTop"></div>
+                    <div class="borderRightBot"></div>
+                    <h4>
+                        羊只数量排名
+                        <button type="button" class="close close-btn" ng-click="closeSheepNumberPanel()" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </h4>
+                    <div id="left-panel-1">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">
+                                        <h6>
+                                            <b>排名</b>
+                                        </h6>
+                                    </th>
+                                    <th scope="col">
+                                        <h6>
+                                            <b>牧场</b>
+                                        </h6>
+                                    </th>
+                                    <th scope="col">
+                                        <h6>
+                                            <b>数量</b>
+                                        </h6>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="row in data.controlPanels.sheepNumberPanel.tableData track by $index">
+                                    <td ng-repeat="col in row track by $index">
+                                        <h6>{{col}}</h6>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!-- 5. left panel 2 -->
+                <div class="left-panel-second" ng-show="data.controlPanels.healthSheepNumberPanel.isDisplay">
+                    <div class="borderLeftTop"></div>
+                    <div class="borderLeftBot"></div>
+                    <div class="borderRightTop"></div>
+                    <div class="borderRightBot"></div>
+                    <h4>
+                        羊只健康排名
+                        <button type="button" class="close close-btn" ng-click="closeHealthSheepNumberPanel()" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </h4>
+                    <div id="left-panel-1">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">
+                                        <h6>
+                                            <b>排名</b>
+                                        </h6>
+                                    </th>
+                                    <th scope="col">
+                                        <h6>
+                                            <b>牧场</b>
+                                        </h6>
+                                    </th>
+                                    <th scope="col">
+                                        <h6>
+                                            <b>健康/总数</b>
+                                        </h6>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="row in data.controlPanels.healthSheepNumberPanel.tableData track by $index">
+                                    <td ng-repeat="col in row track by $index">
+                                        <h6>{{col}}</h6>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!-- 6. bottom panel 1 -->
+                <div class="bottom-panel-first" ng-show="data.controlPanels.dataTransferPanel.isDisplay">
+                    <div class="borderLeftTop"></div>
+                    <div class="borderLeftBot"></div>
+                    <div class="borderRightTop"></div>
+                    <div class="borderRightBot"></div>
+                    <button type="button" class="close close-btn-right" ng-click="closeDataTransferPanel()" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <div id="monitor-2D-map-mengyang" class="monitor-2Dmap-mengyang-history-graph">
+                        <div class="loading" ng-show="isLoading">
+                            <i class="fa fa-spinner fa-spin fa-3x fa-fw"></i>
+                            <span class="sr-only">{{'DASHBOARD.LOADING' | translate}}</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- 7. bottom panel 2 -->
+                <div class="bottom-panel-second" ng-show="data.controlPanels.sheepCategoryPanel.isDisplay">
+                    <div class="borderLeftTop"></div>
+                    <div class="borderLeftBot"></div>
+                    <div class="borderRightTop"></div>
+                    <div class="borderRightBot"></div>
+                    <h4>
+                        羊只分类
+                        <button type="button" class="close close-btn" ng-click="closeSheepCategoryPanel()" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </h4>
+                    <div id="left-panel-1">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">
+                                        <h6>
+                                            <b>种类</b>
+                                        </h6>
+                                    </th>
+                                    <th scope="col">
+                                        <h6>
+                                            <b>数量</b>
+                                        </h6>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="row in data.controlPanels.sheepCategoryPanel.tableData track by $index">
+                                    <td ng-repeat="col in row track by $index">
+                                        <h6>{{col}}</h6>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <h5>总和 = 236,632只</h5>
+                    </div>
+                </div>
+                <!-- 8. bottom panel 3 -->
+                <div class="bottom-panel-third" ng-show="data.controlPanels.videoMonitorPanel.isDisplay">
+                    <div class="borderLeftTop"></div>
+                    <div class="borderLeftBot"></div>
+                    <div class="borderRightTop"></div>
+                    <div class="borderRightBot"></div>
+                    <h4>
+                        视频监控
+                        <button type="button" class="close close-btn" ng-click="closeVideoMonitorPanel()" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </h4>
+
+                    <div class="video-dropdown dropdown drop-left">
+                        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+                            [{{data.controlPanels.videoMonitorPanel.currentVideo.title}}]
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <div ng-repeat="(key, videoSource) in data.controlPanels.videoMonitorPanel.videoSource">
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="optradio" ng-model="data.controlPanels.videoMonitorPanel.currentVideo.id" ng-value="videoSource.id"
+                                            ng-click="changeVideo(videoSource)">{{videoSource.title}}
+                                    </label>
+                                </div>
+                            </div>
+                        </ul>
+                    </div>
+
+                    <div class="video-monitor">
+                        <img src="{{data.controlPanels.videoMonitorPanel.currentVideo.url}}" height="100%" width="100%" />
+                    </div>
+                </div>
+                <!-- 9. right panel 1 -->
+                <div class="right-panel-first" ng-show="data.controlPanels.currentPlanPanel.isDisplay">
+                    <div class="borderLeftTop"></div>
+                    <div class="borderLeftBot"></div>
+                    <div class="borderRightTop"></div>
+                    <div class="borderRightBot"></div>
+                    <h4>
+                        近期规划
+                        <button type="button" class="close close-btn" ng-click="closeCurrentPlanPanel()" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </h4>
+                    <div class="monitor-2Dmap-mengyang-slide">
+                        <ul class="monitor-2Dmap-mengyang-slideUl">
+                            <slide-follow></slide-follow>
+                        </ul>
+                    </div>
+                </div>
+                <!-- 10. right panel 2 -->
+                <div class="right-panel-second" ng-show="data.controlPanels.currentPlanPanel.isDisplay">
+                    <div id="line-one">
+                        <h4>内蒙古监测</h4>
+                    </div>
+                    <div id="line-two">
+                        <span class="number">04</span>
+                        <span class="char"> 家</span>
+                    </div>
+                    <div id="line-three">
+                        <span class="number">5595</span>
+                        <span class="char"> 只</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

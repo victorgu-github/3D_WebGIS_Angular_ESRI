@@ -1,0 +1,84 @@
+<div ng-class="containerClass">
+    <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-12">
+            <div class="overview-backward">
+                <a href="{{overviewPageUrl}}">
+                    <i class="fa fa-chevron-circle-left" aria-hidden="true"></i>
+                    <span>Back to Overview</span>
+                </a>
+            </div>
+            <hr/>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="dashboard-shared-table-filter-search-bar search-bar-right">
+            <div class="input-group">
+                <span class="input-group-addon">Search </span>
+                <input type="text" class="form-control" ng-model="searchVal" ng-change="searchDevice()" />
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="dashboard-shared-table-details">
+            <div class="content-loader" ng-show="initializing">
+                <div class="content-loader-inner">
+                    <label> ●</label>
+                    <label> ●</label>
+                    <label> ●</label>
+                    <label> ●</label>
+                    <label> ●</label>
+                    <label> ●</label>
+                </div>
+            </div>
+
+            <div class="dashboard-shared-table-no-data" ng-show="!initializing && tableBody.length === 0">
+                <div class="dashboard-shared-table-no-data-message">
+                    <h1>No data found in the system</h1>
+                </div>
+            </div>
+
+            <div class="table-container">
+                <table id="loraGatewayTable" class="table table-hover" ng-show="!initializing && tableBody.length !== 0">
+                    <thead ng-class="getTableHeaderClass()" class="table-header">
+                        <tr>
+                            <th>
+                                <i class="fa fa-cog" aria-hidden="true"></i>
+                            </th>
+                            <th ng-repeat="item in tableHeader track by $index" ng-click="sortTable(item)">
+                                {{item}}
+                                <i class="fa fa-arrow-up" ng-show="sortMap[item] === true && sortAscMap[item] === true"></i>
+                                <i class="fa fa-arrow-down" ng-show="sortMap[item] === true && sortAscMap[item] !== true"></i>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody class="table-body">
+                        <tr ng-repeat="row in tableBody track by $index" class="data-table-row">
+                            <td align="center">
+                                <a title="LoRa Gateway General Info" class="btn btn-default" ng-click="showDeviceInfo(row)">
+                                    <i class="fa fa-book"></i>
+                                </a>
+                                <a class="btn btn-default" ng-show="displayEditAndDelBtnByUserType(row)" ng-click="editDevice(row)">
+                                    <i class="fa fa-pencil"></i>
+                                </a>
+                                <a class="btn btn-danger" ng-class="{disabled: isDeleting($index)}" ng-show="displayEditAndDelBtnByUserType(row)" 
+                                ng-click="deleteDevice(row)">
+                                    <span class="glyphicon glyphicon-refresh spinning" ng-show="isDeleting($index)">
+                                    </span>
+                                    <i class="fa fa-trash"></i>
+                                </a>
+                            </td>
+                            <td title="{{col}}" ng-repeat="col in row track by $index">
+                                {{col}}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Parts -->
+    <div ng-include="'/dashboard/loraGateway/loraGatewayTable/modals/generalInfoModal.html'"></div>
+</div>

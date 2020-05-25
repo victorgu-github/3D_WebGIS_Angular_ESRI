@@ -1,0 +1,26 @@
+<div class="dashboard-container" ng-show="!displayPageNotFoundTemplate">
+    <div class="dashboard__navigation">
+        <div class="dashboard__navigation-title">
+            {{'DASHBOARD.NAME' | translate}}
+        </div>
+        <ul class="dashboard__navigation-items">
+            <li class="dashboard__navigation-item" ng-repeat="panel in panels" ng-class="{active: panel.isActive}">
+                <div ng-click="navigateTo(panel)">
+                    <fa name="{{panel.icon}}"></fa>
+                    <span class="dashboard__navigation-item-title">{{panel.displayName | translate}}</span>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="dashboard__content">
+        <div ng-repeat="panel in panels">
+            <div ng-if="panel.isActive">
+                <ng-include src="panel.templateUrl"></ng-include>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div ng-show="displayPageNotFoundTemplate">
+    <div ng-include="'_shared/errorTemplate/errorTemplate.html'"></div>
+</div>

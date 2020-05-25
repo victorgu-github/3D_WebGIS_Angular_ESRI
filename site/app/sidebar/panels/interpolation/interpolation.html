@@ -1,0 +1,65 @@
+<div ng-controller="InterpolationCtrl">
+    <ng-include src="'sidebar/panels/_shared/_panel_header.html'"></ng-include>
+
+    <div class="interpolation-container">
+
+        <div class="interpolation--filter">
+            <div class="dropdown--title">
+                <label>
+                    {{'SIDEBAR.INTERPOLATION.INTERPOLATION_LAYER' | translate}}:
+                </label>
+            </div>
+            <div class="dropdown--items dropdown">
+                <button class="btn btn-default dropdown-toggle col-sm-12 col-md-12 col-lg-12"
+                        type="button" data-toggle="dropdown">
+                    <span>{{selectedLayer | translate}}</span>
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu col-sm-12 col-md-12 col-lg-12">
+                    <li ng-repeat="layer in interpolationLayers"
+                        ng-class="{'selected': layer === selectedLayer}"
+                        ng-click="onChangeLayer(layer)">{{layer | translate}}
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="interpolation--filter">
+            <div class="dropdown--title">
+                <label>
+                    {{'SIDEBAR.INTERPOLATION.INTERPOLATION_LAYER_ATTR' | translate}}:
+                </label>
+            </div>
+            <div class="dropdown--items dropdown">
+                <button class="btn btn-default dropdown-toggle col-sm-12 col-md-12 col-lg-12"
+                        type="button" data-toggle="dropdown">
+                    <span>{{selectedAttribute | translate}}</span>
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu col-sm-12 col-md-12 col-lg-12">
+                    <li ng-repeat="attribute in layerAttributes"
+                        ng-class="{'selected': attribute === selectedAttribute}"
+                        ng-click="onChangeAttribute(attribute)">{{attribute | translate}}
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <hr/>
+
+        <div class="actions">
+            <button type="button" class="actions--clear btn btn-default"
+                    ng-class="{disabled: status === 'applying'}"
+                    ng-click="clearAll()">{{'SIDEBAR.INTERPOLATION.CLEAR_ALL' | translate}}</button>
+
+            <a class="actions--apply btn btn-primary" ng-class="{disabled: status === 'applying'}" ng-click="renderInterpolationMap()">
+                <span class="glyphicon glyphicon-refresh spinning"
+                      ng-class="{invisible: status === 'applied'}"></span>
+                <span ng-class="{invisible: status === 'applied'}">{{'SIDEBAR.INTERPOLATION.APPLYING' | translate}}</span>
+                <span ng-class="{invisible: status === 'applying'}">{{'SIDEBAR.INTERPOLATION.APPLY' | translate}}</span>
+            </a>
+        </div>
+
+    </div>
+
+</div>

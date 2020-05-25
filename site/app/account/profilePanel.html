@@ -1,0 +1,66 @@
+<a class="account-navbar dropdown-toggle" data-toggle="dropdown">
+    <i class="fa fa-user-circle" aria-hidden="true"></i>
+    <!-- 1.Part1: "Welcome" -->
+    <span ng-if="!userInfo.isCellPhone">{{'ACCOUNT.WELCOME' | translate}}, </span>
+    <!-- 2.Part2: "First Name" -->
+    <span>{{firstName}} | </span>
+    <!-- 3.Part1: "User Type" -->
+    <span>{{currentUserType | translate}}</span>
+    <i class="fa fa-chevron-down" aria-hidden="true"></i>
+</a>
+
+<div ng-class="getProfileDropdownMenuClass()">
+    <div class="dropdown-profile__basis">
+        <div class="dropdown-profile__image">
+            <img class="avatar" src="/assets/img/LoRa-icon.png" alt="avatar"/>
+        </div>
+        <div class="dropdown-profile__details">
+            <div class="dropdown-profile__name">
+                <span>{{userInfo.firstName}}  {{userInfo.lastName}}</span>
+            </div>
+            <div class="dropdown-profile__email">
+                <span>{{userInfo.email}}</span>
+            </div>
+        </div>
+    </div>
+    <hr/>
+    <div class="dropdown-profile__opts">
+        <ul>
+            <li class="dropdown-profile__opt">
+                <a href="/">
+                    <div class="dropdown-profile__opt-icon">
+                        <i class="fa fa-globe" aria-hidden="true"></i>
+                    </div>
+                    <span>{{'ACCOUNT.PANEL_ITEMS.3DMAP' | translate}}</span>
+                </a>
+            </li>
+            <li class="dropdown-profile__opt">
+                <a ng-click="redirectToOverviewPage()">
+                    <div class="dropdown-profile__opt-icon">
+                        <i class="fa fa-tachometer" aria-hidden="true"></i>
+                    </div>
+                    <span>{{'ACCOUNT.PANEL_ITEMS.DASHBOARD' | translate}}</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <hr/>
+    <div class="dropdown-profile__opts">
+        <ul>
+            <li class="dropdown-profile__opt">
+                <a ng-click="redirectToProfilePage()">
+                    <div class="dropdown-profile__opt-icon">
+                        <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+                    </div>
+                    <span>{{'ACCOUNT.PANEL_ITEMS.USER_PROFILE' | translate}}</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <hr/>
+    <div class="dropdown-profile__signout">
+        <button type="button" class="btn btn-danger" ng-click="AC.logout()">
+            {{'ACCOUNT.LOG_OUT' | translate}}
+        </button>
+    </div>
+</div>

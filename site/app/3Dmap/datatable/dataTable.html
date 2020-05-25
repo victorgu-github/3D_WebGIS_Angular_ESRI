@@ -1,0 +1,119 @@
+<div ng-controller="DataTableCtrl">
+    <div class="data-table-toggle" ng-click="dataTableService.slide()">
+        <div class="toggle-content">
+            <span class="glyphicon glyphicon-search"></span>
+            <span class="tool-tip" ng-bind="dataTableService.tooltip | translate"></span>
+        </div>
+    </div>
+
+    <div class="data-table-container">
+        <div class="dynamic-data-table">
+
+            <div table-resize table-content-class-name="table-wrapper" class="resizer"></div>
+
+            <ul class="nav nav-tabs" context-menu="menuOptions">
+                <li ng-repeat="tab in dataTableService.services" class="{{tab.class}}"
+                    ng-class="{active: tab.id == dataTableService.currentTab}">
+                    <a ng-click="dataTableService.switchTab(tab.id)">
+                        <fa name="{{tab.icon}}"></fa>
+                        <i class="glyphicon"></i>
+                        {{tab.name}}
+                        <button type="button" class="tab-close close" aria-label="Close"
+                                ng-click="dataTableService.closeTab(tab.id)">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </a>
+                </li>
+                <button type="button" class="close" aria-label="Close" ng-click="dataTableService.closeView()">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </ul>
+
+            <div class="empty-table" ng-show="dataTableService.isOpen && dataTableService.services.length <= 0">
+                <h1 class="messages">
+                    <fa name="table" size="1"></fa>
+                    {{'DATATABLE.NO_TAB_SELECTED' | translate}}
+                </h1>
+                <h3 class="hint">
+                    {{'DATATABLE.REOPEN_DATA_VIEW' | translate}}
+                </h3>
+            </div>
+
+            <div class="control-header-container" ng-hide="dataTableService.services.length <= 0">
+                <div class="control-header">
+                    <div class="refresh-toggles">
+                        <span class="autorefresh">AutoRefresh: </span>
+                        <div class="onoffswitch">
+                            <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox"
+                                   id="autoRefreshSwitch" ng-change="dataTableService.toggleRefresh()"
+                                   ng-model="dataTableService.autoRefresh">
+                            <label class="onoffswitch-label" for="autoRefreshSwitch">
+                                <span class="onoffswitch-inner"></span>
+                                <span class="onoffswitch-switch"></span>
+                            </label>
+                        </div>
+                    </div>
+                    <ul uib-pagination
+                        total-items="dataTableService.pageCount"
+                        ng-model="dataTableService.pageNumber"
+                        items-per-page="dataTableService.pageSize"
+                        first-text="{{'DATATABLE.PAGINATION.FIRST' | translate}}"
+                        last-text="{{'DATATABLE.PAGINATION.PREVIOUS' | translate}}"
+                        next-text="{{'DATATABLE.PAGINATION.NEXT' | translate}}"
+                        previous-text="{{'DATATABLE.PAGINATION.LAST' | translate}}"
+                        class="pagination-sm"
+                        boundary-links="true"
+                        force-ellipses="true">
+                    </ul>
+                </div>
+            </div>
+
+            <div class="table-wrapper" ng-if="dataTableService.services.length > 0">
+                <div ng-repeat="tab in dataTableService.services"
+                     ng-show="dataTableService.currentTab == tab.id"
+                     ng-class="{active: tab.id == dataTableService.currentTab}">
+                    <div class="content-loader" ng-show="tab.initializing">
+                        <div class="content-loader-inner">
+                            <label> ●</label>
+                            <label> ●</label>
+                            <label> ●</label>
+                            <label> ●</label>
+                            <label> ●</label>
+                            <label> ●</label>
+                        </div>
+                    </div>
+                    <div class="empty-table" ng-show="!tab.initializing && tab.body.length === 0">
+                        <h1 class="messages">
+                            <fa name="table" size="1"></fa>
+                            {{'DATATABLE.NO_DATA' | translate}}
+                        </h1>
+                        <h3 class="hint">
+                            {{'DATATABLE.VERIFY_NO_DATA' | translate}}
+                        </h3>
+                    </div>
+                    <table class="table table-hover table-bordered" ng-hide="tab.body.length === 0">
+                        <thead class="table-header">
+                        <tr>
+                            <th ng-repeat="item in tab.aliasHeader">
+                                {{item | translate}}
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody class="table-body">
+                        <tr ng-repeat="row in tab.body track by $index" class="data-table-row"
+                            row-index="{{$index}}"
+                            ng-click="onLeftClick(row, $index)"
+                            ng-right-click="onRightClick(row)">
+                            <td ng-repeat="col in row track by $index">
+                                {{col}}
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

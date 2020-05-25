@@ -1,0 +1,15 @@
+/* slide-panel css shared by dark and bright theme */
+.slide-panel {
+    /*48px is the div.footer height, need to minus it*/
+    height: -moz-calc(100% - 48px);     /* Firefox */
+    height: -webkit-calc(100% - 48px); /* Chrome, Safari */
+    height: calc(100% - 48px);         /* IE9+ and future browsers */
+    color: #7f7f7f;
+    background-color: #24272E;
+    border-right: 2px solid black;
+    overflow-y: scroll;
+}
+
+.slide-panel-head {
+    height: 50px;
+}

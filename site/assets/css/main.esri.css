@@ -1,0 +1,47 @@
+/*
+ESRI STYLE
+*/
+
+/* Esri JSAPI */
+.esri-view, .map {
+    /* make height to 100% of viewport height*/
+    height : 100vh;
+  }
+  
+  #esri-container-wrapper {
+    height: 100%;
+  }
+  
+  #esri-container {
+    height: 100%;
+  }
+  
+  /* leaflet2Dmap */
+  #leaflet2Dmap {
+    z-index: 10;
+    height: 100vh;
+  }
+  
+  .esri-ui-inner-container {
+    bottom: 100px;
+  }
+  /* hide power by label in 3d map area */
+  /* .esri-ui-manual-container>.esri-component{
+    display: none;
+  } */
+  /* highlightjs */
+  .hljs.javascript,
+  .hljs.xml {
+    display: inline-block;
+    overflow-x: auto;
+    white-space: pre;
+    font-size: 13px;
+    background-color: inherit; /* only use if syntax highlighting background is light gray or near white */
+  }
+  .tab-container pre {
+    margin-bottom: 0;
+    border-top: 0;
+  }
+  .snippet-file-name {
+    margin-bottom: 12px;
+  }

@@ -1,0 +1,78 @@
+/*
+    new lora device
+*/
+
+.register-device-container-gen-usr-app {
+    position: absolute;
+    width: 100%;
+    height: calc(100% - 50px);
+    overflow-x: auto;
+    overflow-y: auto;
+}
+
+#ABPBatchFileDownload,
+#OTAABatchFileDownload {
+    color: #ffffff;
+}
+
+.has-success .input-group-addon {
+    color: darkgreen;
+}
+
+.register-device-form--preview .preview {
+    max-height: 460px;
+}
+
+.error--shake {
+    -moz-animation: error--shake 0.3s;
+    -webkit-animation: error--shake 0.3s;
+    animation: error--shake 0.3s;
+}
+
+.new-device-batch {
+    padding-right: 0px;
+}
+
+.new-device-submit {
+    padding-right: 0px;
+}
+
+/* new device collapse */
+.register-device-form__group .panel-heading a:hover {
+    text-decoration: none;
+}
+
+.register-device-form__group .panel-title {
+    color: #000000;
+    word-spacing: 10px;
+}
+
+@media screen and (max-width: 400px){
+    #gen-usr-new-lora-dev-optional-ABP {
+        width: 100%;
+    }
+    
+    #gen-usr-new-lora-dev-optional-OTAA {
+        width: 100%;
+    }
+
+    .dashboard-content-body-form .input-group-addon {
+        font-size: 10px;
+        min-width: 100px;
+        max-width: 100px;
+    }
+
+    #gen-usr-new-lora-dev-submit-ABP {
+        margin-top: 10px;
+        float: right;
+    }
+
+    #gen-usr-new-lora-dev-submit-OTAA {
+        margin-top: 10px;
+        float: right;
+    }
+
+    #gen-usr-new-lora-gateway-optional {
+        width: 100%;
+    }
+}

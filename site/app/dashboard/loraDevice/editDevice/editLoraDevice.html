@@ -1,0 +1,65 @@
+<div class="container dashboard-edit-page-container">
+    <div class="return-panel">
+        <div class="return-panel-header">
+            <h3>
+                <span class="glyphicon glyphicon-share"></span>
+                <a class="return-panel-header-link" href="{{loraDeviceTableUrl}}">Return</a>
+            </h3>
+        </div>
+    </div>
+
+    <div class="dashboard-edit-page-body dashboard-uib-tabset container">
+        <div class="dashboard-edit-page-body-title row">
+            <div class="text-center col-sm-12 col-md-12 col-lg-12">
+                <span>
+                    <h2 ng-if="editEntry.ABP">Editing LoRa Device in ABP Mode</h2>
+                    <h2 ng-if="!editEntry.ABP">Editing LoRa Device in OTAA Mode</h2>
+                </span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-12">
+                <!-- Error Message -->
+                <div class="dashboard-edit-page-body-invalid-msg alert alert-danger" role="alert" ng-show="formStatus === 'invalid'">
+                    <button type="button" class="close" ng-click="closeAlert()" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <strong>Error occurs due to: </strong>{{errorMessage}}
+                </div>
+
+                <div class="dashboard-edit-page-body-content-loader content-loader" ng-show="initializing">
+                    <div class="content-loader-inner">
+                        <label> ●</label>
+                        <label> ●</label>
+                        <label> ●</label>
+                        <label> ●</label>
+                        <label> ●</label>
+                        <label> ●</label>
+                    </div>
+                </div>
+
+                <uib-tabset active="active" ng-show="!initializing">
+                    <!-- First Tab for General Editing -->
+                    <uib-tab class="uib-tab" index="0" heading="General Edit">
+                        <div ng-include="'/dashboard/loraDevice/editDevice/loraDeviceGeneralEdit.html'"></div>
+                    </uib-tab>
+
+                    <!-- Second Tab for Count Editing -->
+                    <uib-tab class="uib-tab" index="1" heading="Count Edit">
+                        <div ng-include="'/dashboard/loraDevice/editDevice/countEdit/countEdit.html'"></div>
+                    </uib-tab>
+
+                    <!-- Third Tab for Command Editing-->
+                    <uib-tab class="uib-tab" index="2" heading="Command Edit">
+                        <div ng-include="'/dashboard/loraDevice/editDevice/commandEdit/commandEdit.html'"></div>
+                    </uib-tab>
+
+                    <!-- Forth Tab for Maintenance Editing-->
+                    <uib-tab class="uib-tab" index="3" heading="Maintenance Edit">
+                        <div ng-include="'/dashboard/loraDevice/editDevice/maintanence/maintanence.html'"></div>
+                    </uib-tab>
+                </uib-tabset>
+            </div>
+        </div>
+    </div>
+</div>

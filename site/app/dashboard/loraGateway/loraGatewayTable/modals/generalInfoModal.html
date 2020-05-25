@@ -1,0 +1,31 @@
+<div class="modal fade" id="generalInfoModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="device-table-modal-dialog" role="document">
+        <div class="dashboard-modal-content modal-content">
+            <div class="device-table-modal-dialog-header modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h3 class="modal-title" id="myModalLabel">
+                    <b>
+                        <h2>
+                            <em>Gateway Information</em>
+                        </h2>
+                    </b>
+                </h3>
+            </div>
+            <uib-tabset id="device-table-modal-dialog-uib" active="active">
+                <!-- First Tab for General Editing -->
+                <uib-tab class="uib-tab" index="0" heading="General Information">
+                    <div class="device-table-modal-dialog-uib-row row">
+                        <div ng-repeat="elem in popupRowInfo track by $index" class="col-sm-6 col-md-4 col-lg-3">
+                            <div class="form-group">
+                                <label for="usr">{{elem.header}}</label>
+                                <input type="text" id="device-table-modal-dialog-uib-row-elem" class="form-control" value="{{elem.body}}" readonly>
+                            </div>
+                        </div>
+                </uib-tab>
+            </uib-tabset>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,115 @@
+<div class="dashboard-shared-table-container container" ng-show="!displayPageNotFoundTemplate">
+    <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-12">
+            <div class="overview-backward">
+                <a href="/#/dashboard/overview">
+                    <i class="fa fa-chevron-circle-left" aria-hidden="true"></i>
+                    <span>Back to Overview</span>
+                </a>
+            </div>
+            <hr/>
+        </div>
+    </div>
+
+    <!-- Filter And Search Bar -->
+    <div class="row">
+        <div class="dashboard-shared-table-filter-search-bar">
+            <div class="input-group" ng-hide="hideFilter">
+                <span class="input-group-addon">AppID Filter</span>
+                <select class="form-control" ng-model="filterVal" ng-options="id for id in applicationIDs" ng-change="searchDevice()"></select>
+            </div>
+            <div class="input-group" ng-hide="hideSearch">
+                <span class="input-group-addon">Search</span>
+                <input type="text" class="form-control" ng-model="searchVal" ng-change="searchDevice()" />
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div ng-class="deviceTableDetails">
+            <div class="content-loader" ng-show="initializing">
+                <div class="content-loader-inner">
+                    <label> ●</label>
+                    <label> ●</label>
+                    <label> ●</label>
+                    <label> ●</label>
+                    <label> ●</label>
+                    <label> ●</label>
+                </div>
+            </div>
+
+            <div class="dashboard-shared-table-no-data" ng-show="!initializing && tableBody.length === 0">
+                <div class="dashboard-shared-table-no-data-message">
+                    <h1>No data found in the system</h1>
+                </div>
+            </div>
+
+            <div class="table-container">
+                <table id="deviceDatatable" class="table table-hover" ng-show="!initializing && tableBody.length !== 0">
+                    <thead ng-class="getTableHeaderClass()" class="table-header">
+                        <tr>
+                            <th>
+                                <input class="device-table-header-checkbox" type="checkbox" ng-model="tableHeader[0]" ng-click="selectAll()" ng-show="showCheckBox">
+                            </th>
+                            <th>
+                                <i class="fa fa-info-circle" aria-hidden="true"></i>
+                            </th>
+                            <th>
+                                <i class="fa fa-cog" aria-hidden="true"></i>
+                            </th>
+                            <th ng-repeat="item in tableHeader.slice(1, tableHeader.length) track by $index" ng-click="sortTable(item)">
+                                {{item}}
+                                <i class="fa fa-arrow-up" ng-show="sortMap[item] === true && sortAscMap[item] === true"></i>
+                                <i class="fa fa-arrow-down" ng-show="sortMap[item] === true && sortAscMap[item] !== true"></i>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody class="table-body">
+                        <tr ng-repeat="row in tableBody track by $index" class="data-table-row">
+                            <td align="center" ng-hide="readOnly" ng-click="$event.stopPropagation()">
+                                <input class="device-table-body-checkbox" type="checkbox" ng-model="row[0]" ng-click="adAndRmChkRow(row)" ng-show="showCheckBox">
+                            </td>
+                            <td align="center" ng-hide="readOnly" ng-click="$event.stopPropagation()">
+                                <a title="Channel History and Zmq Payload Data" class="btn btn-default" ng-click="showZmqPayloadAndChannelHistoryData(row)">
+                                    <i class="fa fa-list"></i>
+                                </a>
+                                <a title="LoRa Device General Info" class="btn btn-default" ng-click="showDeviceInfo(row)">
+                                    <i class="fa fa-book"></i>
+                                </a>
+                            </td>
+                            <td align="center" ng-hide="readOnly" ng-click="$event.stopPropagation()">
+                                <a class="btn btn-default" ng-click="editDevice(row)">
+                                    <i class="fa fa-pencil"></i>
+                                </a>
+                                <a class="btn btn-danger" ng-class="{disabled: isDeleting($index)}" ng-click="deleteDevice(row)">
+                                    <span class="glyphicon glyphicon-refresh spinning" ng-show="isDeleting($index)">
+                                    </span>
+                                    <i class="fa fa-trash"></i>
+                                </a>
+                            </td>
+                            <td title="{{col}}" ng-repeat="col in row.slice(1, row.length) track by $index">
+                                {{col}}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="row device-table-channel-history-btn" ng-show="!displayPageNotFoundTemplate">
+        <div class="col-sm-12 col-md-12 col-lg-12" ng-show="checkedRows.length !== 0">
+            <button type="button" class="btn btn-primary pull-right" ng-click="downloadCHData()">Download Channel History Data</button>
+            <button type="button" class="btn btn-primary pull-right" ng-click="changeMtStatus()">Change Maintenance Status</button>
+        </div>
+    </div>
+
+    <!-- Modal Parts -->
+    <div ng-include="'/dashboard/deviceTable/modals/generalInfoModal.html'"></div>
+    <div ng-include="'/dashboard/deviceTable/modals/maintanenceStatModal.html'"></div>
+    <div ng-include="'/dashboard/deviceTable/modals/channelHistoryDataModal.html'"></div>
+</div>
+
+<div ng-show="displayPageNotFoundTemplate">
+    <div ng-include="'_shared/errorTemplate/errorTemplate.html'"></div>
+</div>

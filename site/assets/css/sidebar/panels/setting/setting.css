@@ -1,0 +1,86 @@
+/* 
+   setting 
+*/
+    
+.setting li {
+    list-style-type: none;
+}
+
+.setting .environment-options span {
+    color: #9d9d9d;
+}
+    
+.setting .setting-item {
+    margin: 5px;
+    color: #9d9d9d;
+    background-color: #171717;
+    border-radius: 5px;
+    padding: 10px 10px 20px;
+}
+    
+.setting .highlight:hover {
+    cursor: pointer;
+    color: #FFFFFF;
+}
+    
+.setting .layer-title {
+    margin-left: 10px;
+    margin-right: 5px;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.setting .setting-item__content {
+    width: 100%;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+.setting .setting-item__content span {
+    float: left;
+    width: 33.33%;
+    text-align: center;
+    font-weight: 500;
+}
+
+.setting .setting-item .setting-item__buttons {
+    width: 100%;
+    margin-top: 5px;
+}
+
+.setting .setting-item .setting-item__buttons button {
+    width: 33.33%;
+}
+
+.setting .btn-default.active {
+    background-color: #3276B1;
+    border-color: #285E8E;
+}
+
+.setting .setting-panels-title {
+    text-align: center;
+    color: #9d9d9d;
+    margin-bottom: 10px;
+}
+
+.setting-item-title {
+    text-align: center;
+    color: #9d9d9d;
+    font-size: 20px;
+    margin-bottom: 5px;
+    margin-top: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    line-height: 36px;
+}
+
+.setting-item-title .panel-close {
+    float: right;
+    color: #9d9d9d;
+    margin-top: 5px;
+}
+
+.setting-item-title .panel-close:hover {
+    cursor: pointer;
+    color: #FFFFFF;
+}

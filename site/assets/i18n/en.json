@@ -1,0 +1,236 @@
+{
+  "3D_WebGIS_Angular_ESRI_MAP": "3D_WebGIS_Angular_ESRI MAP",
+  "3D_WebGIS_Angular_ESRI": "3D_WebGIS_Angular_ESRI",
+  "COPYRIGHT": "Copyright - 3D_WebGIS_Angular_ESRI Inc.",
+  "COPYRIGHT_BRIEF": "© 3D_WebGIS_Angular_ESRI",
+  "CONTROL": {
+    "BACK": "Back"
+  },
+  "ACCOUNT": {
+    "WELCOME": "Welcome",
+    "WELCOME_LOGIN": "Welcome to 3D_WebGIS_Angular_ESRI 3D Map",
+    "SIGN_IN": "Sign in",
+    "USERNAME": "Username",
+    "PASSWORD": "Password",
+    "EMAIL_ADDRESS": "Email Address",
+    "PANEL_ITEMS": {
+      "3DMAP": "3D Map",
+      "DASHBOARD": "Dashboard",
+      "USER_PROFILE": "User Profile"
+    },
+    "PROFILE": {
+      "NAME": "Profile",
+      "EMAIL": "Email",
+      "ACCESS_ROLE": "Access Role",
+      "CURRENT_SCENARIO": "Current Scenario",
+      "FEATURE_LAYER_BASE_URL": "Feature layer base url",
+      "TILED_LAYER_BASE_URL": "Tiled layer base url",
+      "OVERVIEW": {
+        "NAME": "Overview",
+        "SELECT_SCENARIO": "Select a scenario",
+        "SELECT_SCENARIO_INFO": "Select scenario and display scenario info",
+        "SCENARIO_NAME": "Scenario Name",
+        "BLE_ID": "Scenario BLE Application ID",
+        "COMPANY_NAME": "Company Name",
+        "LORA_APP_ID": "Scenario LoRa Application ID"
+      },
+      "EXIT": "Exit",
+      "USER_NAME": "User Name",
+      "FIRST_NAME": "First Name",
+      "LAST_NAME": "Last Name"
+    },
+    "LOG_OUT": "Log out",
+    "ADMIN": "Admin User",
+    "ADMIN_BRIEF": "A",
+    "GENERAL": "General User",
+    "GENERAL_BRIEF": "G"
+  },
+  "LANGUAGE": {
+    "SWITCH": "Languages: ",
+    "CN": "简体中文",
+    "EN": "English"
+  },
+  "SIDEBAR": {
+    "LAYER_LIST": "LayerList",
+    "SCENARIO": "Scenario",
+    "BASEMAP": "BaseMap",
+    "HEATMAP": "HeatMap",
+    "INTRPL": "INTRPL",
+    "NODELIST": "NodeList",
+    "ALL_NODES": "All Nodes",
+    "DASHBOARD": "Dashboard",
+    "2DMAP": "2D Map",
+    "3DMAP": "3D Map",
+    "SETTINGS": "Settings",
+    "UNDERGROUND": "Under Ground",
+    "TIME_SETTINGS": "Time Settings",
+    "HEAT_MAP": {
+      "HEAT_LAYER": "Heat Layer",
+      "HEAT_LAYER_ATTR": "Heat Layer Attributes",
+      "CLEAR_ALL": "Clear All",
+      "APPLYING": "Applying",
+      "APPLY": "Apply",
+      "LOADING": "Loading...",
+      "INVALID_LAYER": "Invalid Layer Name",
+      "PLEASE_SELECT_LAYER": "Please select layer first",
+      "SELECT_AN_LAYER": "Select an Layer",
+      "SELECT_AN_ATTR": "Select an Attribute",
+      "RADIUS": "Radius",
+      "BLUR": "Blur"
+    },
+    "INTERPOLATION": {
+      "INTERPOLATION_LAYER": "Interpolation Layer",
+      "INTERPOLATION_LAYER_ATTR": "Layer Attribute",
+      "CLEAR_ALL": "Clear All",
+      "APPLYING": "Applying",
+      "APPLY": "Apply",
+      "LOADING": "Loading...",
+      "INVALID_LAYER": "Invalid Layer Name",
+      "PLEASE_SELECT_LAYER": "Please select layer first",
+      "SELECT_AN_LAYER": "Select an Layer",
+      "SELECT_AN_ATTR": "Select an Attribute"
+    }
+  },
+  "DASHBOARD": {
+    "NAME": "Dashboard",
+    "OVERVIEW": "Overview",
+    "OVERVIEW_MENGYANG": "Meng Yang",
+    "NEW_LORA_DEVICE": "New LoRa Device",
+    "NEW_LORA_GATEWAY": "New Lora Gateway",
+    "NEW_APPLICATION": "New General User Application",
+    "NEW_APPLICATION_FOR_GENUSR": "New Application",
+    "MULTICAST_GROUP": "New LoRa Multicast Group",
+    "GENERAL_USER_APPLICATION": "General User Applications",
+    "GENERAL_USER_APPLICATION_DESCRIPTION": "Number of General User Applications: ",
+    "GENERAL_USER": "General Users",
+    "GENERAL_USER_DESCRIPTION": "Number of General Users: ",
+    "BLE_GATEWAYS": "BLE Gateways",
+    "BLE_GATEWAYS_DESCRIPTION": "Number of BLE Gateways: ",
+    "BLE_NODES": "BLE Nodes",
+    "BLE_NODES_DESCRIPTION": "Number of BLE Nodes: ",
+    "LORA_DEVICES": "LoRa Devices",
+    "LORA_DEVICES_DESCRIPTION": "Number of LoRa Devices: ",
+    "MULTICAST_GROUPS": "LoRa Multicast Groups",
+    "MULTICAST_GROUPS_DESCRIPTION": "Number of LoRa Multicast Groups: ",
+    "LORA_GATEWAYS": "LoRa Gateways",
+    "LORA_GATEWAYS_DESCRIPTION": "Number of LoRa Gateways: ",
+    "EDIT": "Edit",
+    "MONITOR": "Monitor",
+    "OVERVIEW_INFO": "Overview Information",
+
+    "BACK_TO_OVERVIEW": "Back to Overview",
+    "BACK_TO_OVERVIEW_BRIEF": "Back",
+    "SUMMARY": "Summary",
+    "DATATABLE": "Data Table",
+    "MAP_VIEW": "Map View",
+    "LORA_GATEWAY_MAP_VIEW": "MAP_VIEW",
+    "LORA_DEVICES_DATATABLE": "LoRa Devices Data Table",
+    "LORA_DEVICES_2DMAP": "LoRa Devices 2D Map",
+    "LORA_GATEWAY_2DMAP": "LoRa Gateway 2D Map",
+
+    "SUMMARY_INFO": "Summary Information",
+    "APPLICATION_ID": "Application ID",
+    "DEVICE_TYPE": "Device Type",
+    "LOADING": "Loading...",
+    "NUMBER_OF_DEVICES": "Number of Devices",
+    "DEVICE_HISTORY_CHART": "Device History Chart",
+    "START_TIME": "Start Time",
+    "END_TIME": "End Time",
+    "DEVICE_ATTRIBUTE": "Device Attribute",
+    "CREATE": "Create",
+
+    "GENERAL_USR": {
+      "APPLICATION": "Applications",
+      "APPLICATION_DESCRIPTION": "Number of Applications:"
+    },
+
+    "BLE_APPLICATION": "BLE Applications",
+    "BLE_APPLICATION_DESCRIPTION": "Num of BLE Applications:",
+    "NEW_BLE_APPLICATION": "New BLE Application"
+  },
+  "DATATABLE": {
+    "OPEN": "Open Data View",
+    "CLOSE": "Close Data View",
+    "NO_TAB_SELECTED": "No tab selected",
+    "REOPEN_DATA_VIEW": "Try turn on layer toggle and reopen data view.",
+    "NO_DATA": "No Data",
+    "VERIFY_NO_DATA": "Please check if there is any data in the system.",
+    "PAGINATION": {
+      "FIRST": "First",
+      "PREVIOUS": "Previous",
+      "NEXT": "Next",
+      "LAST": "Last"
+    },
+    "CONTROL": {
+      "ADD_NEW_TAB": "Add new tab",
+      "CLOSE_VIEW": "Close view"
+    }
+  },
+  "DYNAMIC_ATTR": {
+    "PLUGBASE": {
+      "VOLTAGE": "voltage",
+      "CURRENT": "current",
+      "POWER": "power"
+    },
+    "SMOKE_DETECTOR": {
+      "BATTERY_LEVEL": "battery level",
+      "FLAG": "flag"
+    },
+    "CEILING_LIGHT": {
+      "STATUS": "status"
+    },
+    "DETECTOR": {
+      "IS_PEOPLE_NEARBY": "count",
+      "HUMIDITY": "humidity",
+      "TEMPERATURE": "temperature"
+    },
+    "WINDOOR_SENSOR": {
+      "STATUS": "status"
+    },
+    "GATEWAY": {
+      "TEMPERATURE": "Temperature",
+      "AIR_QUALITY": "Air Quality",
+      "HUMIDITY": "Humidity"
+    }
+  },
+  "DEVICE_CONTROL": {
+    "TURN_OFF_GROUP": "Turn off Group",
+    "TURN_ON_GROUP": "Turn on Group",
+    "UNKNOWN": "light n/a",
+    "WAITING": "Waiting...",
+    "TURN_OFF": "Turn off",
+    "TURN_ON": "Turn on",
+    "DEVICE_GROUP_ON_CONFIRM": "Do you want to turn on all the highlighted devices?",
+    "DEVICE_GROUP_OFF_CONFIRM": "Do you want to turn off all the highlighted devices?"
+  },
+  "HISTORY_CHART_TITLE": {
+    "DETECTOR": "Detector History Data",
+    "GATEWAY": "History Data",
+    "LORA_GATEWAY": "LoRa Gateway History",
+    "ENERGY_USAGE": "Energy Usage",
+    "SMOKE_DETECTOR": "Smoke Detector History",
+    "WATER_SENSOR": "Water Sensor History",
+    "WATER_TANK": "Water Tank History"
+  },
+  "DAY_TIME": "Day Time",
+  "REAL_TIME": "Real World",
+  "NIGHT_TIME": "Night Time",
+
+  "BUILDING_FLOORS": "Building Floors",
+  "GO_TO_LEVEL": "Go to Level",
+  "HISTORY_DATA": "History Data",
+
+  "realTimeLayer": "BLE Device",
+  "gateway20170616": "BLE Gateway",
+  "Fake layer": "Simulation Layer",
+
+  "Air Quality": "Air Quality",
+  "Humidity": "Humidity",
+  "Temperature": "Temperature",
+  "Date": "Date",
+  "Time Duration": "Time Duration",
+
+  "Mac Address": "Mac address",
+
+  "dynStatus": "status"
+}

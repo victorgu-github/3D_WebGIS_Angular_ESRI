@@ -1,0 +1,281 @@
+.data-table-container {
+    height: 50px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+}
+
+.data-table-container .nav-tabs > li > a {
+    border: 1px solid #171717;
+}
+
+.data-table-container .nav-tabs {
+    border-bottom: 1px solid #171717;
+    padding-top: 5px;
+}
+
+.data-table-container .nav-tabs-lora-gw-monitor {
+    border-bottom: 1px solid #171717;
+    padding-top: 0px;
+}
+
+.data-table-container .nav.nav-tabs li a {
+    padding: 10px 0 10px 10px;
+    background: #24272E;
+    color: #9d9d9d;
+}
+
+.data-table-container .nav.nav-tabs .active a,
+.data-table-container .nav.nav-tabs li a:hover {
+    color: #ededed;
+    border: 1px solid #171717;
+    border-bottom: 1px solid #24272E;
+    font-weight: 500;
+}
+
+.data-table-container .nav.nav-tabs .active a:hover {
+    background-color: #24272E;
+}
+
+.data-table-container .dynamic-data-table {
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background-color: #24272E;
+    bottom: -300px;
+    transition: all 0.5s;
+    resize: vertical;
+    z-index: 1;
+}
+
+.data-table-container .dynamic-data-table .resizer {
+    padding-top: 2px;
+    padding-bottom: 2px;
+    height: 15px;
+    text-align: center;
+}
+
+.data-table-container .dynamic-data-table .resizer:hover {
+    cursor: row-resize;
+}
+
+.data-table-container .dynamic-data-table .table {
+    border-top: 0;
+    height: 242px;
+    margin-bottom: 0;
+    border-right: 0;
+    z-index: 1;
+}
+
+.data-table-container .dynamic-data-table .table th,
+.data-table-container .dynamic-data-table .table td {
+    height: 20px;
+}
+
+.data-table-container .dynamic-data-table .table .selected {
+    background-color: #57738c;
+    border-left: 3px solid #57738c;
+}
+
+.data-table-container .selected > tr:first-child > th {
+    border-left: 1px solid #57738c;
+}
+
+.data-table-container .dynamic-data-table .table-header {
+    background-color: #767f87;
+}
+
+.data-table-container .table > thead:first-child > tr:first-child > th {
+    border-left: 1px solid #767f87;;
+}
+
+.data-table-container .dynamic-data-table .table-body {
+    background-color: #f6f6f6;
+}
+
+.data-table-container .pagination > .disabled > a,
+.data-table-container .pagination > .disabled > a:focus,
+.data-table-container .pagination > .disabled > a:hover,
+.data-table-container .pagination > .disabled > span,
+.data-table-container .pagination > .disabled > span:focus,
+.data-table-container .pagination > .disabled > span:hover {
+    color: #777;
+    cursor: not-allowed;
+    background-color: #fff;
+    border-color: #ddd;
+}
+
+.data-table-container .pagination > li > a:focus,
+.data-table-container .pagination > li > a:hover,
+.data-table-container .pagination > li > span:focus,
+.data-table-container .pagination > li > span:hover {
+    color: #24272E;
+    background-color: #adadad;
+    border-color: #ededed;
+}
+
+.data-table-container .dynamic-data-table .active a {
+    color: #ededed;
+    background-color: #3f434a;
+    border-color: #ededed;
+}
+
+.data-table-container .dynamic-data-table .active a:hover {
+    background-color: #adadad;
+}
+
+.data-table-container .table-striped > tbody > tr:nth-of-type(odd) {
+    background-color: #FFFFFF;
+}
+
+.data-table-container .selected > tr:first-child > th {
+
+}
+
+.data-table-container .table-hover > tbody > tr:hover {
+    background-color: #7b8187;
+    border-left: 3px solid #7b8187;
+}
+
+.data-table-container .table-bordered > thead > tr > th {
+    border: 1px solid #b2b4b7;
+}
+
+.data-table-container .dynamic-data-table .nav.nav-tabs li {
+    cursor: pointer;
+}
+
+.data-table-container .dynamic-data-table .nav.nav-tabs.nav-tabs-lora-gw-monitor li {
+    cursor: pointer;
+    width: 130px;
+}
+
+.data-table-container .dynamic-data-table .empty-table {
+    height: 100%;
+    width: 100%;
+    letter-spacing: 1px;
+    background-color: #24272E;
+    padding-bottom: 20px;
+}
+
+.data-table-container .dynamic-data-table .empty-table .messages {
+    color: #adadad;
+    font-weight: 300;
+    text-align: center;
+    margin: 0;
+    line-height: 185px;
+}
+
+.data-table-container .dynamic-data-table .empty-table .hint {
+    color: #adadad;
+    font-weight: 100;
+    text-align: center;
+    margin: 0;
+}
+
+.data-table-container li a {
+    color: #717171;
+}
+
+.data-table-container .data-table-row:hover {
+    cursor: pointer;
+}
+
+.data-table-container .close {
+    padding: 3px 10px 5px 5px;
+    opacity: 0.7;
+    text-shadow: none;
+    color: #adadad;
+}
+
+.data-table-container .close:hover {
+    color: #ededed;
+}
+
+.data-table-container .tab-close {
+    position: relative;
+    left: 5px;
+    bottom: 5px;
+    opacity: 0.5;
+    text-shadow: none;
+    color: #adadad;
+}
+
+.data-table-container .tab-close:hover {
+    color: #ededed;
+}
+
+.data-table-container .table-wrapper {
+    background: #ededed;
+    height: 245px;
+    overflow-x: auto;
+    overflow-y: auto;
+    /*z-index: 1;*/
+}
+
+.data-table-container .table-wrapper .active {
+    height: 100%;
+}
+
+.data-table-toggle {
+    position: absolute;
+    left: 50%;
+    bottom: 10px;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: 400;
+    color: #9d9d9d;
+    z-index: 200;
+    transform: translateX(-50%);
+}
+
+.leaflet-datatable .data-table-toggle .toggle-content {
+    padding-top: 7px;
+}
+
+.data-table-toggle .toggle-content {
+    padding-top: 10px
+}
+
+.data-table-toggle:hover {
+    color: #ededed;
+    font-size: 22px;
+    background-image: linear-gradient(to top,transparent 92%,#b52e31 93%,#b52e31 100%);
+}
+
+.data-table-toggle .tool-tip {
+    position: relative;
+    margin-left: 10px;
+    bottom: 1px;
+}
+
+.invisible {
+    display: none;
+}
+
+/* set the lora gateway monitor datatable height for cell phone in landscape mode */
+@media screen and (max-height: 400px) {
+    .data-table-container .table-wrapper {
+        background: #ededed;
+        height: 60px;
+        overflow-x: auto;
+        overflow-y: auto;
+        z-index: 1;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .data-table-toogle span {
+        font-size: 15px;
+    }
+
+    .data-table-toggle .tool-tip {
+        font-size: 15px;
+        position: relative;
+        margin-left: 10px;
+        bottom: 1px;
+    }
+}

@@ -1,0 +1,467 @@
+/* Dashboard and overview page css */
+.dashboard-container {
+    background-color: #2a2d35;
+    position: absolute;
+    width: 100%;
+    height: calc(100% - 50px);
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: top;
+}
+
+/* Dashboard navigation css */
+.dashboard__navigation {
+    background-color: #24272E;
+    position: absolute;
+    width: 15%;
+    height: 100%;
+}
+
+.dashboard__navigation-title {
+    color: #9d9d9d;
+    font-size: 22px;
+    text-align: center;
+    margin: 10px 0;
+}
+
+.dashboard__navigation-title:hover {
+    cursor: default;
+}
+
+.dashboard__navigation-items {
+    padding-left: 0;
+}
+
+.dashboard__navigation-item {
+    font-size: 20px;
+    padding: 10px 0 10px 15px;
+    color: #9d9d9d;
+    margin-bottom: 10px;
+}
+
+.dashboard__navigation-item:hover {
+    cursor: pointer;
+    background-color: #33353d;
+    border-left: 5px solid #b52e31;
+    color: #ffffff;
+}
+
+.dashboard__navigation-item.active {
+    border-left: 5px solid red;
+    background-color: #2a2d35;
+    color: #ffffff;
+}
+
+.dashboard__navigation-item-title {
+    margin-left: 15px;
+    font-size: 16px;
+}
+
+.dashboard__navigation {
+    background-color: #24272E;
+    position: absolute;
+    width: 15%;
+    height: 100%;
+}
+
+.dashboard__navigation-title {
+    color: #9d9d9d;
+    font-size: 22px;
+    text-align: center;
+    margin: 10px 0;
+}
+
+.dashboard__navigation-title:hover {
+    cursor: default;
+}
+
+.dashboard__navigation-items {
+    padding-left: 0;
+}
+
+.dashboard__navigation-item {
+    font-size: 20px;
+    padding: 10px 0 10px 15px;
+    color: #9d9d9d;
+    margin-bottom: 10px;
+}
+
+.dashboard__navigation-item:hover {
+    cursor: pointer;
+    background-color: #33353d;
+    border-left: 5px solid #b52e31;
+    color: #ffffff;
+}
+
+.dashboard__navigation-item.active {
+    border-left: 5px solid red;
+    background-color: #2a2d35;
+    color: #ffffff;
+}
+
+.dashboard__navigation-item-title {
+    margin-left: 15px;
+    font-size: 16px;
+}
+
+.dashboard__navigation-for-gen-usr {
+    background-color: #24272E;
+    position: absolute;
+    top: 50px;
+    width: 200px;
+    min-width: 200px;
+    height: 100%;
+}
+
+.dashboard__navigation-for-gen-usr-exist {
+    background-color: #24272E;
+    position: absolute;
+    top: 50px;
+    left: 85px;
+    width: 200px;
+    min-width: 200px;
+    height: 100%;
+}
+
+.dashboard__navigation-for-gen-usr-desktop {
+    background-color: #24272E;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 200px;
+    min-width: 200px;
+    height: 100%;
+}
+
+.dashboard__navigation-for-gen-usr-title {
+    color: #9d9d9d;
+    font-size: 22px;
+    text-align: center;
+    margin: 10px 0;
+}
+
+.dashboard__navigation-for-gen-usr-title:hover {
+    cursor: default;
+}
+
+.dashboard__navigation-for-gen-usr-items {
+    padding-left: 0;
+}
+
+.dashboard__navigation-for-gen-usr-item {
+    font-size: 20px;
+    padding: 10px 0 10px 15px;
+    color: #9d9d9d;
+    margin-bottom: 10px;
+}
+
+.dashboard__navigation-for-gen-usr-item:hover {
+    cursor: pointer;
+    background-color: #33353d;
+    border-left: 5px solid #b52e31;
+    color: #ffffff;
+}
+
+.dashboard__navigation-for-gen-usr-item.active {
+    border-left: 5px solid red;
+    background-color: #2a2d35;
+    color: #ffffff;
+}
+
+.dashboard__navigation-for-gen-usr-item-title {
+    margin-left: 15px;
+    font-size: 16px;
+}
+
+/* Dashboard navigation css for general user */
+.dashboard-navigation-gen-usr-mobile {
+    background-color: #24272E;
+    position: absolute;
+    top: 50px;
+}
+
+/* Dashboard content page css */
+.dashboard__content {
+    color: #949ba2;
+    position: absolute;
+    margin-left: 15%;
+    margin-right: 0;
+    padding: 0px 15px;
+    width: 85%;
+    height: 100%;
+    padding: 0px 10px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.dashboard__content-for-gen-usr {
+    color: #949ba2;
+    position: absolute;
+    width: 100%;
+    min-width: 350px;
+    height: 100%;
+    padding: 0px 10px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.dashboard-content-for-gen-usr-mobile {
+    color: #949ba2;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    min-width: 342px;
+    height: 100%;
+    padding: 0px 10px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.dashboard__content-for-gen-usr-desktop {
+    color: #949ba2;
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 200px;
+    right: 0px;
+    min-width: 350px;
+    padding: 0px 10px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.ng-scope input:disabled {
+    background-color: #808080;
+    color: #ffffff;
+}
+
+.ng-scope table .btn[disabled] {
+    background-color: #808080;
+    color: #ffffff;
+    border: 1px solid #808080;
+}
+
+.clear-both {
+    clear: both;
+}
+
+/* Return panel style */
+.return-panel {
+    color:#949BA2;
+    margin-left: -15px;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.return-panel-header {
+    text-align: left;
+    min-height: 30px;
+    color: #ffffff;
+}
+
+.return-panel-header-link{
+    margin-left:5px;
+    color:#949BA2;
+}
+
+.return-panel-header-link:hover{
+    color:#949BA2;
+}
+
+/* 
+Dashboard Uib Tabset CSS:
+1.New lora device; (admin user & general user)
+2.Edit lora device; (admin user & genearl user) 
+*/
+.dashboard-uib-tabset .nav-tabs>li {
+    background-color: #808080;
+    border: none;
+}
+  
+.dashboard-uib-tabset .nav-tabs>li>a {
+    color: #000000;
+    border: none;
+}
+  
+.dashboard-uib-tabset .nav-tabs>li.active>a,
+.dashboard-uib-tabset .nav-tabs>li.active>a:focus {
+    border: none;
+}
+
+/* dashboard input-group  */
+.ng-scope .input-group-addon {
+    min-width: 170px; 
+    font-weight: bold;
+    text-align: center;
+}
+
+.ng-scope .input-group-addon a {
+    text-decoration: none;
+    color: #000000;
+}
+
+.ng-scope .input-group-append .input-group-addon {
+    border-left: 1px solid #cccccc;
+    border-right: 1px solid #cccccc;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    background-color: #ffffff;
+    text-align: left;
+}
+
+.ng-scope .new-lora-gateway-toggle {
+    height: 40px;
+}
+
+.ng-scope .new-lora-gateway-toggle .toggle.btn {
+    bottom: 4px;
+}
+
+/* dashboard collaspe group */
+/* Applied for: 1. New Lora Device
+                2. New Lora Gateway */
+.dashboard-collapse-group .panel-heading a:hover {
+    text-decoration: none;
+}
+                
+.dashboard-collapse-group .panel-title {
+    color: #000000;
+    word-spacing: 10px;
+}
+
+/* dashboard overview-backward button */
+.overview-backward {
+    padding: 10px 20px;
+}
+
+.overview-backward a {
+    color: #000;
+}
+
+.overview-backward a:hover {
+    color: black;
+    text-decoration: none;
+}
+
+.overview-backward .fa,
+.overview-backward span {
+    font-size: 20px;
+}
+
+.overview-backward span {
+    margin-left: 10px;
+}
+
+.overview-backward + hr {
+    margin-top: 0px;
+}
+
+.close-btn {
+    opacity: 1;
+    margin-right: 5px;
+}
+
+.close-btn-right {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    z-index: 100;
+    opacity: 1;
+}
+
+@-moz-keyframes error--shake {
+    0%, 100% {
+        margin-left: 0;
+    }
+    20% , 60% {
+        margin-left: 15px;
+    }
+    40% , 80% {
+        margin-left: -15px;
+    }
+}
+@-webkit-keyframes error--shake {
+    0%, 100% {
+        margin-left: 0;
+    }
+    20% , 60% {
+        margin-left: 15px;
+    }
+    40% , 80% {
+        margin-left: -15px;
+    }
+}
+@keyframes error--shake {
+    0%, 100% {
+        margin-left: 0;
+    }
+    20% , 60% {
+        margin-left: 15px;
+    }
+    40% , 80% {
+        margin-left: -15px;
+    }
+}
+
+/* dashboard-modal */
+.dashboard-modal-dialog {
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    width: 900px;
+}
+
+.dashboard-modal-content {
+    color: white;
+    background-color: #34323A;
+}
+
+.dashboard-modal-content input {
+    background-color: #7f7f7f;
+    border: none;
+    color: #000000;
+}
+
+.dashboard-modal-content .input-group {
+    background-color: #FFFFFF;
+    border: none;
+    border-radius: 5px;
+    color: #000000;
+}
+
+.dashboard-modal-contentg .input-group-addon {
+    background-color: #7f7f7f;
+    border: none;
+    color: #000000;
+}
+
+/*
+    on-going state button
+*/
+.glyphicon.spinning {
+    animation: spin 1s infinite linear;
+    -webkit-animation: spin2 1s infinite linear;
+}
+
+@keyframes spin {
+    from { transform: scale(1) rotate(0deg); }
+    to { transform: scale(1) rotate(360deg); }
+}
+
+@-webkit-keyframes spin2 {
+    from { -webkit-transform: rotate(0deg); }
+    to { -webkit-transform: rotate(360deg); }
+}
+
+/* Redesign the overview page card value position */
+@media screen and (max-width: 1280px) {
+    .overview-panel__card-body--loaded {
+       top: 15px;
+    }
+}

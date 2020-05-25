@@ -1,0 +1,236 @@
+<div class="container dashboard-content-container" ng-controller="NewLoraGatewayCtrl">
+    <!-- 1. Title -->
+    <div class="row">
+        <div class="dashboard-content-header col-sm-12 col-md-12 col-lg-12">
+            <h3>New LoRa Gateway</h3>
+            <div class="dashboard-content-header-separator"></div>
+        </div>
+    </div>
+    <!-- 2.Loading Pulse After Submitted -->
+    <div class="row">
+        <div class="dashboard-content-body-loading-pulse col-sm-12 col-md-12 col-lg-12" ng-show="formStatus === 'submitted'">
+            <div class="loading-pulse"></div>
+        </div>
+    </div>
+    <!-- 3.Error Message -->
+    <div class="row dashboard-content-body-error-msg">
+        <div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1 alert alert-danger" role="alert"
+            ng-show="formStatus === 'invalid'">
+            <button type="button" class="close" ng-click="closeAlert()" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <strong>Error occurs due to: </strong>{{errorMessage}}
+        </div>
+    </div>
+    <!-- 4.Content and Submit Button -->
+    <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-12 dashboard-content-body-form" ng-show="formStatus !== 'submitted'">
+            <form name="registerLoraGateway">
+                <div class="dashboard-content-body-form-group control-group">
+                    <div class="input-group col-sm-8 col-md-8 col-lg-8 col-sm-offset-2 col-md-offset-2 col-lg-offset-2">
+                        <span class="input-group-addon">GatewaySN
+                            <span ng-show="displayStar.GatewaySN">*</span>
+                        </span>
+                        <input id="GatewaySN" name="GatewaySN" type="text" class="form-control" ng-model="registerForm.GatewaySN">
+                    </div>
+                </div>
+                <div class="dashboard-content-body-form-group control-group">
+                    <div class="input-group col-sm-8 col-md-8 col-lg-8 col-sm-offset-2 col-md-offset-2 col-lg-offset-2">
+                        <span class="input-group-addon">GatewayMAC
+                            <span ng-show="displayStar.GatewayMAC">*</span>
+                        </span>
+                        <input id="GatewayMAC" name="GatewayMAC" type="text" class="form-control" ng-model="registerForm.GatewayMAC">
+                    </div>
+                </div>
+                <div class="dashboard-content-body-form-group control-group">
+                    <div class="input-group col-sm-8 col-md-8 col-lg-8 col-sm-offset-2 col-md-offset-2 col-lg-offset-2">
+                        <span class="input-group-addon">CoreBoardVersion
+                            <span ng-show="displayStar.CoreBoardVersion">*</span>
+                        </span>
+                        <input id="CoreBoardVersion" name="CoreBoardVersion" type="text" class="form-control" ng-model="registerForm.CoreBoardVersion">
+                    </div>
+                </div>
+                <div class="dashboard-content-body-form-group control-group">
+                    <div class="input-group col-sm-8 col-md-8 col-lg-8 col-sm-offset-2 col-md-offset-2 col-lg-offset-2">
+                        <span class="input-group-addon">BandID
+                            <span ng-show="displayStar.BandID">*</span>
+                        </span>
+                        <select id="BandID" class="form-control" ng-model="registerForm.BandID" ng-options="id for id in bandIDs">
+                        </select>
+                    </div>
+                </div>
+                <div class="dashboard-content-body-form-group control-group">
+                    <div class="input-group col-sm-8 col-md-8 col-lg-8 col-sm-offset-2 col-md-offset-2 col-lg-offset-2">
+                        <span class="input-group-addon">MotherboardVersion
+                            <span ng-show="displayStar.MotherboardVersion">*</span>
+                        </span>
+                        <input id="MotherboardVersion" name="MotherboardVersion" type="text" class="form-control" ng-model="registerForm.MotherboardVersion">
+                    </div>
+                </div>
+                <!-- 3.1 Optional Fields, Collapse Panel -->
+                <div class="dashboard-content-body-form-group control-group">
+                    <div id="gen-usr-new-lora-gateway-optional" class="input-group col-sm-8 col-md-8 col-lg-8 col-sm-offset-2 col-md-offset-2 col-lg-offset-2">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <a data-toggle="collapse" data-target="#register-loraGateway-collapse" ng-click="changeCollapse()">
+                                    <h4 class="panel-title">
+                                        <i class="fa fa-plus" aria-hidden="true" ng-show="collapse"></i>
+                                        <i class="fa fa-minus" aria-hidden="true" ng-show="!collapse"></i>
+                                        <span>Optional Fields</span>
+                                    </h4>
+                                </a>
+                            </div>
+                            <div id="register-loraGateway-collapse" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <div class="dashboard-content-body-form-group control-group">
+                                        <div class="input-group col-sm-12 col-md-12 col-lg-12">
+                                            <span class="input-group-addon">Description </span>
+                                            <input id="Description" name="Description" type="text" class="form-control" ng-model="registerForm.Description">
+                                        </div>
+                                    </div>
+                                    <!-- In javascript, the field begin with number can only be used in form registerForm['4gModule'] instead of registerForm.4gModule -->
+                                    <div class="dashboard-content-body-form-group control-group">
+                                        <div class="input-group col-sm-12 col-md-12 col-lg-12">
+                                            <span class="input-group-addon">4gModule </span>
+                                            <input id="4gModule" name="4gModule" type="text" class="form-control" ng-model="registerForm['4gModule']">
+                                        </div>
+                                    </div>
+                                    <!-- In javascript, the field begin with number can only be used in form registerForm['4gSimCardID'] instead of registerForm.4gSimCardID -->
+                                    <div class="dashboard-content-body-form-group control-group">
+                                        <div class="input-group col-sm-12 col-md-12 col-lg-12">
+                                            <span class="input-group-addon">4gSimCardID </span>
+                                            <input id="4gSimCardID" name="4gSimCardID" type="text" class="form-control" ng-model="registerForm['4gSimCardID']">
+                                        </div>
+                                    </div>
+                                    <div class="dashboard-content-body-form-group control-group">
+                                        <div class="input-group col-sm-12 col-md-12 col-lg-12">
+                                            <span class="input-group-addon">InstallationNumber </span>
+                                            <input id="InstallationNumber" name="InstallationNumber" type="text" class="form-control" ng-model="registerForm.InstallationNumber">
+                                        </div>
+                                    </div>
+                                    <div class="dashboard-content-body-form-group control-group">
+                                        <div class="input-group col-sm-12 col-md-12 col-lg-12">
+                                            <span class="input-group-addon">InstallationDate </span>
+                                            <input id="InstallationDate" name="InstallationDate" type="date" class="form-control" ng-model="registerForm.InstallationDate">
+                                        </div>
+                                    </div>
+                                    <div class="dashboard-content-body-form-group control-group">
+                                        <div class="input-group col-sm-12 col-md-12 col-lg-12">
+                                            <span class="input-group-addon">GpsRefLat </span>
+                                            <input id="GpsRefLat" name="GpsRefLat" type="number" class="form-control" ng-model="registerForm.GpsRefLat">
+                                        </div>
+                                    </div>
+                                    <div class="dashboard-content-body-form-group control-group">
+                                        <div class="input-group col-sm-12 col-md-12 col-lg-12">
+                                            <span class="input-group-addon">GpsRefLon </span>
+                                            <input id="GpsRefLon" name="GpsRefLon" type="number" class="form-control" ng-model="registerForm.GpsRefLon">
+                                        </div>
+                                    </div>
+                                    <div class="dashboard-content-body-form-group control-group">
+                                        <div class="input-group col-sm-12 col-md-12 col-lg-12">
+                                            <span class="input-group-addon">GpsRefAlt </span>
+                                            <input id="GpsRefAlt" name="GpsRefAlt" type="number" class="form-control" ng-model="registerForm.GpsRefAlt">
+                                        </div>
+                                    </div>
+                                    <div class="dashboard-content-body-form-group control-group">
+                                        <div class="input-group col-sm-12 col-md-12 col-lg-12">
+                                            <span class="input-group-addon">ReverseTunnelPort </span>
+                                            <input id="ReverseTunnelPort" name="ReverseTunnelPort" type="text" class="form-control" ng-model="registerForm.ReverseTunnelPort">
+                                        </div>
+                                    </div>
+                                    <div class="dashboard-content-body-form-group control-group">
+                                        <div class="input-group col-sm-12 col-md-12 col-lg-12">
+                                            <span class="input-group-addon">SiteID </span>
+                                            <input id="SiteID" name="SiteID" type="text" class="form-control" ng-model="registerForm.SiteID">
+                                        </div>
+                                    </div>
+                                    <div class="dashboard-content-body-form-group control-group">
+                                        <div class="input-group col-sm-12 col-md-12 col-lg-12">
+                                            <span class="input-group-addon">Site Name </span>
+                                            <input id="SiteName" name="SiteName" type="text" class="form-control" ng-model="registerForm.SiteName">
+                                        </div>
+                                    </div>
+                                    <div class="dashboard-content-body-form-group control-group">
+                                        <div class="input-group col-sm-12 col-md-12 col-lg-12">
+                                            <span class="input-group-addon">Site Address </span>
+                                            <input id="SiteAddress" name="SiteAddress" type="text" class="form-control" ng-model="registerForm.SiteAddress">
+                                        </div>
+                                    </div>
+                                    <div class="dashboard-content-body-form-group control-group">
+                                        <div class="input-group col-sm-12 col-md-12 col-lg-12">
+                                            <span class="input-group-addon">Site Region </span>
+                                            <input id="SiteRegion" name="SiteRegion" type="text" class="form-control" ng-model="registerForm.SiteRegion">
+                                        </div>
+                                    </div>
+                                    <div class="dashboard-content-body-form-group control-group">
+                                        <div class="input-group col-sm-12 col-md-12 col-lg-12">
+                                            <span class="input-group-addon">Site Type </span>
+                                            <input id="SiteType" name="SiteType" type="text" class="form-control" ng-model="registerForm.SiteType">
+                                        </div>
+                                    </div>
+                                    <div class="dashboard-content-body-form-group control-group">
+                                        <div class="input-group col-sm-12 col-md-12 col-lg-12">
+                                            <span class="input-group-addon">Site Description </span>
+                                            <input id="SiteDescription" name="SiteDescription" type="text" class="form-control" ng-model="registerForm.SiteDescription">
+                                        </div>
+                                    </div>
+                                    <div class="dashboard-content-body-form-group control-group">
+                                        <div class="input-group col-sm-12 col-md-12 col-lg-12">
+                                            <span class="input-group-addon">Site Condition </span>
+                                            <input id="SiteCondition" name="SiteCondition" type="text" class="form-control" ng-model="registerForm.SiteCondition">
+                                        </div>
+                                    </div>
+                                    <div class="dashboard-content-body-form-group control-group">
+                                        <div class="input-group col-sm-12 col-md-12 col-lg-12">
+                                            <span class="input-group-addon">Site Source </span>
+                                            <input id="SiteSource" name="SiteSource" type="text" class="form-control" ng-model="registerForm.SiteSource">
+                                        </div>
+                                    </div>
+                                    <div class="dashboard-content-body-form-group control-group">
+                                        <div class="input-group col-sm-12 col-md-12 col-lg-12">
+                                            <span class="input-group-addon">Comments </span>
+                                            <input id="Comments" name="Comments" type="text" class="form-control" ng-model="registerForm.Comments">
+                                        </div>
+                                    </div>
+                                    <div class="dashboard-content-body-form-group control-group">
+                                        <div class="input-group col-sm-12 col-md-12 col-lg-12">
+                                            <span class="input-group-addon">Coverage (KM) </span>
+                                            <input id="CoverageInKM" name="CoverageInKM" type="number" class="form-control" ng-model="registerForm.CoverageInKM">
+                                        </div>
+                                    </div>
+                                    <div class="dashboard-content-body-form-group control-group">
+                                        <div class="input-group col-sm-12 col-md-12 col-lg-12">
+                                            <span class="input-group-addon">WiredNetwork</span>
+                                            <toggle class="new-lora-gateway-toggle form-control" ng-model="registerForm.WiredNetwork" on="true" off="false" ng-change="changed()"></toggle>
+                                        </div>
+                                    </div>
+                                    <div class="dashboard-content-body-form-group control-group">
+                                        <div class="input-group col-sm-12 col-md-12 col-lg-12">
+                                            <span class="input-group-addon">WiFi</span>
+                                            <toggle class="new-lora-gateway-toggle form-control" ng-model="registerForm.WiFi" on="true" off="false" ng-change="changed()"></toggle>
+                                        </div>
+                                    </div>
+                                    <!-- In javascript, the field begin with number can only be used in form registerForm['4gLTE'] instead of registerForm.4gLTE -->
+                                    <div class="dashboard-content-body-form-group control-group">
+                                        <div class="input-group col-sm-12 col-md-12 col-lg-12">
+                                            <span class="input-group-addon">4gLTE</span>
+                                            <toggle class="new-lora-gateway-toggle form-control" ng-model="registerForm['4gLTE']" on="true" off="false" ng-change="changed()"></toggle>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-content-body-form-group dashboard-content-body-form-submit">
+                    <div class="control-label col-sm-8 col-md-8 col-lg-8 col-sm-offset-2 col-md-offset-2 col-lg-offset-2 submit-button-wrapper">
+                        <div class="controls">
+                            <button class="btn btn-primary" ng-click="finish(registerLoraGateway.$valid)">Create</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

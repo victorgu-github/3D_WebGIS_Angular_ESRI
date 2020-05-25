@@ -1,0 +1,56 @@
+<div class="tree-node tree-node-content">
+    <i class="highlight" aria-hidden="true"
+       ng-show="layer.layers.length > 0"
+       ng-click="layer.toggleCollapse()"
+       ng-class="{'fa fa-plus': layer.collapsed,
+                   'fa fa-minus': !layer.collapsed}"></i>
+    <span class="highlight layer-title" ng-click="layer.toggleItems();refreshSlider();">
+        {{layer.title}}
+    </span>
+    <i class="fa highlight" aria-hidden="true"
+       ng-class="{'fa-eye': layer.isVisible(), 'fa-eye-slash': !layer.isVisible()}"
+       ng-click="layer.toggleLayerVisibility()"></i>
+    <i class="pull-right glyphicon highlight"
+       ng-click="layer.toggleItems();refreshSlider();"
+       ng-class="{'glyphicon-chevron-down': layer.isOpen,
+                   'glyphicon-chevron-right': !layer.isOpen}"></i>
+    <ul ng-show="layer.isOpen" class="layer-content">
+        <li class="layer-opacity-slider">
+            <span>Opacity: </span>
+            <rzslider rz-slider-model="layer.mapLayer"
+                      rz-slider-value="layer.opacity"
+                      rz-slider-options="layer.slideOptions"></rzslider>
+        </li>
+        <li ng-show="layer.resizeSymbol" class="layer-opacity-slider">
+            <span>Symbol Size Factor: </span>
+            <rzslider rz-slider-model="layer.mapLayer"
+                      rz-slider-value="layer.sizeFactor"
+                      rz-slider-options="layer.symbolSizeSlideOptions"></rzslider>
+        </li>
+        <li ng-show="layer.changeHistoryPoints" class="layer-opacity-slider">
+            <span>History Point Size: </span>
+            <rzslider rz-slider-model="layer.mapLayer"
+                      rz-slider-value="layer.historySize"
+                      rz-slider-options="layer.historySizeSlideOptions"></rzslider>
+        </li>
+        <li ng-repeat="item in layer.items" class="layer-content-item highlight"
+            ng-click="item.doAction()">
+            <fa name="{{item.icon}}"></fa>
+            <span class="layer-content-item">{{item.title}}</span>
+        </li>
+    </ul>
+</div>
+<ol ui-tree-nodes="" ng-model="layer.layers"
+    ng-show="layer.layers.length > 0 && !layer.collapsed"
+    class="sub-layers">
+    <li class="sub-layer-desc">
+        <fa name="th-list"></fa>
+        <span>Sub Layers</span>
+    </li>
+
+    <li ng-repeat="layer in layer.layers track by $index"
+        class="sub-layer-item"
+        ui-tree-node
+        ng-include="'sidebar/panels/_shared/_tree_view.html'">
+    </li>
+</ol>

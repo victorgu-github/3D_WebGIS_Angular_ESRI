@@ -1,0 +1,195 @@
+/* monitor-datatable style*/
+/* Style of the whole datatable, include content and submit button*/
+.monitor-datatable {
+    width: 100%;
+    height: 100%;
+}
+
+/* Style of the atatable content*/
+.monitor-datatable-content {
+    width: 100%;
+}
+
+.monitor-datatable-filter {
+    width: 15%;
+    float: left;
+}
+
+.monitor-datatable-search {
+    width: 15%;
+    float: right;
+}
+
+/* Style of the no data error message */
+.monitor-datatable-no-data {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.monitor-datatable-no-data-message-row {
+    position: absolute;
+    text-align: center;
+}
+
+.monitor-datatable-no-data-message-content {
+    font-size: 30px;
+}
+
+.monitor-datatable-no-data-hint-row {
+    position: absolute;
+    margin-top: 50px;
+    text-align: center;
+}
+
+.monitor-datatable-no-data-hint-content {
+    font-size: 18px;
+}
+
+/* Style of the datatable table */
+.monitor-datatable-table-container {
+    position: absolute;
+    top: 70px;
+    bottom: 60px;
+    left: 0px;
+    width: 100%;
+    padding-left: 0px;
+    padding-right: 0px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.monitor-datatable-widget {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.monitor-datatable-table-container table {
+    display: table;
+    table-layout: fixed;
+    position: absolute;
+    top: 50px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+}
+
+.monitor-datatable-table-container table thead {
+    position: fixed;
+    table-layout: fixed;
+    display: table;
+    top: 235px;
+    left: 100px;
+    width: calc(100% - 130px);
+    height: 50px;
+    line-height: 3em;
+    background: #eee;
+    z-index:3;
+
+}
+
+.monitor-datatable-table-container table tbody {
+    position: relative;
+    table-layout: fixed;
+    display: table;
+    top: 0;
+    width: 100%;
+    line-height: 3em;
+    z-index:2;
+}
+
+#monitor-datatable-table thead th {
+    vertical-align: middle;
+    overflow: hidden;
+    text-overflow: clip;
+}
+
+#monitor-datatable-table tbody td {
+    vertical-align: middle;
+    overflow: hidden;
+    text-overflow: clip;
+}
+
+.monitor-datatable-table-container > table > thead > tr > th {
+    text-align: center;
+}
+
+.monitor-datatable-table-container > table > tbody > tr > td {
+    text-align: center;
+}
+
+.monitor-datatable-font {
+    font-weight: 400;
+}
+
+.monitor-datatable-submit {
+    position: absolute;
+    bottom: 10px;
+    padding-right: 0px;
+}
+
+.monitor-datatable-table-container table thead tr th:first-child,
+.monitor-datatable-table-container table tbody tr td:first-child {
+  width: 8em;
+  min-width: 8em;
+  max-width: 8em;
+  word-break: break-all;
+}
+
+/*
+    content loader
+*/
+
+.monitor-datatable-content-loader {
+    position: absolute;
+    width: 100%;
+    height: 100px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.monitor-datatable-content-loader-inner {
+    transform: translateY(-50%);
+    top: 50%;
+    width: calc(100% - 200px);
+    color: #5c7477;
+    padding: 0 100px;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.monitor-datatable-content-loader-inner label {
+    font-size: 20px;
+    opacity: 0;
+    display:inline-block;
+}
+
+.monitor-datatable-content-loader-inner label:nth-child(6) {
+    -webkit-animation: lol 3s infinite ease-in-out;
+    animation: lol 3s infinite ease-in-out;
+}
+
+.monitor-datatable-content-loader-inner label:nth-child(5) {
+    -webkit-animation: lol 3s 100ms infinite ease-in-out;
+    animation: lol 3s 100ms infinite ease-in-out;
+}
+
+.monitor-datatable-content-loader-inner label:nth-child(4) {
+    -webkit-animation: lol 3s 200ms infinite ease-in-out;
+    animation: lol 3s 200ms infinite ease-in-out;
+}
+
+.monitor-datatable-content-loader-inner label:nth-child(3) {
+    -webkit-animation: lol 3s 300ms infinite ease-in-out;
+    animation: lol 3s 300ms infinite ease-in-out;
+}
+
+.monitor-datatable-content-loader-inner label:nth-child(2) {
+    -webkit-animation: lol 3s 400ms infinite ease-in-out;
+    animation: lol 3s 400ms infinite ease-in-out;
+}
+
+.monitor-datatable-content-loader-inner label:nth-child(1) {
+    -webkit-animation: lol 3s 500ms infinite ease-in-out;
+    animation: lol 3s 500ms infinite ease-in-out;
+}

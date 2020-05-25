@@ -1,0 +1,131 @@
+<!-- 1.Loading Pulse -->
+<div class="row">
+    <div class="dashboard-content-body-loading-pulse" ng-show="data.formStatus === 'submitted'">
+        <div class="loading-pulse"></div>
+    </div>
+</div>
+
+<!-- 2.Error Message -->
+<div class="row dashboard-content-body-error-msg">
+    <div class="col-sm-8 col-md-8 col-lg-8 col-sm-offset-2 col-md-offset-2 col-lg-offset-2 alert alert-danger" role="alert" ng-show="data.formStatus === 'invalid'">
+        <button type="button" class="close" ng-click="closeAlert()" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        <strong>错误原因: </strong>{{data.errorMessage}}
+    </div>
+</div>
+
+<!-- 3.Content and Submit Button -->
+<div class="row">
+    <div ng-class="getMengyangRegisterFormClass()" ng-show="data.formStatus !== 'submitted'">
+        <form id="registerMengyangForm" name="registerMengyangForm">
+            <!-- HTML Validation 1: Device Name -->
+
+            <div class="dashboard-content-body-form-group control-group">
+                <div class="input-group col-sm-8 col-md-8 col-lg-8 col-sm-offset-2 col-md-offset-2 col-lg-offset-2">
+                    <span class="input-group-addon">牧场*</span>
+                    <select id="pastureID" class="form-control" ng-model="registerEntry.pastureID" ng-options="id for id in data.pastureIDs">
+                    </select>
+                </div>
+            </div>
+
+            <div class="dashboard-content-body-form-group control-group">
+                <div class="input-group col-sm-8 col-md-8 col-lg-8 col-sm-offset-2 col-md-offset-2 col-lg-offset-2">
+                    <span class="input-group-addon">蒙羊耳标1* </span>
+                    <input id="mengyangID" name="mengyangID" type="text" class="form-control" ng-model="registerEntry.mengyangID">
+                </div>
+            </div>
+
+            <div class="dashboard-content-body-form-group control-group">
+                <div class="input-group col-sm-8 col-md-8 col-lg-8 col-sm-offset-2 col-md-offset-2 col-lg-offset-2">
+                    <span class="input-group-addon">蒙羊耳标2* </span>
+                    <input id="mengyangID2" name="mengyangID2" type="text" class="form-control" ng-model="registerEntry.mengyangID2">
+                </div>
+            </div>
+
+            <div class="dashboard-content-body-form-group control-group">
+                <div class="input-group col-sm-8 col-md-8 col-lg-8 col-sm-offset-2 col-md-offset-2 col-lg-offset-2">
+                    <span class="input-group-addon">出生日期* </span>
+                    <input id="dateOfBirth" name="dateOfBirth" type="date" class="form-control" ng-model="registerEntry.dateOfBirth">
+                </div>
+            </div>
+
+            <div class="dashboard-content-body-form-group control-group">
+                <div class="input-group col-sm-8 col-md-8 col-lg-8 col-sm-offset-2 col-md-offset-2 col-lg-offset-2">
+                    <span class="input-group-addon">初生重(kg)* </span>
+                    <input id="birthWeight" name="birthWeight" step="0.00000000000000000001" class="form-control" ng-model="registerEntry.birthWeight">
+                </div>
+            </div>
+
+            <div class="dashboard-content-body-form-group control-group">
+                <div class="input-group col-sm-8 col-md-8 col-lg-8 col-sm-offset-2 col-md-offset-2 col-lg-offset-2">
+                    <span class="input-group-addon">性别* </span>
+                    <input id="gender" name="gender" type="text" class="form-control" ng-model="registerEntry.gender">
+                </div>
+            </div>
+
+            <div class="dashboard-content-body-form-group control-group">
+                <div class="input-group col-sm-8 col-md-8 col-lg-8 col-sm-offset-2 col-md-offset-2 col-lg-offset-2">
+                    <span class="input-group-addon">来源* </span>
+                    <input id="origin" name="origin" type="text" class="form-control" ng-model="registerEntry.origin">
+                </div>
+            </div>
+
+            <div class="dashboard-content-body-form-group control-group">
+                <div class="input-group col-sm-8 col-md-8 col-lg-8 col-sm-offset-2 col-md-offset-2 col-lg-offset-2">
+                    <span class="input-group-addon">父耳标 </span>
+                    <input id="fatherID" name="fatherID" type="text" class="form-control" ng-model="registerEntry.fatherID">
+                </div>
+            </div>
+
+            <div class="dashboard-content-body-form-group control-group">
+                <div class="input-group col-sm-8 col-md-8 col-lg-8 col-sm-offset-2 col-md-offset-2 col-lg-offset-2">
+                    <span class="input-group-addon">母耳标 </span>
+                    <input id="motherID" name="motherID" type="text" class="form-control" ng-model="registerEntry.motherID">
+                </div>
+            </div>
+
+            <div class="dashboard-content-body-form-group control-group">
+                <div class="input-group col-sm-8 col-md-8 col-lg-8 col-sm-offset-2 col-md-offset-2 col-lg-offset-2">
+                    <span class="input-group-addon">备注 </span>
+                    <input id="comments" name="comments" type="text" class="form-control" ng-model="registerEntry.comments">
+                </div>
+            </div>
+
+            <div class="dashboard-content-body-form-group control-group">
+                <div class="input-group col-sm-8 col-md-8 col-lg-8 col-sm-offset-2 col-md-offset-2 col-lg-offset-2">
+                    <div class="input-group">
+                        <span class="input-group-addon">照片</span>
+                        <input id="pictureInfo" type="text" class="form-control" readonly>
+                        <label class="input-group-btn">
+                            <span class="btn btn-primary" ng-click="resetPicture()" style="border-radius:0px"> 重置
+                            </span>
+                        </label>
+                        <label class="input-group-btn">
+                            <span class="btn btn-primary">
+                                浏览&hellip;
+                                <input id="picture" type="file" accept="image/*" style="display: none;" onchange="angular.element(this).scope().pictureBrowse()"
+                                    multiple required>
+                            </span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dashboard-content-body-form-group control-group">
+                <div class="input-group col-sm-8 col-md-8 col-lg-8 col-sm-offset-2 col-md-offset-2 col-lg-offset-2">
+                    <span class="input-group-addon">品种 </span>
+                    <input id="variety" name="variety" type="text" class="form-control" ng-model="registerEntry.variety">
+                </div>
+            </div>
+
+            <div class="dashboard-content-body-form-group dashboard-content-body-form-submit">
+                <div class="control-label col-sm-8 col-md-8 col-lg-8 col-sm-offset-2 col-md-offset-2 col-lg-offset-2 submit-button-wrapper">
+                    <div class="controls">
+                        <button class="btn btn-primary" ng-click="finish(registerMengyangForm.$valid)">创建</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

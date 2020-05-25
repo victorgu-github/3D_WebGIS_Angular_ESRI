@@ -1,0 +1,88 @@
+<div ng-class="containerClass">
+    <!-- Return Back To Overview Page -->
+    <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-12">
+            <div class="overview-backward">
+                <a href="{{data.overviewPageUrl}}">
+                    <i class="fa fa-chevron-circle-left" aria-hidden="true"></i>
+                    <span>返回</span>
+                </a>
+            </div>
+            <hr/>
+        </div>
+    </div>
+
+    <!-- Filter And Search Bar -->
+    <div class="row">
+        <div class="dashboard-shared-table-filter-search-bar">
+            <div class="input-group">
+                <span class="input-group-addon">牧场号 </span>
+                <select class="form-control" ng-model="data.filterVal" ng-options="id for id in data.pastureIDs" ng-change="filterSheeps()"></select>
+            </div>
+            <div class="input-group">
+                <span class="input-group-addon">搜索 </span>
+                <input type="text" class="form-control" ng-model="data.searchVal" ng-change="searchSheeps()" />
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Animation & No Data Message & Table -->
+    <div class="row">
+        <div class="dashboard-shared-table-details">
+            <div class="content-loader" ng-show="data.initializing">
+                <div class="content-loader-inner">
+                    <label> ●</label>
+                    <label> ●</label>
+                    <label> ●</label>
+                    <label> ●</label>
+                    <label> ●</label>
+                    <label> ●</label>
+                </div>
+            </div>
+
+            <div class="dashboard-shared-table-no-data" ng-show="!data.initializing && data.tableBody.length === 0">
+                <div class="dashboard-shared-table-no-data-message" style="text-align: center; margin-top: 25%">
+                    <h1>系统无数据</h1>
+                </div>
+            </div>
+
+            <div class="table-container">
+                <table id="displayBleTable" class="table table-hover" ng-show="!data.initializing && data.tableBody.length !== 0">
+                    <thead ng-class="getTableHeaderClass()">
+                        <tr>
+                            <th>
+                                <i class="fa fa-cog" aria-hidden="true"></i>
+                            </th>
+                            <th ng-repeat="item in data.tableHeader track by $index" ng-click="sortTable(item)">
+                                {{item}}
+                                <i class="fa fa-arrow-up" ng-show="data.sortMap[item] === true && data.sortAscMap[item] === true"></i>
+                                <i class="fa fa-arrow-down" ng-show="data.sortMap[item] === true && data.sortAscMap[item] !== true"></i>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody class="table-body">
+                        <tr ng-repeat="row in data.tableBody track by $index" class="data-table-row">
+                            <td align="center">
+                                <a class="btn btn-default" ng-click="showSheepInfo(row)">
+                                    <i class="fa fa-book"></i>
+                                </a>
+                                <a class="btn btn-default" ng-click="editSheep($index)">
+                                    <i class="fa fa-pencil"></i>
+                                </a>
+                                <a class="btn btn-danger" ng-click="deleteSheep($index)">
+                                    <i class="fa fa-trash"></i>
+                                </a>
+                            </td>
+                            <td title="{{col}}" ng-repeat="col in row track by $index">
+                                {{col}}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Parts -->
+    <div ng-include="'/dashboard/mengyang/mengyangTable/modals/generalInfoModal.html'"></div>
+</div>

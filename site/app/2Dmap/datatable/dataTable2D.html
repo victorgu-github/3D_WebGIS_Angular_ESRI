@@ -1,0 +1,108 @@
+<div class="leaflet-datatable" ng-controller="DataTable2DCtrl">
+    <div class="data-table-toggle" ng-click="slide()">
+        <div class="toggle-content">
+            <span class="glyphicon glyphicon-search"></span>
+            <span class="tool-tip" ng-bind="data.tooltip | translate"></span>
+        </div>
+    </div>
+
+    <div class="data-table-container">
+
+        <div class="dynamic-data-table">
+
+            <div table-resize table-content-class-name="table-wrapper" class="resizer"></div>
+
+            <ul class="nav nav-tabs" context-menu="menuOptions">
+                <li ng-repeat="layer in data.dataTableLayers"
+                    ng-class="{active: layer.id === data.currentTab}"
+                    ng-hide="layer.isHidden">
+                    <a ng-click="switchTab(layer.id)">
+                        <fa name="{{layer.icon}}"></fa>
+                        <i class="glyphicon"></i>
+                        {{layer.displayName}}
+                        <button type="button" class="tab-close close" aria-label="Close" ng-click="closeTab(layer.id)">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </a>
+                </li>
+                <button type="button" class="close" aria-label="Close" ng-click="closeView()">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </ul>
+
+            <div class="empty-table" ng-show="data.isOpen && data.noTabSelected">
+                <h1 class="messages">
+                    <fa name="table" size="1"></fa>
+                    {{'DATATABLE.NO_TAB_SELECTED' | translate}}
+                </h1>
+                <h3 class="hint">
+                    {{'DATATABLE.REOPEN_DATA_VIEW' | translate}}
+                </h3>
+            </div>
+
+            <div class="control-header-container" ng-hide="data.noTabSelected">
+                <div class="control-header">
+                    <ul uib-pagination
+                        total-items="data.pageCount"
+                        ng-model="data.pageNumber"
+                        items-per-page="data.pageSize"
+                        first-text="{{'DATATABLE.PAGINATION.FIRST' | translate}}"
+                        last-text="{{'DATATABLE.PAGINATION.PREVIOUS' | translate}}"
+                        next-text="{{'DATATABLE.PAGINATION.NEXT' | translate}}"
+                        previous-text="{{'DATATABLE.PAGINATION.LAST' | translate}}"
+                        class="pagination-sm"
+                        boundary-links="true"
+                        force-ellipses="true">
+                    </ul>
+                </div>
+            </div>
+
+            <div class="table-wrapper" ng-if="!data.noTabSelected">
+                <div ng-repeat="layer in data.dataTableLayers"
+                     ng-if="layer.id === data.currentTab"
+                     ng-class="{active: layer.id == data.currentTab}">
+                    <div class="content-loader" ng-show="layer.initializing">
+                        <div class="content-loader-inner">
+                            <label>	●</label>
+                            <label>	●</label>
+                            <label>	●</label>
+                            <label>	●</label>
+                            <label>	●</label>
+                            <label>	●</label>
+                        </div>
+                    </div>
+                    <div class="empty-table" ng-show="layer.body.length <= 0 && !layer.initializing">
+                        <h1 class="messages">
+                            <fa name="table" size="1"></fa>
+                            {{'DATATABLE.NO_DATA' | translate}}
+                        </h1>
+                        <h3 class="hint">
+                            {{'DATATABLE.VERIFY_NO_DATA' | translate}}
+                        </h3>
+                    </div>
+                    <table class="table table-hover table-bordered">
+                        <thead class="table-header">
+                        <tr>
+                            <th ng-repeat="item in layer.header">
+                                {{item}}
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody class="table-body">
+                        <tr ng-repeat="row in layer.body track by $index" class="data-table-row"
+                            row-index="{{$index}}"
+                            ng-click="onLeftClick(row)"
+                            ng-right-click="onRightClick(row)">
+                            <td ng-repeat="col in row track by $index">
+                                {{col}}
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

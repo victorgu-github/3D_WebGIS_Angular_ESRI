@@ -1,0 +1,87 @@
+/*
+    Overview
+*/
+
+.overview-panel__card {
+    /* Add min-width for dashboard overview page cards, maintain its basic structure */
+    min-width: 300px;
+    margin: 25px 3% 25px 3%;
+    background-color: #2f323b;
+    border-radius: 5px;
+}
+
+.overview-panel__card .overview-panel__card-header {
+    height: 60px;
+    padding-top: 4%;
+    padding-left: 4%;
+}
+
+.overview-panel__card .overview-panel__card-header .fa {
+    margin-right: 5px;
+}
+
+.overview-panel__card .overview-panel__card-header a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.overview-panel__card .overview-panel__card-header span {
+    font-size: 20px;
+}
+
+.overview-panel__card .overview-panel__card-body {
+    height: 100px;
+}
+
+.overview-panel__card-body--loading {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: 100%;
+}
+
+.overview-panel__card-body--loaded {
+    position: absolute;
+    top: 28px;
+    padding: 10px;
+}
+
+.overview-panel__card-body--loaded .card__item {
+    margin-right: 10px;
+    font-size: 18px;
+    font-weight: 300;
+    color: #949ba2;
+}
+
+.overview-panel__card-body--loaded .card__value {
+    font-size: 20px;
+    font-weight: 500;
+    color: #ffffff;
+}
+
+.overview-panel__card-body--loaded .card__value a {
+    text-decoration: none;
+    color: #949ba2;
+}
+
+.overview-panel__card-body--loaded .card__value a:hover {
+    color: #ffffff;
+}
+
+.overview-panel__card-footer {
+    text-align: center;
+    padding: 5px 15px;
+}
+
+.overview-panel__card-footer .fa {
+    margin-right: 5px;
+}
+
+.overview-panel__card-footer a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.overview-panel__card-footer span {
+    font-size: 14px;
+}

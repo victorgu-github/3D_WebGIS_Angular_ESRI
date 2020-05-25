@@ -1,0 +1,150 @@
+<div class="container dashboard-content-container" ng-controller="NewMulticastGroupCtrl">
+    <!-- 1. Title -->
+    <div class="row">
+        <div class="dashboard-content-header col-sm-12 col-md-12 col-lg-12">
+            <h3>New LoRa Multicast Group</h3>
+            <div class="dashboard-content-header-separator"></div>
+        </div>
+    </div>
+    <!-- 2.Loading Pulse After Submitted -->
+    <div class="row">
+        <div class="dashboard-content-body-loading-pulse col-sm-12 col-md-12 col-lg-12" ng-show="formStatus === 'submitted'">
+            <div class="loading-pulse"></div>
+        </div>
+    </div>
+    <!-- 3. Error Message -->
+    <div class="row dashboard-content-body-error-msg">
+        <div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1 alert alert-danger" role="alert"
+            ng-show="formStatus === 'invalid'">
+            <button type="button" class="close" ng-click="closeAlert()" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <strong>Error occurs due to: </strong>{{errorMessage}}
+        </div>
+    </div>
+    <!-- 4. Register LoRa Multicast Group Body -->
+    <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-12 dashboard-content-body-form" ng-show="formStatus !== 'submitted'">
+            <form name="step1">
+                <!-- 4.1 Required Fields -->
+                <div class="dashboard-content-body-form-group control-group">
+                    <div class="input-group col-sm-8 col-md-8 col-lg-8 col-sm-offset-2 col-md-offset-2 col-lg-offset-2">
+                        <span class="input-group-addon">Name</span>
+                        <input id="Name" name="Name" type="text" class="form-control" ng-model="Name">
+                    </div>
+                </div>
+                <div class="dashboard-content-body-form-group control-group">
+                    <div class="input-group col-sm-8 col-md-8 col-lg-8 col-sm-offset-2 col-md-offset-2 col-lg-offset-2">
+                        <span class="input-group-addon">Application ID *</span>
+                        <select id="ApplicationID" class="form-control" ng-model="ApplicationID" ng-options="id for id in applicationIDs">
+                        </select>
+                    </div>
+                </div>
+                <div class="dashboard-content-body-form-group control-group">
+                    <div class="input-group col-sm-8 col-md-8 col-lg-8 col-sm-offset-2 col-md-offset-2 col-lg-offset-2">
+                        <span class="input-group-addon">Device Type *</span>
+                        <select id="DevType" class="form-control" ng-model="DevType" ng-options="type for type in deviceTypes" ng-change="updateSubTypes()">
+                        </select>
+                    </div>
+                </div>
+                <div class="dashboard-content-body-form-group control-group" ng-show="subTypes.length !== 0">
+                    <div class="input-group col-sm-8 col-md-8 col-lg-8 col-sm-offset-2 col-md-offset-2 col-lg-offset-2">
+                        <span class="input-group-addon">Sub Type *</span>
+                        <select id="SubType" class="form-control" ng-model="SubType" ng-options="type for type in subTypes">
+                        </select>
+                    </div>
+                </div>
+                <div class="dashboard-content-body-form-group control-group">
+                    <div class="input-group col-sm-8 col-md-8 col-lg-8 col-sm-offset-2 col-md-offset-2 col-lg-offset-2">
+                        <span class="input-group-addon">Class *</span>
+                        <select id="Class" class="form-control" ng-model="Class" ng-options="type for type in classes">
+                        </select>
+                    </div>
+                </div>
+                <div class="dashboard-content-body-form-group control-group">
+                    <div class="input-group col-sm-8 col-md-8 col-lg-8 col-sm-offset-2 col-md-offset-2 col-lg-offset-2">
+                        <span class="input-group-addon">Band ID *</span>
+                        <select id="BandID" class="form-control" ng-model="BandID" ng-options="type for (key, type) in bandIDs">
+                        </select>
+                    </div>
+                </div>
+                <div class="dashboard-content-body-form-group control-group">
+                    <div class="input-group col-sm-8 col-md-8 col-lg-8 col-sm-offset-2 col-md-offset-2 col-lg-offset-2">
+                        <span class="input-group-addon">Freq *</span>
+                        <input id="Freq" name="Freq" type="number" step="0.001" class="form-control" ng-model="Freq">
+                    </div>
+                </div>
+                <div class="dashboard-content-body-form-group control-group">
+                    <div class="input-group col-sm-8 col-md-8 col-lg-8 col-sm-offset-2 col-md-offset-2 col-lg-offset-2">
+                        <span class="input-group-addon">Dr *</span>
+                        <input id="Dr" name="Dr" type="number" class="form-control" ng-model="Dr">
+                    </div>
+                </div>
+                <!-- 4.2 Optional Fields, Collapse Panel -->
+                <div class="dashboard-content-body-form-group control-group">
+                    <div class="input-group col-sm-8 col-md-8 col-lg-8 col-sm-offset-2 col-md-offset-2 col-lg-offset-2">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <a data-toggle="collapse" data-target="#register-multicast-group-demo" ng-click="changeCollapse()">
+                                    <h4 class="panel-title">
+                                        <i class="fa fa-plus" aria-hidden="true" ng-show="collapse"></i>
+                                        <i class="fa fa-minus" aria-hidden="true" ng-show="!collapse"></i>
+                                        <span>Optional Fields</span>
+                                    </h4>
+                                </a>
+                            </div>
+                            <div id="register-multicast-group-demo" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <div class="dashboard-content-body-form-group control-group">
+                                        <div class="input-group col-sm-12 col-md-12 col-lg-12">
+                                            <span class="input-group-addon">Fcnt Down </span>
+                                            <input id="FCntDown" name="FCntDown" type="number" class="form-control" ng-model="FCntDown" ng-minlength=1>
+                                        </div>
+                                    </div>
+                                    <div class="dashboard-content-body-form-group control-group">
+                                        <div class="input-group col-sm-12 col-md-12 col-lg-12">
+                                            <span class="input-group-addon">Tx Power </span>
+                                            <input id="TxPower" name="TxPower" type="number" class="form-control" ng-model="TxPower" ng-minlength=1>
+                                        </div>
+                                    </div>
+                                    <div class="dashboard-content-body-form-group control-group">
+                                        <div class="input-group col-sm-12 col-md-12 col-lg-12">
+                                            <span class="input-group-addon">Multicast Addr </span>
+                                            <input id="MulticastAddr" name="MulticastAddr" type="text" class="form-control" ng-model="MulticastAddr" ng-minlength=1>
+                                        </div>
+                                    </div>
+                                    <div class="dashboard-content-body-form-group control-group">
+                                        <div class="input-group col-sm-12 col-md-12 col-lg-12">
+                                            <span class="input-group-addon">NwkS Key </span>
+                                            <input id="NwkSKey" name="NwkSKey" type="text" class="form-control" ng-model="NwkSKey" ng-minlength=1>
+                                        </div>
+                                    </div>
+                                    <div class="dashboard-content-body-form-group control-group">
+                                        <div class="input-group col-sm-12 col-md-12 col-lg-12">
+                                            <span class="input-group-addon">AppS Key </span>
+                                            <input id="AppSKey" name="AppSKey" type="text" class="form-control" ng-model="AppSKey" ng-minlength=1>
+                                        </div>
+                                    </div>
+                                    <div class="dashboard-content-body-form-group control-group">
+                                        <div class="input-group col-sm-12 col-md-12 col-lg-12">
+                                            <span class="input-group-addon">Description </span>
+                                            <input id="Description" name="Description" type="text" class="form-control" ng-model="Description" ng-minlength=1>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 4.3 Submit Button -->
+                <div class="dashboard-content-body-form-group dashboard-content-body-form-submit">
+                    <div class="control-label col-sm-8 col-md-8 col-lg-8 col-sm-offset-2 col-md-offset-2 col-lg-offset-2 submit-button-wrapper">
+                        <div class="controls">
+                            <button class="btn btn-primary" ng-click="finish(step1.$valid)">Create</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

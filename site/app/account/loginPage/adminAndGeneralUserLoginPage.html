@@ -1,0 +1,39 @@
+<!-- Admin User Login Page Content -->
+<div ng-if="adminUserLoginPage">
+    <!-- 1. Error message -->
+    <div class="loginErrorMsgDiv">
+        <span class="text-danger" ng-show="userInfo.adminUserLoginFailedMsg"> {{userInfo.adminUserLoginFailedMsg}} </span>
+    </div>
+    <!-- 2. Heading -->
+    <h2 class="form-signin-heading">{{'ACCOUNT.SIGN_IN' | translate}}</h2>
+    <!-- 3. User Name -->
+    <label for="inputAdminUsername" class="sr-only">{{'ACCOUNT.EMAIL_ADDRESS' | translate}}</label>
+    <input type="text" id="inputAdminUsername" class="form-control" placeholder="{{'ACCOUNT.USERNAME' | translate}}" ng-model="adminUser.userName"
+        ng-focus="cleanAdminUsrErrMsg()" required>
+    <!-- 4. Password -->
+    <label for="inputAdminUserPassword" class="sr-only">{{'ACCOUNT.PASSWORD' | translate}}</label>
+    <input type="password" id="inputAdminUserPassword" class="form-control" placeholder="{{'ACCOUNT.PASSWORD' | translate}}"
+        ng-model="adminUser.password" ng-focus="cleanAdminUsrErrMsg()" required>
+    <!-- 5. Submit button -->
+    <button class="btn btn-lg btn-primary btn-block" type="submit" ng-click="AC.adminUserLogin()">{{'ACCOUNT.SIGN_IN' | translate}}</button>
+</div>
+
+<!-- General User Login Page Content -->
+<div ng-if="!adminUserLoginPage">
+    <!-- 1. Error message -->
+    <div class="loginErrorMsgDiv">
+        <span class="text-danger" ng-show="userInfo.generalUserLoginFailedMsg"> {{userInfo.generalUserLoginFailedMsg}} </span>
+    </div>
+    <!-- 2. Heading -->
+    <h2 class="form-signin-heading">{{'ACCOUNT.SIGN_IN' | translate}}</h2>
+    <!-- 3. User Name -->
+    <label for="inputGeneralUsername" class="sr-only">{{'ACCOUNT.EMAIL_ADDRESS' | translate}}</label>
+    <input type="text" id="inputGeneralUsername" class="form-control" placeholder="{{'ACCOUNT.USERNAME' | translate}}" ng-model="generalUser.userName"
+        ng-focus="cleanGeneralUsrErrMsg()" required>
+    <!-- 4. Password -->
+    <label for="inputGeneralUserPassword" class="sr-only">{{'ACCOUNT.PASSWORD' | translate}}</label>
+    <input type="password" id="inputGeneralUserPassword" class="form-control" placeholder="{{'ACCOUNT.PASSWORD' | translate}}"
+        ng-model="generalUser.password" ng-focus="cleanGeneralUsrErrMsg()" required>
+    <!-- 5. Submit button -->
+    <button class="btn btn-lg btn-primary btn-block" type="submit" ng-click="AC.generalUserLogin()">{{'ACCOUNT.SIGN_IN' | translate}}</button>
+</div>

@@ -1,0 +1,31 @@
+<div id="dashboard-container" class="dashboard-container" ng-show="!displayPageNotFoundTemplate">
+    <!-- Dashboard Sidebar for mobile user -->
+    <pageslide ps-open="dashboardSidebar.checked" ps-push="true" ps-zindex="100" ps-side="left" ps-size="{{dashboardSidebar.sidebarSize}}"
+        ps-key-listener="false" ps-click-outside="false" ps-container="esri-container" class="dashboardSidebar-container">
+        <div ng-class="getDashboardNavigationClass()">
+            <div class="dashboard__navigation-for-gen-usr-title">
+                {{'DASHBOARD.NAME' | translate}}
+            </div>
+            <ul class="dashboard__navigation-for-gen-usr-items">
+                <li class="dashboard__navigation-for-gen-usr-item" ng-repeat="panel in panels" ng-class="{active: panel.isActive}">
+                    <div ng-click="navigateTo(panel)">
+                        <fa name="{{panel.icon}}"></fa>
+                        <span class="dashboard__navigation-for-gen-usr-item-title">{{panel.displayName | translate}}</span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </pageslide>
+
+    <div class="dashboard__content-for-gen-usr">
+        <div ng-repeat="panel in panels">
+            <div ng-if="panel.isActive">
+                <ng-include src="panel.templateUrl"></ng-include>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div ng-show="displayPageNotFoundTemplate">
+    <div ng-include="'_shared/errorTemplate/errorTemplate.html'"></div>
+</div>

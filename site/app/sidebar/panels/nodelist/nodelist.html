@@ -1,0 +1,17 @@
+<div ng-controller="NodeListCtrl">
+    <ng-include src="'sidebar/panels/_shared/_panel_header.html'"></ng-include>
+
+    <div class="nodeList">
+        <div class="node" ng-click="controller.onAllNodeClick()">
+            <i class="fa highlight" aria-hidden="true"
+               ng-class="{'fa-eye': controller.allNode.visible, 'fa-eye-slash': !controller.allNode.visible}"></i>
+            <span class="nodeMac">{{'SIDEBAR.ALL_NODES' | translate}}</span>
+        </div>
+        <div class="node" ng-repeat="node in controller.nodeList" ng-click="controller.onNodeClick(node)">
+            <i class="fa highlight" aria-hidden="true"
+               ng-class="{'fa-eye': node.display, 'fa-eye-slash': !node.display}"></i>
+            <span class="nodeMac">{{node.nodeData.node_mac}}  </span>
+            <div class="node-color" ng-style="{'background-color': node.color}"></div>
+        </div>
+    </div>
+</div>

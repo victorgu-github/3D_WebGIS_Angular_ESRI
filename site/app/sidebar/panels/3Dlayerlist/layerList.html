@@ -1,0 +1,18 @@
+<div class="layerList" ng-controller="LayerListCtrl">
+    <div class="item-title">
+        <span>{{layerList.name | translate}}</span>
+        <i class="fa highlight" aria-hidden="true"
+           ng-class="{'fa-eye layer-visible': layerList.visible,
+            'fa-eye-slash layer-invisible': !layerList.visible}"
+           ng-click="toggleLayerList()"></i>
+        <fa name="times-circle-o" class="panel-close" ng-click="togglePanel(item.name)"></fa>
+    </div>
+
+    <div ui-tree ng-hide="layerList.layers.length <= 0">
+        <ol ui-tree-nodes="" ng-model="layerList.layers">
+            <li ng-repeat="layer in layerList.layers track by $index" class="layer-item"
+                ui-tree-node
+                ng-include="'sidebar/panels/_shared/_tree_view.html'"></li>
+        </ol>
+    </div>
+</div>

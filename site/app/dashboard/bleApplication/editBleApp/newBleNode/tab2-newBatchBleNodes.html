@@ -1,0 +1,74 @@
+<!-- 1.Loading Pulse -->
+<div class="row">
+    <div class="dashboard-content-body-loading-pulse" ng-show="batchFormStatus === 'submitted'">
+        <div class="loading-pulse"></div>
+    </div>
+</div>
+<!-- 2.Error Message -->
+<div class="row dashboard-content-body-error-msg">
+    <div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1 alert alert-danger" role="alert"
+        ng-show="batchFormStatus === 'invalid'">
+        <button type="button" class="close" ng-click="batchCloseAlert()" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        <strong>Error occurs due to: </strong>{{batchErrorMessage}}
+    </div>
+</div>
+<!-- 3.Content and Submit Button -->
+<div class="row">
+    <div ng-class="getBleNodeRegisterFormClass()" ng-show="batchFormStatus !== 'submitted'">
+        <form id="registerBleNodeForm" name="registerBleNodeForm">
+            <!-- HTML Validation 1: Device Name -->
+            <div class="dashboard-content-body-form-group control-group" ng-if="queryBleAppIDExist">
+                <div class="input-group col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1">
+                    <span class="input-group-addon">bleApp (ID:Name) *</span>
+                    <input id="bleAppID" name="bleAppID" type="text" class="form-control" ng-model="registerEntry.bleAppID" disabled>
+                </div>
+            </div>
+            <div class="dashboard-content-body-form-group control-group" ng-if="!queryBleAppIDExist">
+                <div class="input-group col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1">
+                    <span class="input-group-addon">bleApp (ID:Name) *</span>
+                    <select id="bleAppID" class="form-control" ng-model="registerEntry.bleAppID" ng-options="key as value for (key , value) in bleAppMap"
+                        ng-change="updateReturnUrl()">
+                    </select>
+                </div>
+            </div>
+            <!-- New Batch File Upload Section -->
+            <!-- COMPONENT START -->
+            <div class="dashboard-content-body-form-group control-group">
+                <div class="input-group col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1">
+                    <div class="input-group">
+                        <span class="input-group-addon">CSV File *</span>
+                        <input id="BatchFileInfo" type="text" class="form-control" readonly>
+                        <label class="input-group-btn">
+                            <span class="btn btn-primary">
+                                Browse&hellip;
+                                <input id="BatchFile" type="file" accept=".csv" style="display: none;" onchange="angular.element(this).scope().batchBrowse()"
+                                    multiple required>
+                            </span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <!-- COMPONENT END -->
+            <div class="dashboard-content-body-form-group control-group">
+                <div class="dashboard-content-body-form-batch-button col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1">
+                    <div class="btn-group pull-right">
+                        <!-- <button type="button" class="btn btn-warning"><a href="./csv_Template.csv" download>Excel Temp</button> -->
+                        <a id="BatchFileDownloadForBleNode" class="btn btn-primary" style="color: #ffffff" ng-click="getBatchFile()">CSV Template</a>
+                        <button type="button" class="btn btn-primary" ng-click="batchReset()">Reset</button>
+                        <button type="button" class="btn btn-primary" ng-click="batchUpload()">Upload</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dashboard-content-body-form-group dashboard-content-body-form-submit-ble-node-batch-register">
+                <div class="control-label col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1 submit-button-wrapper">
+                    <div class="controls">
+                        <button class="btn btn-primary" ng-click="batchFinish()">Create</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

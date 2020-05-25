@@ -1,0 +1,142 @@
+<div class="general-user-profile-container">
+    <!-- Return to Overview -->
+    <div class="return-panel">
+        <div class="return-panel-header">
+            <h3>
+                <span class="glyphicon glyphicon-share"></span>
+                <a class="return-panel-header-link" href="{{generalUserTableUrl}}">Return</a>
+            </h3>
+        </div>
+    </div>
+    <!-- General User Profile Photo and Information -->
+    <div class="general-user-profile-info row">
+        <div class="general-user-profile-info-photo col-sm-3 col-md-3 col-lg-3 col-sm-offset-3 col-md-offset-3 col-lg-offset-3">
+            <span class="general-user-profile-info-icon glyphicon glyphicon-user"></span>
+        </div>
+        <div class="col-sm-6 col-md-6 col-lg-6">
+            <div class="general-user-profile-info-list row">
+                <div class="col-sm-12 col-md-12 col-lg-12">
+                    <h4>User Name: {{editEntry.userName}}</h4>
+                </div>
+            </div>
+            <div class="general-user-profile-info-list row">
+                <div class="col-sm-12 col-md-12 col-lg-12">
+                    <i class="general-user-profile-content-panel-i fa fa-address-book-o"></i> &nbsp; First Name: {{editEntry.firstName}}
+                </div>
+            </div>
+            <div class="general-user-profile-info-list row">
+                <div class="col-sm-12 col-md-12 col-lg-12">
+                    <i class="general-user-profile-content-panel-i fa fa-address-book-o"></i> &nbsp; Last Name: {{editEntry.lastName}}
+                </div>
+            </div>
+            <div class="general-user-profile-info-list row">
+                <div class="col-sm-12 col-md-12 col-lg-12">
+                    <i class="general-user-profile-content-panel-i fa fa-envelope"></i> &nbsp; Email: {{editEntry.email}}
+                </div>
+            </div>
+            <div class="general-user-profile-info-list row">
+                <div class="col-sm-12 col-md-12 col-lg-12">
+                    <i class="general-user-profile-content-panel-i fa fa-id-card-o"></i> &nbsp; Wechat Open ID Exist: {{editEntry.wechatOpenIDExist}}
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- No General Application Data Hint -->
+    <div class="general-user-profile-no-data row" ng-show="!initializing && tableBody.length === 0">
+        <div class="general-user-profile-no-data-message col-sm-12 col-md-12 col-lg-12">
+            <span>
+                <fa name="table" size="1"></fa>
+                No General Applications Data In The System For This General User
+            </span>
+        </div>
+    </div>
+    <!-- Table to Display General Application Data -->
+    <div class="general-user-profile-table-container" ng-show="!initializing && tableBody.length !== 0">
+        <table id="displayGeneralUsrAppTable" class="table table-hover">
+            <thead class="table-header">
+                <tr>
+                    <th ng-repeat="item in tableHeader track by $index">
+                        {{item}}
+                    </th>
+                </tr>
+            </thead>
+            <tbody class="table-body">
+                <tr ng-repeat="row in tableBody track by $index" ng-class="checkTableRowClass(row)">
+                    <td title="{{col}}" ng-repeat="col in row track by $index">
+                        {{col}}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <!-- Modal For Popup -->
+    <div class="modal fade" id="generalUsrAppModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="dashboard-modal-dialog modal-dialog" role="document">
+            <div id="general-user-profile-modal" class="dashboard-modal-content general-user-profile-modal-content modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h3 class="modal-title" id="myModalLabel">
+                        <b>
+                            <em>Edit General User Application</em>
+                        </b>
+                    </h3>
+                </div>
+                <div class="general-user-profile-modal-body modal-body">
+                    <div class="general-user-profile-modal-body-filter row">
+                        <div class="form-group col-sm-4 col-md-4 col-lg-4">
+                            <label>Lora ApplicationID Filter</label>
+                            <select class="form-control" ng-model="filterVal" ng-options="id for id in applicationIDs" ng-change="filterByAppID()">
+                            </select>
+                        </div>
+                        <div class="form-group col-sm-4 col-md-4 col-lg-4">
+                            <label>Ble ApplicationID Filter</label>
+                            <select class="form-control" ng-model="filterValForBleApp" ng-options="id for id in bleApplicationIDs" ng-change="filterByAppID()">
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="general-user-profile-modal-panel-unassign-list panel panel-info col-sm-5 col-md-5 col-lg-5 col-sm-offset-1 col-md-offset-1 col-lg-offset-1">
+                            <div class="general-user-profile-modal-panel-heading panel-heading">
+                                <h3 class="panel-title">
+                                    <strong>Unassigned List</strong> (drag and drop edit)</h3>
+                            </div>
+                            <div class="general-user-profile-modal-panel-body panel-body">
+                                <ul dnd-list="models.lists.unassignApps">
+                                    <li ng-repeat="item in models.lists.unassignApps" dnd-draggable="item" dnd-moved="models.lists.unassignApps.splice($index, 1)"
+                                        dnd-effect-allowed="move" dnd-selected="models.selected = item" ng-class="{'selected': models.selected === item}">
+                                        {{item.generalUserApplicationID}}: {{item.generalUserApplicationName}} - ({{item.lora.loraApplicationID}})
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="general-user-profile-modal-panel-assign-list panel panel-info col-sm-5 col-md-5 col-lg-5">
+                            <div class="general-user-profile-modal-panel-heading panel-heading">
+                                <h3 class="panel-title">
+                                    <strong>Assigned List</strong> (drag and drop edit)</h3>
+                            </div>
+                            <div class="general-user-profile-modal-panel-body panel-body">
+                                <ul dnd-list="models.lists.assignApps">
+                                    <li ng-repeat="item in models.lists.assignApps" dnd-draggable="item" dnd-moved="models.lists.assignApps.splice($index, 1)"
+                                        dnd-effect-allowed="move" dnd-selected="models.selected = item" ng-class="{'selected': models.selected === item}">
+                                        {{item.generalUserApplicationID}}: {{item.generalUserApplicationName}} - ({{item.lora.loraApplicationID}})
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="general-user-profile-modal-footer modal-footer">
+                    <button type="button" class="btn btn-primary pull-right" ng-click="updateGeneralUsrApp()">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modification Button to Modify the General Application of the General User -->
+    <div class="general-user-profile-table-eidt-button row">
+        <div class="col-sm-8 col-md-8 col-lg-8 col-sm-offset-2 col-md-offset-2 col-lg-offset-2">
+            <a class="btn btn-primary pull-right" ng-click="editGeneralUserApplication()">Edit</a>
+        </div>
+    </div>
+</div>

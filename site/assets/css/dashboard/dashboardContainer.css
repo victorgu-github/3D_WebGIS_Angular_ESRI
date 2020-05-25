@@ -1,0 +1,281 @@
+/* 
+------------------------------------------------------------------------
+Container
+------------------------------------------------------------------------ 
+*/
+/* 
+Dashboard Content Container CSS:
+1.New lora device page; (admin user)
+2.New lora gateway page; (admin user)
+3.New Multicast group page; (admin user)
+4.New general user application page; (admin user) 
+*/
+.dashboard-content-container {
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+}
+
+/*
+Dashboard Content Container Additional CSS:
+1.New mengyang page; (admin/general user)
+*/
+.dashboard-content-container-single-page {
+    bottom: 60px;
+    overflow: auto;
+}
+
+/* 
+------------------------------------------------------------------------
+Header
+------------------------------------------------------------------------ 
+*/
+/* 
+Dashboard Container Panel Header CSS:
+1.Overview page; (admin user & general user)
+2.New lora device page; (admin user & general user)
+3.New lora gateway page; (admin user)
+4.New Mmulticast group page; (admin user)
+5.New general user application page; (admin user) 
+*/
+.dashboard-content-header {
+    text-align: left;
+    min-height: 30px;
+    color: #ffffff;
+}
+
+.dashboard-content-header-separator {
+    width: 100%;
+    height: 2px;
+    background-color: #24272E;
+    margin-top: 10px;
+    margin-bottom: 0px;
+}
+
+/* 
+------------------------------------------------------------------------
+Panel
+------------------------------------------------------------------------ 
+*/
+/* 
+Dashboard Container Content Panel CSS:
+1.New lora device page; (admin user & general user) 
+*/
+.dashboard-content-panel {
+    margin: 0px 15px 0px 15px;
+}
+
+.dashboard-content-panel .nav {
+    margin: 25px 0px 0px 0px;
+}
+
+.dashboard-content-panel-for-gen-usr {
+    margin: 0px 5% 0px 5%;
+}
+
+.dashboard-content-panel-for-gen-usr .nav {
+    margin: 0px 0px 0px 0px;
+}
+
+/* 
+------------------------------------------------------------------------
+Body
+------------------------------------------------------------------------ 
+*/
+/* 
+Dashboard Container Content Body CSS:
+1.New lora device page; (admin user)
+2.New lora gateway page; (admin user)
+3.New Multicast group page; (admin user)
+4.New general user application page; (admin user) 
+--
+*/
+.dashboard-content-body {
+    margin-bottom: 50px;
+}
+
+/* 
+------------------------------------------------------------------------
+Body Loading Pulse
+------------------------------------------------------------------------ 
+*/
+/* 
+Dashboard Container Content Body Loading Pulse CSS:
+1.New lora device page; (admin user)
+2.New lora gateway page; (admin user)
+3.New Multicast group page; (admin user)
+4.New general user application page; (admin user) 
+--
+*/
+.dashboard-content-body-loading-pulse {
+    width: 100%;
+    height: 100vh;
+}
+
+.dashboard-content-body-loading-pulse .loading-pulse {
+    margin: 0 auto;
+    top: 35%;
+    transform: translateY(-50%);
+}
+
+/* 
+------------------------------------------------------------------------
+Body Error Message
+------------------------------------------------------------------------ 
+*/
+/* 
+Dashboard Container Content Body Error Message CSS:
+1.New lora device page; (admin user)
+2.New lora gateway page; (admin user)
+3.New Multicast group page; (admin user)
+4.New general user application page; (admin user) 
+--
+*/
+.dashboard-content-body-error-msg {
+    text-align: center;
+    margin: 25px 0px 0px 0px;
+}
+
+/* 
+------------------------------------------------------------------------
+Form
+------------------------------------------------------------------------ 
+*/
+/* 
+Dashboard Container Content Body Form CSS:
+1.New lora device page; (admin user)
+2.New lora gateway page; (admin user)
+3.New Multicast group page; (admin user)
+4.New general user application page; (admin user) 
+--
+*/
+.dashboard-content-container .dashboard-content-body-form-group,
+.dashboard-content-body-form .dashboard-content-body-form-group {
+    margin: 0px 0px 25px 0px;
+}
+
+.dashboard-content-body-form-group .panel-heading a:hover {
+    text-decoration: none;
+}
+
+.dashboard-content-body-form-group .panel-title {
+    color: #000000;
+    word-spacing: 10px;
+}
+
+.dashboard-content-body-form-group a {
+    color: #000000;
+}
+
+.dashboard-content-body-form-group a:hover {
+    color: #000000;
+    text-decoration: none;
+}
+
+.dashboard-content-body-form-group a h4 span{
+    margin-left: 15px;
+}
+
+.dashboard-content-body-form-group .gen-usr-app-collapse {
+    width: 100%;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.dashboard-content-body-form-group .gen-usr-app-collapse-mobile {
+    width: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.dashboard-content-body-form .dashboard-content-body-form-submit {
+    margin-top: 25px;
+}
+
+.dashboard-content-body-form .dashboard-content-body-form-submit .submit-button-wrapper {
+    margin-bottom: 25px;
+    padding-right: 0px;
+}
+
+.dashboard-content-body-form .batch-submit {
+    margin-top: 25px;
+}
+
+.dashboard-content-body-form .control-label {
+    font-size: 18px;
+    text-align: right;
+}
+
+.dashboard-content-body-form .input-group-addon {
+    min-width: 170px; 
+    font-weight: bold;
+    text-align: center;
+}
+
+.dashboard-content-body-form-batch-button {
+    margin-bottom: 25px;
+    padding-right: 0px;
+}
+
+.dashboard-content-container .well {
+    background-color: #2f323b;
+}
+
+.dashboard-content-body-form-mobile .dashboard-content-body-form-group {
+    margin: 0px 0px 25px 0px;
+}
+
+.dashboard-content-body-form-mobile .dashboard-content-body-form-submit {
+    margin-top: 25px;
+}
+
+.dashboard-content-body-form-mobile .dashboard-content-body-form-submit .submit-button-wrapper {
+    margin-bottom: 25px;
+    padding-right: 0px;
+}
+
+.dashboard-content-body-form-mobile .dashboard-content-body-form-submit-ble-node-batch-register {
+    margin-top: 55px;
+}
+
+.dashboard-content-body-form-mobile .dashboard-content-body-form-submit-ble-node-batch-register .submit-button-wrapper {
+    margin-bottom: 25px;
+    padding-right: 0px;
+}
+
+.dashboard-content-body-form-mobile .batch-submit {
+    margin-top: 25px;
+}
+
+.dashboard-content-body-form-mobile .control-label {
+    font-size: 18px;
+    text-align: right;
+}
+
+.dashboard-content-body-form-mobile .input-group-addon {
+    font-size: 10px;
+    min-width: 125px; 
+    font-weight: bold;
+    text-align: center;
+}
+
+#registerBleNodeForm .add-foreignKeys-row {
+    margin-bottom: 0px;
+}
+
+#registerBleNodeForm .add-foreignKeys {
+    padding: 0px;
+}
+
+#registerBleNodeForm .add-foreignKeys-well {
+    margin-top: 25px;
+    padding: 10px 15px;
+    background-color: #2f323b;
+    color: #ffffff;
+}
+
+#registerBleNodeForm .well .btn {
+    margin-top: 25px;
+}
