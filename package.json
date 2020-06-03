@@ -27,7 +27,7 @@
     "exports-loader": "^0.6.4",
     "highcharts": "^5.0.12",
     "highlight.js": "^8.9.1",
-    "jquery": "^3.2.1",
+    "jquery": "^3.5.0",
     "leaflet": "~1.0.3",
     "leaflet-labeled-circle": "^1.0.2",
     "leaflet.heat": "^0.2.0",
