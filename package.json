@@ -20,7 +20,7 @@
     "csv": "^2.0.0",
     "d3": "^4.11.0",
     "d3-voronoi": "^1.1.2",
-    "datatables.net": "^1.10.15",
+    "datatables.net": "^1.10.22",
     "datatables.net-dt": "^1.10.15",
     "esri-leaflet": "~2.0.8",
     "esri-leaflet-renderers": "^2.0.6",
